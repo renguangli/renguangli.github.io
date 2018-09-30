@@ -13,13 +13,13 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 
-    <script type="text/javascript" src="{{page.staticUrl}}/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="{{site.staticUrl}}/bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Third-Party CSS -->
-    <link rel="stylesheet" href="{{page.staticUrl}}/lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{page.staticUrl}}/lib/octicons/octicons/octicons.css">
-    <link rel="stylesheet" href="{{page.staticUrl}}/lib/hover/css/hover-min.css">
-    <link rel="stylesheet" href="{{page.staticUrl}}/lib/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="{{site.staticUrl}}/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{site.staticUrl}}/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="{{site.staticUrl}}/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="{{site.staticUrl}}/bower_components/primer-markdown/dist/user-content.min.css">
     <link rel="stylesheet" href="/assets/css/syntax.css">
 
     <!-- My CSS -->
@@ -35,6 +35,6 @@
     <link rel="stylesheet" href="/assets/css/{{css}}">
     {% endfor %}
 
-    <script type="text/javascript" src="{{page.staticUrl}}/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{site.staticUrl}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </head>
