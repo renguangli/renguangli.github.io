@@ -14,13 +14,13 @@ css: ['index.css', 'sidebar-popular-repo.css']
             </span> {% endif %}
             {% if site.company %}
             <span class="meta-info hvr-grow">
-                <span class="octicon octicon-organization" style="margin-left: 5px;"></span>
+                <span class="octicon octicon-organization"></span>
                 <a href="{{ site.company_url }}" target="_blank">{{ site.company }}</a>
             </span> {% endif %}
             {% if site.github_username %}
             <span class="meta-info hvr-grow">
-                <span class="octicon octicon-mark-github" style="margin-left: 5px;"></span>
-                <a href="{{ site.github_url }}" target="_blank">@{{ site.github_username }}</a>
+                <span class="octicon octicon-mark-github"></span>
+                <a href="{{ site.github_url }}" target="_blank">{{ site.github_username }}</a>
             </span> {% endif %}
         </div>
     </div>
@@ -44,7 +44,7 @@ css: ['index.css', 'sidebar-popular-repo.css']
                     <p class="post-list-meta">
                         <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
                         {% for cat in post.categories %}
-                            <span class="octicon octicon-file-directory"></span>
+                            <span class="octicon octicon-file-directory" style="margin-left: 5px;"></span>
                             <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
                         {% endfor %}
                     </p>
