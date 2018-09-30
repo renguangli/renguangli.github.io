@@ -166,6 +166,10 @@
     color: #888;
 }
 
+.post-list-meta a {
+    color: #888;
+}
+
 /*.post-list-meta, .post-list-meta.octicon {
     font-size: 18px;
 }*/
