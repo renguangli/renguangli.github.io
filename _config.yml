@@ -22,7 +22,8 @@ repository: renguangli/renguangli.github.io # ex. DONGChuan/DONGChuan.github.io
 # For local test, please use http://localhost:4000
 # For production, use your github page url. ex. http://dongchuan.github.io
 url: https://renguangli.com
-staticUrl: 	https://rgl-1252211075.cos.ap-beijing.myqcloud.com
+staticUrl: https://rgl-1252211075.cos.ap-beijing.myqcloud.com
+
 ## Gem
 gems:
   - jekyll-paginate
