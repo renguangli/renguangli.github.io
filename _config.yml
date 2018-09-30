@@ -7,7 +7,7 @@
 
 # Site settings
 title: dali`s Blogs # ex. I m Chuan
-name: Guangli Ren # ex. DONGChuan
+name: Ren Guangli  # ex. DONGChuan
 email: renguangligg@gmail.com
 location: Beijing, China # ex. Nice, France
 company: Rgl
@@ -48,7 +48,15 @@ kramdown:
   enable_coderay: true
 
 # Disque
-disque: my_disque_settings # ex. httpdongchuangithubio.disqus.com
+# disque: my_disque_settings # ex. httpdongchuangithubio.disqus.com
+
+# https://github.com/gitalk/gitalk#install
+gitalk:
+  enable: true
+  owner: renguangli
+  repo: comments
+  clientID: 8ff7ae9648607fe6e4b3
+  clientSecret: 5ffe44de3ec03f5072ff5641e1d5aa58a9138c16
 
 # Pagination
 paginate: 10
