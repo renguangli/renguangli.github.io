@@ -130,11 +130,43 @@ WORKDIR $DIRPATH/$DIRNAME
 
 最终路径则为 `/path/$DIRNAME`。
 
+### RUN
+
+```
+RUN <command> 或 RUN ["", "", ""]
+```
+
+每条指令将在当前镜像基础上执行，并提交为新的镜像。（可以用“\”换行）
+
+### CMD
+
+```
+CMD ["","",""]
+```
+
+指定启动容器时执行的命令，每个Dockerfile只能有一条CMD指令，如果指定了多条指令，则最后一条执行。（会被`docker run`提供的参数覆盖）
+
+### ENTRYPOINT
+
+```
+ENTRYPOINT ["","",""]
+```
+
+配置容器启动后执行的命令，并且不可被`docker run`提供的参数覆盖。（每个 Dockerfile 中只能有一个 ENTRYPOINT ，当指定多个时，只有最后一个起效）
+
+### ONBUILD
+
+```
+ONBUILD [INSTRUCTION]
+```
+
+配置当所创建的镜像作为其它新创建镜像的基础镜像时，所执行的操作指令
+
 ## 参考资料
 
-Docker中文社区: <http://www.docker.org.cn/>
-
 Docker技术入门与实战
+
+Docker中文社区: <http://www.docker.org.cn/>
 
 <http://www.docker.org.cn/dockerppt/114.html>    
 
