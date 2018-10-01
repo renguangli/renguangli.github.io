@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker学习笔记 - 镜像
+title: Docker学习笔记 - 容器
 category: Docker
 tags: [Docker]
 ---
