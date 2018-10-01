@@ -7,7 +7,7 @@ tags: [Docker]
 
 docker镜像类似于虚拟机镜像，可以将它理解为一个只读的模板。例如，一个镜像可以包含一个基本的操作系统，里面安装了tomcat(或者其它软件)，我们把它称为tomcat镜像。镜像是创建docker容器的基础。通过版本管理和增量的文件系统，docker提供了十分简单的机制来创建和更新的现有的镜像，也可以从镜像仓库里pull镜像，就像git  pull代码一样。
 
-### 获取镜像
+## 获取镜像
 
 镜像是容器运行的前提条件，[官方Docker Hub](https://hub.docker.com/) 镜像仓库提供了10W+个镜像提供大家开放下载。我们可以直接使用`docker pull`命令直接从Docker Hub镜像源下载镜像
 命令格式：`docker pull name:tag`name为镜像名称，tag为镜像的标签(通常用来表示版本信息)\
@@ -49,9 +49,9 @@ ubuntu:14.04：这是指用 ubuntu:14.04 镜像为基础来启动容器。
 bash：放在镜像名后的命令，这里我们希望有个交互式 Shell，因此用的是 bash。
 进入容器后，我们可以在 Shell 下操作，执行任何所需的命令。这里，我们执行了 `cat /etc/os-release`，这是 Linux 常用的查看当前系统版本的命令，从返回的结果可以看到容器内是 Ubuntu 14.04.5 LTS 系统。最后我们通过 `exit` 退出了这个容器。
 
-### 查看镜像信息
+## 查看镜像信息
 
-#### 使用`docker images`命令可以查看本地已存在镜像
+### 使用`docker images`命令可以查看本地已存在镜像
 ```
 [root@localhost ~]# docker images 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -63,7 +63,7 @@ docker.io/ubuntu    latest              ccc7a11d65b1        4 weeks ago         
 - `docker images -q`仅列出镜像ID
 - `docker images -f dangling=true`列出没有别使用的镜像
 
-#### 使用`docker tag`命令添加镜像标签
+### 使用`docker tag`命令添加镜像标签
 
 ```
 [root@localhost ~]# docker tag ubuntu:14.04 ubuntu:14
@@ -78,9 +78,9 @@ docker.io/ubuntu    14.04               ccc7a11d65b1        4 weeks ago         
 docker.io/ubuntu    latest              ccc7a11d65b1        4 weeks ago         120.1 MB
 ```
 
-#### 使用`docker inspect`命令查看镜像详细信息。包括制作者、适应架构、各层的数字摘要等。信息比较多就不放出来了
+### 使用`docker inspect`命令查看镜像详细信息。包括制作者、适应架构、各层的数字摘要等。信息比较多就不放出来了
 
-#### 使用`docker history name:tag`查看镜像历史
+### 使用`docker history name:tag`查看镜像历史
 
 比如查看`ubuntu:latest`镜像的创建过程
 
@@ -97,7 +97,7 @@ ccc7a11d65b1        5 weeks ago         /bin/sh -c #(nop)  CMD ["/bin/bash"]    
 
 过长的命令被截断了，可以使用`--no-trunc`选项输出完整命令
 
-### 搜索镜像
+## 搜索镜像
 
 使用`docker search`命令可以搜索镜像库里中共享的镜像，默认搜索官方仓库的镜像。比如我们搜索nginx镜像
 
@@ -118,9 +118,9 @@ docker.io   docker.io/kitematic/hello-world-nginx              A light-weight ng
 - `--automated=true|false` 仅显示自动创建的镜像，默认为否
 - `--no-trunc=true|false` 输出信息不截断提示，默认为否
 
-### 删除镜像
+## 删除镜像
 
-#### 使用标签删除镜像，命令`docker rmi`可以删除镜像
+### 使用标签删除镜像，命令`docker rmi`可以删除镜像
 
 例如我们删除ubuntu:14镜像
 
@@ -131,15 +131,15 @@ Untagged: ubuntu:14
 
 如果该镜像有多个标签的话删除的只是标签并不会删除镜像。如果只有一个标签的话`docker rmi`命令会彻底删除镜像。
 
-#### 使用id删除镜像
+### 使用id删除镜像
 使用命令`docker rmi ID`命令可以删除镜像
 > 当有该镜像创建的容器存在时，镜像是无法删除的。如果要强行删除的话可以使用`docker rmi -f ID`
 
-### 创建镜像
+## 创建镜像
 
 创建镜像的方法主要有三种：基于已有镜像的容器创建，基于本地模板导入，基于dockerfile创建
 
-#### 基于已有镜像的容器创建
+### 基于已有镜像的容器创建
 该方法主要是用`docker commit`命令创建镜像，主要参数为
 
 - -a，--auther="" 作者信息
@@ -165,7 +165,7 @@ sha256:bcaa64525c2bde4e1329f7b28bc2c98b2947f83a5cb0efff6e9d968a85618930
 
 创建成功的话会返回新镜像的id。
 
-### 导出和导入镜像
+## 导出和导入镜像
 
 如果要存出镜像到本地文件，可以使用`docker save`命令
 
@@ -188,7 +188,7 @@ Loaded image: nginx:latest
 Loaded image: nginx:latest
 ```
 
-### 上传镜像
+## 上传镜像
 
 使用`docker push`命令上传镜像到仓库，默认上传到Docker官方仓库（需要登录）。例如我们自制的nginx：1.10.0镜像上传，首先我们要添加新的标签user/nginx:1.10.0 ,然后用`docker push`上传镜像，user改成你的用户名。
 
@@ -200,7 +200,7 @@ The push refers to a repository [docker.io/user/nginx]
 1.10.0: digest: sha256:d8565c25b654da69bc9b837a0dee713c988f0276e90564aa8fd12ebf4c2ff11e size: 948
 ```
 
-### 参考资料
+## 参考资料
 
 [Docker中文社区](http://www.docker.org.cn/)
 
