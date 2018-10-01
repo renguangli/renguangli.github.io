@@ -122,9 +122,9 @@ docker.io   docker.io/kitematic/hello-world-nginx              A light-weight ng
 
 ## 删除镜像
 
-### 使用标签删除镜像，命令`docker rmi`可以删除镜像
+### 使用标签删除镜像 
 
-例如我们删除ubuntu:14镜像
+命令`docker rmi`可以删除镜像,例如我们删除ubuntu:14镜像
 
 ```
 [root@localhost ~]# docker rmi ubuntu:14
@@ -134,6 +134,7 @@ Untagged: ubuntu:14
 如果该镜像有多个标签的话删除的只是标签并不会删除镜像。如果只有一个标签的话`docker rmi`命令会彻底删除镜像。
 
 ### 使用id删除镜像
+
 使用命令`docker rmi ID`命令可以删除镜像
 > 当有该镜像创建的容器存在时，镜像是无法删除的。如果要强行删除的话可以使用`docker rmi -f ID`
 
