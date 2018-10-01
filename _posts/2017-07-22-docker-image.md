@@ -78,7 +78,9 @@ docker.io/ubuntu    14.04               ccc7a11d65b1        4 weeks ago         
 docker.io/ubuntu    latest              ccc7a11d65b1        4 weeks ago         120.1 MB
 ```
 
-### 使用`docker inspect`命令查看镜像详细信息。包括制作者、适应架构、各层的数字摘要等。信息比较多就不放出来了
+### 使用`docker inspect`命令查看镜像详细信息。
+
+包括制作者、适应架构、各层的数字摘要等。信息比较多就不放出来了
 
 ### 使用`docker history name:tag`查看镜像历史
 
@@ -202,6 +204,6 @@ The push refers to a repository [docker.io/user/nginx]
 
 ## 参考资料
 
-[Docker中文社区](http://www.docker.org.cn/)
+Docker中文社区: <http://www.docker.org.cn/>
 
-《Docker技术入门与实战》
+Docker技术入门与实战
