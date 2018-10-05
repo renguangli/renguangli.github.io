@@ -7,9 +7,11 @@ tags: [Docker]
 
 Docker镜像仓库简单来说就是存储Docker镜像的地方，就像git仓库一样。
 
-Docker官方提供了[Docker Hub](https://hub.docker.com/)来存储我们的镜像文件。由于[Docker Hub](https://hub.docker.com/)管理的都是公开的镜像，并且访问速度特别的慢，所以我们打算来搭建一个私有的仓库，需要使用官方库中的registry镜像。
+Docker官方提供了[Docker Hub](https://hub.docker.com/)来存储我们的镜像文件。由于[Docker Hub](https://hub.docker.com/)管理的都是公开的镜像，并且访问速度特别的慢，所以有时需要我们搭建一个私有镜像仓库。
 
 ## 构建私有Docker镜像仓库
+
+搭建私有Docker镜像仓库需要使用官方库中的registry镜像
 
 ### 拉取registry镜像 
 
@@ -33,6 +35,11 @@ Status: Downloaded newer image for docker.io/registry:latest
 [root@localhost data]# docker run -d -p 5000:5000 -v /data/registry:/var/lib/registry registry
 ca9baaf6e3aa755c2ec04722bbc4b415c85ac9bcd04bf574c29b96b16b18051d
 ```
+
+- `-d`参数表示后台运行
+- `-p`参数表示将容器5000端口映射到宿主机端口5000
+- `-v`参数表示容器目录/var/lib/registry映射到宿主机目录/data/registry
+
 运行成功返回容器id
 
 ### 查看运行着的registry容器
