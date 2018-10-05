@@ -5,20 +5,30 @@ category: Docker
 tags: [Docker]
 ---
 
-docker镜像类似于虚拟机镜像，可以将它理解为一个只读的模板。例如，一个镜像可以包含一个基本的操作系统，里面安装了tomcat(或者其它软件)，我们把它称为tomcat镜像。镜像是创建docker容器的基础。通过版本管理和增量的文件系统，docker提供了十分简单的机制来创建和更新的现有的镜像，也可以从镜像仓库里pull镜像，就像git  pull代码一样。
+Docker镜像类似于虚拟机镜像，可以将它理解为一个只读的模板。例如，一个镜像可以包含一个基本的操作系统，里面安装了tomcat(或者其它软件)，我们把它称为tomcat镜像。镜像是创建Docker容器的基础。通过版本管理和增量的文件系统，Docker提供了十分简单的机制来创建和更新的现有的镜像，也可以从镜像仓库里pull镜像，就像`git pull`代码一样。
 
 ## 获取镜像
 
 镜像是容器运行的前提条件，[官方Docker Hub](https://hub.docker.com/) 镜像仓库提供了10W+个镜像提供大家开放下载。我们可以直接使用`docker pull`命令直接从Docker Hub镜像源下载镜像
-命令格式：`docker pull name:tag`name为镜像名称，tag为镜像的标签(通常用来表示版本信息)\
+命令格式：
+
+```bash
+docker pull name:tag
+```
+name为镜像名称，tag为镜像的标签(通常用来表示版本信息)
+
 获取一个Ubuntu 14.04系统镜像可以使用`docker pull ubuntu:14.04`
 
 ``` bash
 [root@localhost ~]# docker pull ubuntu:14.04
 ```
+
 如果不指定tag，则默认会选择latest标签，下载仓库中最新版本的镜像。
+
 严格地讲仓库名称还要添加镜像地址(即registry，注册服务器）为前缀，我们使用的是官方Docker Hub，所以前缀可以省略,完整命令为docker pull `docker.io/library/ubuntu:14.04`
-如果下载非官方的镜像，仓库名称前要指定完整的仓库地址。例如我们从网易的镜像源下载ubuntu 14.04 正确命令为
+如果下载非官方的镜像，仓库名称前要指定完整的仓库地址。
+
+例如我们从网易的镜像源下载ubuntu 14.04 正确命令为
 
 ```
 docker pull hub.c.163.com/ubuntu:latest
@@ -44,9 +54,13 @@ exit
 ```
 
 docker run 就是运行容器的命令，我们这里简要的说明一下上面用到的参数。
+
 `-it`：这是两个参数，一个是 `-i`：交互式操作，一个是 `-t` 终端。我们这里打算进入 bash 执行一些命令并查看返回结果，因此我们需要交互式终端。`--rm`：这个参数是说容器退出后随之将其删除。默认情况下，为了排障需求，退出的容器并不会立即删除，除非手动 `docker rm` 我们这里只是随便执行个命令，看看结果，不需要排障和保留结果，因此使用 `--rm` 可以避免浪费空间。
+
 ubuntu:14.04：这是指用 ubuntu:14.04 镜像为基础来启动容器。
+
 bash：放在镜像名后的命令，这里我们希望有个交互式 Shell，因此用的是 bash。
+
 进入容器后，我们可以在 Shell 下操作，执行任何所需的命令。这里，我们执行了 `cat /etc/os-release`，这是 Linux 常用的查看当前系统版本的命令，从返回的结果可以看到容器内是 Ubuntu 14.04.5 LTS 系统。最后我们通过 `exit` 退出了这个容器。
 
 ## 查看镜像信息
@@ -115,7 +129,7 @@ docker.io   docker.io/webdevops/php-nginx                      Nginx with PHP-FP
 docker.io   docker.io/kitematic/hello-world-nginx              A light-weight nginx container that demons...   85                   
 ```
 
-输出结果将按照星级评级进行排训，`-s`参数表示星级40以上的nginx镜像，支持的参数还有
+输出结果将按照星级评级进行排序，`-s`参数表示星级40以上的nginx镜像，支持的参数还有
 
 - `--automated=true|false` 仅显示自动创建的镜像，默认为否
 - `--no-trunc=true|false` 输出信息不截断提示，默认为否
@@ -136,13 +150,15 @@ Untagged: ubuntu:14
 ### 使用id删除镜像
 
 使用命令`docker rmi ID`命令可以删除镜像
+
 > 当有该镜像创建的容器存在时，镜像是无法删除的。如果要强行删除的话可以使用`docker rmi -f ID`
 
 ## 创建镜像
 
-创建镜像的方法主要有三种：基于已有镜像的容器创建，基于本地模板导入，基于dockerfile创建
+创建镜像的方法主要有三种：基于已有镜像的容器创建，基于本地模板导入，基于Dockerfile创建
 
 ### 基于已有镜像的容器创建
+
 该方法主要是用`docker commit`命令创建镜像，主要参数为
 
 - -a，--auther="" 作者信息
@@ -177,6 +193,7 @@ sha256:bcaa64525c2bde4e1329f7b28bc2c98b2947f83a5cb0efff6e9d968a85618930
 ```
 
 这样就可以通过复制该镜像文件分享给其他人
+
 如果要把镜像文件载入到本地镜像库，使用命令`docker load`。
 
 ```
