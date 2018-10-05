@@ -1,7 +1,7 @@
 ---
 layout: post
 title: nginx丢失nginx.pid文件错误
-category: error
+category: [nginx,error]
 tags: [error]
 ---
 
