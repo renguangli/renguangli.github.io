@@ -1,12 +1,11 @@
 ---
 layout: post
-title: nginx丢失nginx.pid文件解决方法
-category: nginx
+title: nginx丢失nginx.pid文件错误
+category: [nginx, error]
 tags: [nginx]
 ---
 
 今天修改了nginx配置，重新加载配置文件后报了如下错误
-
 ``` bash
 [root@localhost ~]# nginx -s reload
 nginx: [error] open() "/run/nginx.pid" failed (2: No such file or directory)
