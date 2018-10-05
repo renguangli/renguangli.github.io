@@ -1,8 +1,8 @@
 ---
 layout: post
 title: nginx丢失nginx.pid文件错误
-category: [nginx, error]
-tags: [nginx]
+category: error
+tags: [error]
 ---
 
 今天修改了nginx配置，重新加载配置文件后报了如下错误
