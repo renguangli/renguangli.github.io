@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Docker学习笔记 - Dockerfile常用指令
+title: Docker学习笔记 - 使用Dockerfile创建镜像
 category: Docker
 tags: [Docker]
 ---
 
-我们可以使用Dockerfile创建镜像，以下是Dockerfile常用指令的简单介绍。
+以下是Dockerfile常用指令的简单介绍。
 
 ## Dockerfile常用指令
 
@@ -161,6 +161,94 @@ ONBUILD [INSTRUCTION]
 ```
 
 配置当所创建的镜像作为其它新创建镜像的基础镜像时，所执行的操作指令
+
+## 使用Dockerfile创建镜像
+
+我们使用Dockerfile创建一个springboot(demo.jar)项目的镜像。
+
+创建Dockerfile，内容如下
+
+```
+# 指定基础镜像
+FROM centos:7.2.1511 
+
+# 维护者信息
+MAINTAINER renguangli <renguangligg@gmail.com>
+
+# 复制jdk、app.jar到镜像里
+ADD jdk-7u80-linux-x64.tar.gz /
+COPY app.jar /
+
+# 配置环境变量
+ENV JAVA_HOME=/jdk1.7.0_80
+ENV PATH=$JAVA_HOME/bin:$PATH
+ENV CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+# 指定与外界交互端口
+EXPOSE 8080
+
+# 启动命令
+CMD ["java","-jar","/app.jar"]
+```
+
+### 创建镜像
+
+将jdk-7u80-linux-x64.tar.gz和app.jar复制到Dockerfile所在文件夹下
+
+执行构建镜像命令
+
+```
+[root@localhost data]# docker build -t renguangli/springboot .
+Sending build context to Docker daemon 363.6 MB
+Step 1/9 : FROM centos:7.2.1511
+ ---> 0a2bad7da9b5
+Step 2/9 : MAINTAINER renguangli <renguangligg@gmail.com>
+ ---> Using cache
+ ---> 124d16cddae8
+Step 3/9 : ADD jdk-7u80-linux-x64.tar.gz /
+ ---> a4e173d7fc26
+Removing intermediate container 7ec1e0544288
+Step 4/9 : COPY app.jar /
+ ---> 1a4ec89553bd
+Removing intermediate container 8483119a6bd1
+Step 5/9 : ENV JAVA_HOME /jdk1.7.0_80
+ ---> Running in 7c26a419fc30
+ ---> 9cb0eb20d5cc
+Removing intermediate container 7c26a419fc30
+Step 6/9 : ENV PATH $JAVA_HOME/bin:$PATH
+ ---> Running in 103dd1cd4fe3
+ ---> 30965ea14640
+Removing intermediate container 103dd1cd4fe3
+Step 7/9 : ENV CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+ ---> Running in 47b8ee5519b3
+ ---> 8f8ace07c09e
+Removing intermediate container 47b8ee5519b3
+Step 8/9 : EXPOSE 8080
+ ---> Running in cf83f38ac195
+ ---> 462090458def
+Removing intermediate container cf83f38ac195
+Step 9/9 : CMD java -jar /app.jar
+ ---> Running in c00f819e946b
+ ---> f79fd9a24a50
+Removing intermediate container c00f819e946b
+Successfully built f79fd9a24a50
+```
+
+### 查看生成的镜像 
+
+``` bash
+[root@localhost data]# docker images |grep springboot
+springboot                  latest              f79fd9a24a50        About a minute ago   516 MB
+```
+### 创建容器并运行
+
+``` bash
+[root@localhost data]# docker run -d -p 8080:8080 springboot
+```
+
+### 访问
+
+![](/images/docker/docker-app.png)
 
 ## 参考资料
 
