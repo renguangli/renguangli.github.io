@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker学习笔记 - 简介
+title: Docker学习笔记 - 简单介绍
 category: Docker
 tags: [Docker]
 ---
