@@ -149,6 +149,10 @@
     border-bottom: 1px solid #eee;
 }
 
+.post-list-title{
+    font-size: 25px;
+}
+
 .post-list-title a {
     text-decoration: none;
 }
