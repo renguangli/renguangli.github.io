@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Docker学习笔记 - 容器
+title: Docker学习笔记 - 容器常见操作
 category: Docker
 tags: [Docker]
 ---
 
-容器是Docker的另一个核心概念，简单来说容器就是镜像的一个运行示例。
+容器相关命令介绍
 
 ## 查看容器
 
