@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Docker学习笔记 - 镜像
+title: Docker学习笔记 - 镜像常见操作
 category: Docker
 tags: [Docker]
 ---
 
-Docker镜像类似于虚拟机镜像，可以将它理解为一个只读的模板。例如，一个镜像可以包含一个基本的操作系统，里面安装了tomcat(或者其它软件)，我们把它称为tomcat镜像。镜像是创建Docker容器的基础。通过版本管理和增量的文件系统，Docker提供了十分简单的机制来创建和更新的现有的镜像，也可以从镜像仓库里pull镜像，就像`git pull`代码一样。
+镜像相关命令介绍
 
 ## 获取镜像
 
