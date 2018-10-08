@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to my blogs!"
+title:  "Welcome to Jekyll"
 categories: Jekyll
 ---
 
