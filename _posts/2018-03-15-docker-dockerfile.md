@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker学习笔记 - 使用Dockerfile创建镜像
+title: 使用Dockerfile创建Docker镜像
 category: Docker
 tags: [Docker]
 ---

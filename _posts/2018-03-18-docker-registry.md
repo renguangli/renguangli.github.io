@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker学习笔记 - 搭建私有镜像仓库
+title: 搭建Docker私有镜像仓库
 category: Docker
 tags: [Docker]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker学习笔记 - centos下安装Docker
+title: Docker在centos下的安装
 category: Docker
 tags: [Docker]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker学习笔记 - 核心概念和原理
+title: Docker核心概念介绍
 category: Docker
 tags: [Docker]
 ---

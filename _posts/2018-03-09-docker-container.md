@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker学习笔记 - 容器常见操作
+title: Docker容器常见操作
 category: Docker
 tags: [Docker]
 ---

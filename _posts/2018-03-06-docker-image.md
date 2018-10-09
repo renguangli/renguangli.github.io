@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker学习笔记 - 镜像常见操作
+title: Docker镜像常见操作
 category: Docker
 tags: [Docker]
 ---
