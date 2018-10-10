@@ -11,7 +11,7 @@ subtitle:   <h3>Download My CV</h3>
                 <span class="flag-icon flag-icon-cn"></span> 中文
             </a>
                             
-css: ['about.css', 'sidebar-popular-repo.css', 'https://rgl-1252211075.cos.ap-beijing.myqcloud.com/lib/flag-icon-css/css/flag-icon.min.css']
+css: ['about.css', 'sidebar-popular-repo.css']
 ---
 
 {% include about.html %}
