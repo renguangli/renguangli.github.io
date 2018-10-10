@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java虚拟机的内存结构 - 运行时数据区域
+title: Java虚拟机 - 运行时数据区域
 categories: Java虚拟机
 tags: [Java,Java虚拟机]
 ---
