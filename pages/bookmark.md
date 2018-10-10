@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 书签
-subtitle: <span class="mega-octicon octicon-repo"></span>&nbsp;&nbsp; 常用链接
+title: Bookmarks
+subtitle: <span class="mega-octicon octicon-repo"></span>&nbsp;&nbsp; 常用技术、框架、工具链接
 menu: Bookmark
 permalink: /bookmark
 ---
