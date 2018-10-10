@@ -6,21 +6,21 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: dali`s Blogs # ex. I m Chuan
-name: Ren Guangli  # ex. DONGChuan
+title: I m Guangli # ex. I m Guangli
+name: Guangli  # ex. Guangli
 email: renguangligg@gmail.com
 location: Beijing # ex. Nice, France
 company: Rgl
 company_url: https://renguangli.com
-github_url: https://github.com/renguangli # ex. https://github.com/DONGChuan
-github_username: renguangli # ex. DONGChuan
+github_url: https://github.com/renguangli # ex. https://github.com/renguangli
+github_username: renguangli # ex. renguangli
 description: dali`s Blogs, dali, 大力, 大力的博客
 favicon: favicon.png # Image must be in assets/images
-repository: renguangli/renguangli.github.io # ex. DONGChuan/DONGChuan.github.io
+repository: renguangli/renguangli.github.io # ex. renguangli/renguangli.github.io
 
 # The base hostname & protocol for your site
 # For local test, please use http://localhost:4000
-# For production, use your github page url. ex. http://dongchuan.github.io
+# For production, use your github page url. ex. https://renguangli.com
 url: https://renguangli.com
 staticUrl: https://rgl-1252211075.cos.ap-beijing.myqcloud.com
 
