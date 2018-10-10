@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: 关于我
 menu: about
 permalink: /about
 subtitle:   <h3>Download My CV</h3>
