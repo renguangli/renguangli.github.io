@@ -164,7 +164,7 @@ ONBUILD [INSTRUCTION]
 
 ## 使用Dockerfile创建镜像
 
-我们使用Dockerfile创建一个springboot(demo.jar)项目的镜像。
+我们使用Dockerfile创建一个springboot(app.jar)项目的镜像。
 
 创建Dockerfile，内容如下
 
