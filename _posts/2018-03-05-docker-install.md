@@ -43,7 +43,7 @@ systemctl stop docker.service
 ### 设置 Docker 开启自启
 
 ```
-systemctl start docker.service
+systemctl enable docker.service
 ```
 
 ## 参考资料
