@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Java各个版本新特性
-category: [网路安全]
-tags: [网路安全]
+category: [Java]
+tags: [Java]
 ---
 
 Java各个版本新特性
