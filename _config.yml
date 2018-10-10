@@ -37,7 +37,7 @@ markdown: kramdown
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
-permalink: /:title.html
+permalink: /:title
 
 source:      .
 destination: ./_site
