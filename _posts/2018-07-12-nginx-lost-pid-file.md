@@ -5,9 +5,8 @@ category: [nginx,error]
 tags: [error]
 ---
 
-今天修改了nginx配置，重新加载配置文件后报了如下错误
+今天修改了nginx配置，执行`nginx -s reload`命令后报了如下错误
 ``` bash
-[root@localhost ~]# nginx -s reload
 nginx: [error] open() "/run/nginx.pid" failed (2: No such file or directory)
 ```
 
