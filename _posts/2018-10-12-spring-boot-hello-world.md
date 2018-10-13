@@ -123,10 +123,10 @@ RestController 相当于 Controller + ResponseBody，该类的所有方法都会
 
 重新启动 Spring Boot ，打开浏览器访问 <http://localhost:8080> 页面就会显示 Hello Spring Boot
 
-本文所有代码放在 Github 上，地址：[spring-boot-demo](https://github.com/renguangli/spring-boot-samples/tree/master/springboot-demo)
-
 ### 单元测试
+
 打开的 `src/test/java` DemoApplicationTests.java 测试类，编写简单的http请求来测试
+
 ```java
 package com.example.demo;
 
@@ -178,6 +178,8 @@ public class DemoApplicationTests {
     </dependency>
 </dependencies>
 ```
+
+本文所有代码放在 Github 上，地址：[spring-boot-demo](https://github.com/renguangli/spring-boot-samples/tree/master/springboot-demo)
 
 ## 参考资料
 
