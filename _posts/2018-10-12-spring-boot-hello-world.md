@@ -179,7 +179,7 @@ public class DemoApplicationTests {
 </dependencies>
 ```
 
-本文所有代码放在 Github 上，地址：[spring-boot-demo](https://github.com/renguangli/spring-boot-samples/tree/master/springboot-demo)
+本文所有代码放在 Github 上，地址：[demo](https://github.com/renguangli/spring-boot-samples/tree/master/demo)
 
 ## 参考资料
 
