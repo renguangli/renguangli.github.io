@@ -12,8 +12,8 @@
     $(document).ready(function () {
         var h2s = $("article h2");
         if (h2s.length === 0) {
-            $("#post-directory-id").hidden();
-            $("#post-directory-module").hidden();
+            $("#post-directory-id").hide();
+            $("#post-directory-module").hide();
             return;
         }
         h2s.each(function (index) {
