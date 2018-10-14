@@ -46,6 +46,8 @@ spring.mvc.view.prefix=/WEB-INF/jsp/
 spring.mvc.view.suffix=.jsp
 ```
 
+新建 src\main\webapp\WEB-INF\jsp 目录存放 JSP 文件
+
 Spring boot 启动类继承 SpringBootServletInitializer 类，并重写 `configure(SpringApplicationBuilder builder)` 方法，以便 war 可以在 tomcat 下正常运行
 
 ```java
@@ -63,8 +65,6 @@ public class JspApplication extends SpringBootServletInitializer {
 }
 
 ```
-
-新建 `src\main\webapp\WEB-INF\jsp` 目录存放 JSP 文件
 
 ### 编写 controller
 
@@ -85,7 +85,7 @@ public class JspController {
 
 ### 编写 JSP 文件
 
-在 `src\main\webapp\` 目录下新建 `index.jsp` 文件
+在 src\main\webapp\ 目录下新建 `index.jsp` 文件
 
 ```html
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -99,7 +99,7 @@ public class JspController {
 </html>
 ```
 
-在 `src\main\webapp\WEB-INF\jsp` 目录下新建 `user.jsp` 文件
+在 src\main\webapp\WEB-INF\jsp 目录下新建 `user.jsp` 文件
 
 ```html
 <%--
