@@ -7,6 +7,8 @@ tags: [MySQL]
 
 如果忘记了 MySQL root 用户密码，如何重置？
 
+## MySQL 重置 root 用户密码
+
 ### 在配置文件 /etc/my.cnf 添加配置，重启 MySQL
 
 ```
