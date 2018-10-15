@@ -16,7 +16,8 @@ css: ['index.css', 'sidebar-popular-repo.css']
             <span class="meta-info hvr-grow">
                 <span class="octicon octicon-organization"></span>
                 <a href="{{ site.company_url }}" target="_blank">{{ site.company }}</a>
-            </span> {% endif %}
+            </span>
+            {% endif %}
             {% if site.github_username %}
             <span class="meta-info hvr-grow">
                 <span class="octicon octicon-mark-github"></span>
@@ -42,10 +43,13 @@ css: ['index.css', 'sidebar-popular-repo.css']
                         {{ post.excerpt | strip_html | strip }}
                     </p>
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
+                        <span class="octicon octicon-calendar"></span>
+                        <span>{{ post.date | date: "%Y/%m/%d" }}</span>
                         {% for cat in post.categories %}
                             <span class="octicon octicon-file-directory" style="margin-left: 5px;"></span>
-                            <a href="/articles#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+                            <span class="hvr-grow" style="margin-left: 5px;">
+                                <a href="/articles#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+                            </span>
                         {% endfor %}
                     </p>
                 </li>
