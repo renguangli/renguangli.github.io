@@ -9,6 +9,12 @@
                 {% if page.date %}
                 <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
                 {% endif %}
+                {% if page.categories %}
+                    {% for cat in page.categories %}
+                        <span class="octicon octicon-file-directory" style="margin-left: 5px;"></span>
+                        <a href="/articles#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+                    {% endfor %}
+                {% endif %}
             </span>
         </div>
     </div>
