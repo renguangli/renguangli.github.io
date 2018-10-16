@@ -11,12 +11,12 @@ Spring Boot 常用配置简单介绍及使用
 
 ### Spring Boot Profile
 
-在Spring Boot中多环境配置文件名需要满足 application-{profile}.properties 的格式，其中 {profile} 对应你的环境标识，比如：
+在 Spring Boot 中多环境配置文件名需要满足 application-{profile}.properties 的格式，其中 {profile} 对应环境标识
 - application-dev.properties 开发环境 
 - application-test.properties 测试环境 
 - application-prod.properties 生产环境 
 
-在application.properties文件中通过spring.profiles.active属性来设置，其值对应{profile}值。比如：
+在 application.properties 文件中通过 `spring.profiles.active` 属性来设置，其值对应 {profile} 值。比如：
 
 ```properties
 spring.profiles.active=dev
@@ -26,7 +26,7 @@ Spring Boot 在启动时会加载 `application-dev.properties` 配置文件
  
 ### Maven Profile
 
-如果我们使用的构建工具是 Maven，也可以通过 Maven 的 profile 特性来实现多环境配置以及打包。这样做的好处是我们不需要每次打包的时候改变 `spring.profiles.active` 的值，打包的时候 `mvn clean package -P ${profile}` 使用 -P 参数指定
+如果我们使用的构建工具是 Maven，也可以通过 Maven 的 Profile 特性来实现多环境配置以及打包。这样做的好处是我们不需要每次打包的时候改变 `spring.profiles.active` 的值，打包的时候 `mvn clean package -P ${profile}` 使用 -P 参数指定
 
 pom.xml 配置如下：
 
@@ -140,7 +140,6 @@ private String name;
 @Value("${config.value}")
 private String value;
 ```
-
 
 一两个配置的话还好，一旦配置多起来就比较难看，对于这种情况我们可以使用 Spring Boot 提供的 `@ConfigurationProperties` 注解来简化配置
 
