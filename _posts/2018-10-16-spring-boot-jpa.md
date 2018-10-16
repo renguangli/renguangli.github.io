@@ -22,7 +22,7 @@ Spring Data Jpa 是 Spring 基于 ORM 框架、JPA 规范的基础上封装的�
 
 ### 在 pom.xml 文件添加 Jpa 依赖
 
-由于本机没有装如何数据据库，就用内嵌数据库 H2 吧。
+使用 MySQL 数据库作为存储。
 
 ```java
 <dependency>
@@ -30,27 +30,23 @@ Spring Data Jpa 是 Spring 基于 ORM 框架、JPA 规范的基础上封装的�
     <artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 <dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <scope>runtime</scope>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.46</version>
 </dependency>
 ```
 ### Jpa 相关配置
 
 application.properties
 ```properties
-## H2 数据源
-spring.datasource.url=jdbc:h2:file:../h2/jpa
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
+spring.thymeleaf.cache=false
 
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
+spring.datasource.url=jdbc:mysql://localhost:3306/springboot
+spring.datasource.driverClassName=com.mysql.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password=root
 
-## 是否打印 sql
 spring.jpa.show-sql=true
-## 自动见表类型 create/create-drop/update
 spring.jpa.hibernate.ddl-auto=update
 ```
 
@@ -62,7 +58,7 @@ spring.jpa.hibernate.ddl-auto=update
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long userId;
 
     @Column(name = "username", length = 16, unique = true)
@@ -72,7 +68,6 @@ public class User {
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime createTime;
 
     private char sex;
 
@@ -90,10 +85,15 @@ public class User {
 ```java
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    Page<User> findAll(Specification<User> spec, Pageable pageable);
+   
+    @Transactional
+    void deleteByUserIdIn(Long[] userIds);
+
     @Transactional
     @Modifying
     @Query("update User set password = ?1 where username=?2")
-    User updateUser(String password, String username);
+    void updateUser(String password, String username);
 }
 ```
 
@@ -113,8 +113,27 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<User> listUsers() {
-        return userRepository.findAll();
+    public Map<String, Object> listUsers(User user
+            , @RequestParam(value = "page", defaultValue = "1") Integer page
+            , @RequestParam(value = "limit", defaultValue = "10") Integer limit) {
+
+        Pageable pageable = new PageRequest((page - 1) * limit, limit);
+        Specification<User> specification = (root, query, cb) -> {
+            List<Predicate> list = new ArrayList<>();
+            String username = user.getUsername();
+            if (username != null && !"".equals(username)){
+                list.add(cb.like(root.get("username").as(String.class), username + "%"));
+            }
+            return cb.and(list.toArray(new Predicate[0]));
+        };
+        Page<User> userPage = userRepository.findAll(specification, pageable);
+
+        Map<String, Object> data = new Hashtable<>();
+        data.put("code", 0);
+        data.put("msg", "success");
+        data.put("data", userPage.getContent());
+        data.put("count", userPage.getTotalElements());
+        return data;
     }
 
     @GetMapping("/user")
@@ -122,36 +141,47 @@ public class UserController {
         return userRepository.exists(userId);
     }
 
-    @PutMapping("/user")
-    public Long countUser() {
-        return userRepository.count();
-    }
-
     @PostMapping("/user")
-    public User saveUser(User user) {
-        return userRepository.save(user);
+    public boolean saveUser(User user) {
+        user.setUsername(UUID.randomUUID().toString().replace("-", "").substring(0,15));
+        user.setPassword(UUID.randomUUID().toString().replace("-", "").substring(0,11));
+        if (new Random().nextInt(10) % 2 == 0) {
+            user.setSex('男');
+        } else {
+            user.setSex('女');
+        }
+        user.setCreateTime(new Date());
+        user.setAge(18);
+        userRepository.save(user);
+        return true;
     }
 
-    @DeleteMapping("/user")
-    public Long deleteUser(Long userId) {
+    @DeleteMapping("/user/{userId}")
+    public boolean deleteUser(@PathVariable Long userId) {
         userRepository.delete(userId);
-        return userId;
+        return true;
+    }
+
+    @DeleteMapping("/users")
+    public boolean deleteBatchUser(@RequestParam("userIds[]") Long[] userIds) {
+        userRepository.deleteByUserIdIn(userIds);
+        return true;
     }
 
     @PutMapping("/user")
-    public User updateUser(User user) {
-        return userRepository.updateUser(user.getPassword(), user.getUsername());
+    public boolean updateUser(User user) {
+        userRepository.updateUser(user.getPassword(), user.getUsername());
+        return true;
     }
+
 }
 ```
 
-## Spring Data Jpa 详解
+## 效果图
 
-
+![spring-boot-jpa](https://renguangli.com/images/spring-boot/spring-boot-jpa.png)
 
 ## 参考资料
-
-<http://www.ityouknow.com/springboot/2016/08/20/spring-boo-jpa.html>
 
 本文所有代码放在 Github 上，地址：[spring-boot-jpa](https://github.com/renguangli/spring-boot-samples/tree/master/spring-boot-jpa)
 
