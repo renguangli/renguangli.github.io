@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Boot 集成 Spring Data Jpa 增删改查示例
+title: Spring Boot 集成 Jpa 增删改查示例
 category: [Spring Boot]
 tags: [Spring Boot]
 ---
