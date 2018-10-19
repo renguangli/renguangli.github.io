@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: 大力的技术博客 # ex. I m Guangli
+title: dali`s Blogs - 大力的技术博客 # ex. I m Guangli
 name: dali`s Blogs  # ex. Guangli
 email: renguangligg@gmail.com
 location: Beijing # ex. Nice, France
@@ -14,7 +14,7 @@ company: Rgl
 company_url: https://renguangli.com
 github_url: https://github.com/renguangli # ex. https://github.com/renguangli
 github_username: renguangli # ex. renguangli
-description: dali`s Blogs, dali, 大力, 大力的博客
+description: 分享 Java 相关技术，记录成长过程
 favicon: favicon.png # Image must be in assets/images
 repository: renguangli/renguangli.github.io # ex. renguangli/renguangli.github.io
 
