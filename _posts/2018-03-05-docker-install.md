@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker在Centos环境下的安装
+title: Docker 在Centos 环境下的安装
 category: Docker
 tags: [Docker]
 ---

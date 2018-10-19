@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java各个版本新特性
+title: Java 各个版本新特性
 category: [Java]
 tags: [Java]
 ---

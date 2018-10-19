@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MySQL的四种事务隔离级别
+title: MySQL 的四种事务隔离级别
 categories: MySQL
 tags: [MySQL]
 ---

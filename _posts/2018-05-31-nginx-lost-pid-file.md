@@ -1,6 +1,6 @@
 ---
 layout: post
-title: nginx丢失nginx.pid文件错误
+title: nginx 丢失 nginx.pid 文件错误
 category: [nginx,error]
 tags: [error]
 ---

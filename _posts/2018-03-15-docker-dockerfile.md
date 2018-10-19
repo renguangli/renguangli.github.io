@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 使用Dockerfile创建Docker镜像
+title: 使用 Dockerfile 创建 Docker 镜像
 category: Docker
 tags: [Docker]
 ---

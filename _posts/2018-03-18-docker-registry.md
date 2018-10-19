@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 搭建Docker私有镜像仓库
+title: 搭建 Docker 私有镜像仓库
 category: Docker
 tags: [Docker]
 ---
