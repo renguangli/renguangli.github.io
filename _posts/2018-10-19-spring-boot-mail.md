@@ -5,7 +5,7 @@ category: [Spring Boot]
 tags: [Spring Boot]
 ---
 
-发送邮件是我们开发中常用的功能，比如注册验证码、登陆验证码、忘记密码还有激活邮箱啦等场景。
+发送邮件是我们开发中常用的功能，比如注册、登陆验证码、忘记密码还有邮箱激活等场景。
 
 今天我们使用 Spring Boot 的 `spring-boot-mail-starter` 来实现邮件发送。
 
@@ -89,7 +89,7 @@ public class MailServiceImpl implements MailService {
 
 ![mail-log](https://renguangli.com/images/spring-boot/spring-boot-mail-log.jpg)
 
-感兴趣的去我的 Github 克隆下来，除了发送简单邮件以后还会添加发送 HTML 格式，带附件，带静态资源的邮件，欢迎关注。
+除了发送简单邮件以后还会添加发送 HTML 格式，带附件，带静态资源的邮件，欢迎关注。
 
 ## 参考资料
 
