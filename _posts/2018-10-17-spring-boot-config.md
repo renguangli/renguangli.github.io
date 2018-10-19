@@ -113,13 +113,93 @@ logging.config=classpath:logback.xml
 下面是一个完整的 Logback 日志配置文件
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径     使用spring-boot的配置项LOG_PATH-->  
+    <property name="LOG_HOME" value="${LOG_PATH}"/>  
+    <property name="LOG_LEVEL" value="INFO" />  
+    <!-- 控制台输出 -->   
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> 
+             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--> 
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>   
+        </encoder> 
+    </appender>
+    <!-- 按照每天生成日志文件 -->   
+    <appender name="FILE"  class="ch.qos.logback.core.rolling.RollingFileAppender">   
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}-springboot.log</FileNamePattern> 
+            <!--日志文件保留天数-->
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>   
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> 
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--> 
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>   
+        </encoder> 
+        <!--日志文件最大的大小-->
+       <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+         <MaxFileSize>10MB</MaxFileSize>
+       </triggeringPolicy>
+    </appender> 
+  
+    <logger name="com.renguangli" level="INFO"/>
+    <logger name="org.apache.ibatis" level="${LOG_LEVEL}"/>
+    <logger name="org.mybatis.spring" level="${LOG_LEVEL}"/>
+    <logger name="org.springframework" level="${LOG_LEVEL}"/>
+    <logger name="java.sql.Connection" level="${LOG_LEVEL}"/>
+    <logger name="java.sql.Statement" level="${LOG_LEVEL}"/>
+    <logger name="java.sql.PreparedStatement" level="${LOG_LEVEL}"/>
+
+    <!-- 日志输出级别 -->
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root> 
+</configuration>
 
 ```
 
 下面是一个完整的 log4j2 日志配置文件
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<properties>
+		<property name="logPath">logs</property>
+	</properties>
 
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
+		</Console>
+
+		<RollingFile name="RollingFile" filename="${logPath}/springboot.log" filepattern="${logPath}/%d{yyyyMMddHHmmss}-springboot.log">
+			<PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<RollingFile name="springboot" filename="${logPath}/springboot.log" filepattern="${logPath}/%d{yyyyMMddHHmmss}-springboot.log">
+			<PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+	</Appenders>
+	
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFile" />
+		</Root>
+		<Logger name="com.renguangli" level="trace" additivity="false">
+            <appender-ref ref="springboot"/>  
+        </Logger> 
+	</Loggers>
+</Configuration>
 ```
 
 ## 自定义配置
