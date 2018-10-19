@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java 基础知识回顾 - 抽象类和接口
+title: Java 核心知识回顾 - 抽象类和接口
 category: [Java]
 tags: [Java]
 ---
