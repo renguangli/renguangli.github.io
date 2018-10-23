@@ -23,6 +23,7 @@ repository: renguangli/renguangli.github.io # ex. renguangli/renguangli.github.i
 # For production, use your github page url. ex. https://renguangli.com
 url: https://renguangli.com
 staticUrl: https://rgl-1252211075.cos.ap-beijing.myqcloud.com
+subscribe_rss:/feed.xml
 
 ## Gem
 gems:
