@@ -44,10 +44,10 @@ css: ['index.css', 'sidebar-popular-repo.css']
                     </p>
                     <p class="post-list-meta">
                         <span class="octicon octicon-calendar"></span>
-                        <span>{{ post.date | date: "%Y/%m/%d" }}</span>
+                        <span style="vertical-align: middle;">{{ post.date | date: "%Y/%m/%d" }}</span>
                         {% for cat in post.categories %}
-                            <span class="octicon octicon-file-directory" style="margin-left: 5px;"></span>
-                            <a href="/articles#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+                            <span class="octicon octicon-file-directory" style="margin-left: 5px;vertical-align: middle;"></span>
+                            <a href="/articles#{{ cat }}" style="vertical-align: middle;" title="{{ cat }}">{{ cat }}</a>
                         {% endfor %}
                     </p>
                 </li>
