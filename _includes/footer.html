@@ -2,26 +2,25 @@
 
     <div class="site-footer">
 
+        <div class="site-footer-icons">
+            <span id="busuanzi_container_site_pv">
+                总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+        </div>
+
         <div class="rss pull-left">
             <a href="{{ site.subscribe_rss }}">
                 <span class="octicon octicon-rss" style="color:orange;"></span>
             </a>
         </div>
 
-        <div class="site-footer-icons" style="margin-left: 20px;">
-            <span id="busuanzi_container_site_pv">
-                总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-        </div>
-
-        <a href="https://github.com/{{ site.github_url }}" target="_blank" aria-label="view source code">
+        <a href="{{ site.github_url }}" target="_blank" aria-label="view source code">
             <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
         </a>
 
         <div class="pull-right">
             <a href="javascript:window.scrollTo(0,0)" title="回到顶部">TOP</a>
         </div>
-
 
     </div>
 
