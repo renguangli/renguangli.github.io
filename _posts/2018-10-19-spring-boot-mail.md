@@ -47,9 +47,6 @@ spring.mail.test-connection=true
 这里的 password 不是指邮箱密码而是授权码，获取 QQ 邮箱的授权码请参考 <br/> 
 <http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256>
 
-和163邮箱的区别是需要设置授权码而不是密码，具体操作参考： 
-
-
 至此邮件相关的配置已完成，接下来编写发送邮件的代码。
 
 ### 简单邮件发送
