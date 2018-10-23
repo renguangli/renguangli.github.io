@@ -289,7 +289,9 @@ public void sendHtmlTemplateMailTest() {
 
 ## 参考资料
 
+<https://blog.csdn.net/Tracycater/article/details/73441010?utm_source=blogxgwz0>
 
+<http://www.ityouknow.com/springboot/2017/05/06/springboot-mail.html>
 
 本文所有代码放在 [Github](https://github.com/renguangli/spring-boot-samples/tree/master/spring-boot-mail) 上  
 
