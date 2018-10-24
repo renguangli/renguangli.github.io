@@ -1,6 +1,6 @@
 ---
 layout: post
-title: fatal: Unable to create ‘project_path/.git/index.lock’: File exists.
+title: "fatal: Unable to create ‘project_path/.git/index.lock’: File exists."
 category: [git]
 tags: [git]
 ---
