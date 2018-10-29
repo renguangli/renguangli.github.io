@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java设计模式 - 单例模式
+title: Java设计模式(一) - 单例模式
 category: 设计模式
 tags: [设计模式]
 ---
