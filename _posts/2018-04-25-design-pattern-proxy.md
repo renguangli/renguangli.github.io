@@ -51,7 +51,7 @@ public class BuyCarProxy implements BuyCar {
 }
 ```
 
-这就是`代理类`，它也实现了`目标对象的接口`和`buyCar`方法
+这就是 `代理类` ，它也实现了 `目标对象的接口` 和 `buyCar` 方法
 
 测试一下
 ```
@@ -81,7 +81,7 @@ public class ProxyPatterTest {
 
 ### JDK动态代理
 
-JDK的动态代理，就是在程序运行的过程中，根据被代理的接口来动态生成代理类的class文件，并加载运行的过程。JDK从1.3开始支持动态代理。那么JDK是如何生成动态代理的呢？JDK动态代理为什么不支持类的代理，只支持接口的代理？首先来看一下如何使用JDK动态代理。JDK提供了java.lang.reflect.Proxy类来实现动态代理的，可通过它的newProxyInstance来获得代理实现类。同时对于代理的接口的实际处理，是一个java.lang.reflect.InvocationHandler，它提供了一个invoke方法供实现者提供相应的代理逻辑的实现。可以对实际的实现进行一些特殊的处理，像Spring AOP中的各种advice。下面来看看如何使用。
+Jdk 的动态代理，就是在程序运行的过程中，根据被代理的接口来动态生成代理类的 class 文件，并加载运行的过程。Jdk 从 1.3 开始支持动态代理。那么 Jdk 是如何生成动态代理的呢？Jdk 动态代理为什么不支持类的代理，只支持接口的代理？首先来看一下如何使用 Jdk 动态代理。Jdk 提供了 java.lang.reflect.Proxy 类来实现动态代理的，可通过它的 newProxyInstance 来获得代理实现类。同时对于代理的接口的实际处理，是一个 java.lang.reflect.InvocationHandler，它提供了一个 invoke 方法供实现者提供相应的代理逻辑的实现。
 
 实现一个java.lang.reflect.InvocationHandler
 
@@ -108,71 +108,18 @@ public class BuyCarHandler implements InvocationHandler {
 测试一下
 
 ```
-    @Test
-    public void dynamicProxy() {
-        BuyCarHandler handler = new BuyCarHandler(new BuyCarImpl());
-        BuyCar buyCar = (BuyCar)Proxy.newProxyInstance(BuyCarImpl.class.getClassLoader(), new Class[]{BuyCar.class}, handler);
-        buyCar.buyCar();
-    }
+@Test
+public void dynamicProxy() {
+    BuyCarHandler handler = new BuyCarHandler(new BuyCarImpl());
+    BuyCar buyCar = (BuyCar)Proxy.newProxyInstance(BuyCarImpl.class.getClassLoader(), new Class[]{BuyCar.class}, handler);
+    buyCar.buyCar();
+}
 
-    /*
-     * 输出：
-     * 买车前，期待中。。。
-     * 买车了
-     * 买成后，兴奋中。。。
-     */
+/*
+ * 输出：
+ * 买车前，期待中。。。
+ * 买车了
+ * 买成后，兴奋中。。。
+ */
 ```
 
-### jdk动态代理实现原理
-
-```
-public static Object newProxyInstance(ClassLoader loader,Class<?>[] interfaces,InvocationHandler h)
-        throws IllegalArgumentException {
-
-        //判断h是否为null，如果h为null抛出NullPointerException异常
-        Objects.requireNonNull(h);
-
-        final Class<?>[] intfs = interfaces.clone();
-        final SecurityManager sm = System.getSecurityManager();
-        if (sm != null) {
-            checkProxyAccess(Reflection.getCallerClass(), loader, intfs);
-        }
-
-        /*
-         * 查找或生成指定的代理类.
-         */
-        Class<?> cl = getProxyClass0(loader, intfs);
-
-        /*
-         * Invoke its constructor with the designated invocation handler.
-         */
-        try {
-            if (sm != null) {
-                checkNewProxyPermission(Reflection.getCallerClass(), cl);
-            }
-
-            final Constructor<?> cons = cl.getConstructor(constructorParams);
-            final InvocationHandler ih = h;
-            if (!Modifier.isPublic(cl.getModifiers())) {
-                AccessController.doPrivileged(new PrivilegedAction<Void>() {
-                    public Void run() {
-                        cons.setAccessible(true);
-                        return null;
-                    }
-                });
-            }
-            return cons.newInstance(new Object[]{h});
-        } catch (IllegalAccessException|InstantiationException e) {
-            throw new InternalError(e.toString(), e);
-        } catch (InvocationTargetException e) {
-            Throwable t = e.getCause();
-            if (t instanceof RuntimeException) {
-                throw (RuntimeException) t;
-            } else {
-                throw new InternalError(t.toString(), t);
-            }
-        } catch (NoSuchMethodException e) {
-            throw new InternalError(e.toString(), e);
-        }
-    }
-```
