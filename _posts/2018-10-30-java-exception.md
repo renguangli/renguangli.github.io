@@ -97,3 +97,17 @@ try (OutputStream os = new FileOutputStream("D:/a.txt");){
     e.printStackTrace();
 }
 ```
+
+### throw throws
+
+throw 用于手动抛出异常
+
+throws 用于声明方法可能会抛出的异常
+
+```java
+public void throwsThrow(String str) throws Exception{
+    if (str == null) {
+        throw new Exception("parameter str not be null");
+    }
+}
+```
