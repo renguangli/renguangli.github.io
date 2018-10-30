@@ -48,29 +48,29 @@ tags: [设计模式]
 我们看下面的例子
 
 ![uml实例](https://rgl-1252211075.cos.ap-beijing.myqcloud.com/uml/uml.png)
-- Vehicle表示一个接口；
-- Car和Bike实现了Vehicle;他们之间的关系为实现关系，用带空心箭头的虚线表示；
-- SUV继承了Car；他们之间的关系为泛化关系，用带空心箭头的实线表示；
-- Car与Tire、Engine为组合关系，用带实心菱形的实线表示；
-- Employee与Company为聚合关系，用带空心菱形的虚线表示；
-- Employee与Badge为关联关系，用一根实线表示；
-- Employee上班需要骑自行车，他们之间是依赖关系，用带箭头的虚线表示；
+- Vehicle 表示一个接口；
+- Car 和 Bike 实现了 Vehicle ;他们之间的关系为实现关系，用带空心箭头的虚线表示；
+- SUV 继承了 Car；他们之间的关系为泛化关系，用带空心箭头的实线表示；
+- Car 与 Tire、Engine 为组合关系，用带实心菱形的实线表示；
+- Employee 与 Company 为聚合关系，用带空心菱形的虚线表示；
+- Employee 与 Badge 为关联关系，用一根实线表示；
+- Employee 上班需要骑自行车，他们之间是依赖关系，用带箭头的虚线表示；
 
 在UML类图中，类之间，接口之间，类与接口之间有以下几种关系。
 
 #### 泛化关系(generalization)
 
-泛化关系是类与类，接口与接口之间常见的关系，在java中通过extends关键字表示。
+泛化关系是类与类，接口与接口之间常见的关系，在 Java中通过 extends 关键字表示。
 
-泛化关系用一条带空心箭头的直线表示；如下图表示（suv继承自Car）
+泛化关系用一条带空心箭头的直线表示；如下图表示（Suv 继承自 Car）
 
 ![泛化关系](https://rgl-1252211075.cos.ap-beijing.myqcloud.com/uml/extends.png)
 
 ### 实现关系
 
-实现关系是类与接口最常见的关系，在Java中通过implements关键字来表示。
+实现关系是类与接口最常见的关系，在 Java 中通过 implements 关键字来表示。
 
-实现关系用一条带空心箭头的虚线表示；如下图表示（Bike和Car实现了Vehicle）
+实现关系用一条带空心箭头的虚线表示；如下图表示（ Bike 和 Car 实现了 Vehicle）
 
 ![实现关系](https://rgl-1252211075.cos.ap-beijing.myqcloud.com/uml/implements.png)
 
@@ -80,7 +80,7 @@ tags: [设计模式]
 
 与组合关系不同的是，整体和部分不是强依赖的，即使整体不存在了，部分仍然存在；例如，公司倒闭了，员工不会消失，他们依然存在；
 
-聚合关系用一条带空心菱形箭头的实线表示，如下图表示Employee聚合到Company上，或者说Company由Employee组成；
+聚合关系用一条带空心菱形箭头的实线表示，如下图表示 Employee 聚合到 Company 上，或者说 Company 由 Employee 组成；
 
 ![聚合关系](https://rgl-1252211075.cos.ap-beijing.myqcloud.com/uml/aggregation.png)
 
@@ -90,7 +90,7 @@ tags: [设计模式]
 
 组合关系是一种强依赖的特殊聚合关系，如果整体不存在了，则部分也不存在了；例如， 公司不存在了，部门也将不存在了；
 
-组合关系用一条带实心菱形箭头的实线表示；如下图所示(Car有Engine和Tire组成)
+组合关系用一条带实心菱形箭头的实线表示；如下图所示( Car 有 Engine 和 Tire 组成)
 
 ![组合关系](https://rgl-1252211075.cos.ap-beijing.myqcloud.com/uml/composition.png)
 
@@ -100,7 +100,7 @@ tags: [设计模式]
 
 比如，员工和工牌之间就是一种关联关系；
 
-关联关系默认不强调方向，表示对象间相互知道；如果特别强调方向，如下图，表示A知道B，但 B不知道A；
+关联关系默认不强调方向，表示对象间相互知道；如果特别强调方向，如下图，表示 A 知道 B，但 B 不知道 A；
 
 ![关联关系](https://rgl-1252211075.cos.ap-beijing.myqcloud.com/uml/association.png)
 
@@ -108,7 +108,7 @@ tags: [设计模式]
 
 ### 依赖关系(dependency)
 
-依赖关系是用一套带箭头的虚线表示的；如下图表示Employee上班依赖于自行车；他描述一个对象在运行期间会用到另一个对象的关系；
+依赖关系是用一套带箭头的虚线表示的；如下图表示 Employee 上班依赖于自行车；他描述一个对象在运行期间会用到另一个对象的关系；
 
 ![关联关系](https://rgl-1252211075.cos.ap-beijing.myqcloud.com/uml/dependency.png)
 
