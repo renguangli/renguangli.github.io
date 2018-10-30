@@ -28,7 +28,7 @@ Exception 表示程序执行时发生的异常，可以被处理。常见的有 
 
 通常使用 `try catch` 来捕获异常
 
-```
+```java
 try {
     int[] a = {1, 2};
     int x = a[0] / 0;
@@ -39,7 +39,7 @@ try {
 
 多重捕获块
 
-```
+```java
 try {
     int[] a = {1, 2};
     int x = a[0] / 0;
@@ -52,8 +52,8 @@ try {
 ```
 或者这样
 
-```
- try {
+```java
+try {
     int[] a = {1, 2};
     int x = a[0] / 0;
     int y = a[2];
@@ -66,7 +66,7 @@ try {
 
 finally 不管有没有发生异常都会执行，除非退出 Java 虚拟机。通常用来用来关闭连接或者释放资源。
 
-```
+```java
 OutputStream os = null;
 try {
     os = new FileOutputStream("D:/a.txt");
@@ -84,6 +84,7 @@ try {
     }
 }
 ```
+### try-with-resource
 
 Jdk1.7 中新增了 `try-with-resource` 语法，当一个外部资源的对象实现了 `AutoCloseable` 接口，Jdk1.7 中便可以利用 `try-with-resource` 语法更优雅的关闭资源。
 
