@@ -1,8 +1,8 @@
 ---
 layout: post
 title: MySQL 在 Linux 和 Windows 下的安装与配置
-category: [Java]
-tags: [Java]
+category: [MySQL]
+tags: [MySQL]
 ---
 
 ### Linux下 MySQL 二进制安装
