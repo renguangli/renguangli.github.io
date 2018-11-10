@@ -13,7 +13,7 @@ tags: [MySQL]
 
 ```
 ## 无密码登录
-skip-grant-tables;
+skip-grant-tables
 ```
 
 ### 登陆 MySQL 客户端，不需要密码，选择 mysql 库
