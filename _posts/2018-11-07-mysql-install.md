@@ -201,7 +201,7 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> use mysql；
+mysql> use mysql;
 ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.
 ## 首次登陆需要修改root用户密码
 mysql> alter user 'root'@'localhost' identified by 'root';或者alter user user() identified by 'root';
