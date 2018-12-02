@@ -5,15 +5,20 @@ category: [MySQL]
 tags: [MySQL]
 ---
 
+MySQL 在 Linux 和 Windows 下的安装与配置
+
 ### Linux下 MySQL 二进制安装
 
 1、创建用户、用户组
 
+```bash
 [root@localhost local]# groupadd mysql
 [root@localhost local]# useradd -g mysql -s /sbin/nologin mysql
+```
 
 2、将二进制包解压到指定目录并重命名为mysql
 
+```bash
 [root@localhost local]# pwd
 /usr/local
 [root@localhost local]# tar -zxvf mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz
@@ -32,23 +37,29 @@ drwxr-xr-x. 9 root root       129 11月  8 05:26 mysql
 drwxr-xr-x. 2 root root         6 4月  11 2018 sbin
 drwxr-xr-x. 5 root root        49 11月  4 08:42 share
 drwxr-xr-x. 2 root root         6 11月  8 05:33 src
+```
 
 3、配置环境变量
 
+```bash
 [root@localhost local]# cd mysql/bin/
 [root@localhost bin]# pwd
 /usr/local/mysql/bin
 [root@localhost bin]# echo "export PATH=$PATH:/usr/local/mysql/bin" >> /etc/profile
 [root@localhost bin]# source /etc/profile
+```
 
 4、创建数据目录并赋权
 
+```bash
 [root@localhost mysql]# pwd
 /usr/local/mysql
 [root@localhost mysql]# mkdir data
+```
 
 5、编辑配置文件
 
+```bash
 [root@localhost mysql]# vi /etc/my.cnf
 [client]
 port=3306
@@ -60,8 +71,10 @@ datadir=/usr/local/mysql/data
 max_connections=200
 character-set-server=utf8
 
+```
 6、初始化 MySQL
 
+```bash
 [root@localhost mysql]# mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
 2018-11-07T21:50:50.815257Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
 2018-11-07T21:50:51.175245Z 0 [Warning] InnoDB: New log files created, LSN=45790
@@ -69,18 +82,24 @@ character-set-server=utf8
 2018-11-07T21:50:51.470037Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 31b6a6d5-e2d7-11e8-9ee8-000c2970d10a.
 2018-11-07T21:50:51.496683Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
 2018-11-07T21:50:51.497829Z 1 [Note] A temporary password is generated for root@localhost: QHSpB01maf.!
-记住最后一行生成临时root密码
+```
+
+记住最后一行生成临时root密码: QHSpB01maf.!
 
 7、编辑配置文件
+        
+```bash
 [root@localhost data]# vi /etc/my.cnf
-
 [mysqld]
 port=3306
 datadir=/usr/local/mysql/data
 max_connections=200
 character-set-server=utf8
+```
 
 8、启动
+
+```bash
 [root@localhost mysql]# cp support-files/mysql.server /etc/init.d/mysql
 [root@localhost mysql]# service mysql start
 Starting MySQL. SUCCESS!
@@ -108,6 +127,7 @@ Query OK, 0 rows affected (0.00 sec)
 mysql> grant all privileges on *.* to 'root'@'%' identified by 'root' with grant option;
 Query OK, 0 rows affected, 1 warning (0.00 sec)
 
+```
 
 ### Windows下 MySQL 解压版安装与配置 
 
@@ -119,13 +139,13 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)
 
 下载完成后解压到安装位置，我的安装位置为
 
-```
+```bash
 D:\database\mysql-5.7.24
 ```
 
 在 `D:\database\mysql-5.7.24` 目录下新建配置文件 `my.ini`
 
-```
+```bash
 [mysql]
 default-character-set=utf8
 [mysqld]
@@ -143,7 +163,7 @@ default-storage-engine=INNODB
 
 以管理员的方式打开 cmd 命令窗口，进入 D:\database\mysql-5.7.24\bin 目录下执行以下命令，初始化数据库。
 
-```
+```bash
 D:\database\mysql-5.7.24\bin>mysqld --initialize --console
 2018-11-05T09:09:27.549968Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
 2018-11-05T09:09:29.253650Z 0 [Warning] InnoDB: New log files created, LSN=45790
@@ -157,16 +177,16 @@ D:\database\mysql-5.7.24\bin>mysqld --initialize --console
 `mysqld --initialize` 会随机生成临时密码 `T%loP7wOUdOz`。
 
 配置 MySQL 为Windows 服务
-```
+```bash
 mysqld install 
 ```
 
 管理员的身份运行 CMD，启动 MySQL
-```
+```bash
 net start|stop mysql
 ```
 
-```
+```bash
 [root@localhost mysql]# mysql -u root -pT%loP7wOUdOz
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
