@@ -74,18 +74,13 @@ navs:
     #  -
     #    href: /open-source
 #    label: Open-Source
-
-  -
-    href: /articles
-    label: 博客
-
   -
     href: /bookmark
-    label: 书签
+    label: BookMark
 
   -
     href: /about
-    label: 关于
+    label: About
 
 # Google Analytics
 analytics :
