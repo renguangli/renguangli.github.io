@@ -4,22 +4,16 @@ css: ['sidebar-post-nav.css']
 ---
 {% include jumbotron.html %}
 <article class="post container">
-
     <div class="row">
-
         {% if page.no-post-nav %}
         <div class="col-md-12 markdown-body">
-
             {{ content }}
-
             <!-- Comments -->
             {% include comments.html %}
         </div>
         {% else %}
         <div class="col-md-9 markdown-body">
-
             {{ content }}
-
             <!-- Comments -->
             {% include comments.html %}
         </div>
@@ -28,7 +22,5 @@ css: ['sidebar-post-nav.css']
             {% include sidebar-post-nav.html %}
         </div>
         {% endif %}
-
     </div>
-
 </article>
