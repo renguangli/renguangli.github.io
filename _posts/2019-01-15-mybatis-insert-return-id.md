@@ -5,7 +5,7 @@ category: [Mybatis]
 tags: [Mybatis]
 ---
 
-有时候我们在插入一条数据后需要返回主键ID，Mytais 提供了相关方法。
+Mybatis 插入一条数据后返回主键 ID。
 
 User 实体类
 ```
