@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>redis-install | GRUANGLI.REN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+        <meta property="algolia:search" data-application-id="NB8AWX3IIS" data-api-key="b896f11277f835f8f5eea4864ed2b32e" data-index-name="blogs">
+    
+
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1.7.2.css">
+
+
+    <script>
+        window.aomori = {
+            
+            gitalk: {
+                enable: true,
+                clientID: "8ff7ae9648607fe6e4b3",
+                clientSecret: "5ffe44de3ec03f5072ff5641e1d5aa58a9138c16",
+                repo: "gitalk-comments",
+                owner: "renguangli",
+                admin: ["renguangli",],
+                distractionFreeMode: true  // Facebook-like distraction free mode
+            },
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+    </script>
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.jpg" alt="Ren GuangLi">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>GRUANGLI.REN</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="">
+        <box-icon type='' name=''></box-icon>
+    </a>
+
+    <a class="social" target="_blank" href="">
+        <box-icon type='' name=''></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-ckf0vqfme000020v7g61va0id" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="/Redis-%E5%AE%89%E8%A3%85.html" rel="gallery_ckf0vqfme000020v7g61va0id">
+        <img src="/images/timg.jpg" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      redis-install
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2020-09-13T09:01:21.000Z" itemprop="datePublished">2020-09-13</time>
+</div>
+
+            
+
+            
+
+            
+            <div class="article-busuanzi">
+                有 <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>redis 源码下载之后上传到 linux 上，或者在 linux <code>使用 wget</code> 工具下载</p>
+<p>redis 下载地址：<a target="_blank" rel="noopener" href="http://download.redis.io/releases/redis-5.0.8.tar.gz">http://download.redis.io/releases/redis-5.0.8.tar.gz</a></p>
+<a id="more"></a>
+
+<pre><code class="bash">[root@localhost ~]# yum install wget # 安装 wget ，用于下载 redis 源码
+[root@localhost ~]# yum install gcc # 安装 gcc 来编译 redis 源代码
+[root@localhost ~]# wget http://download.redis.io/releases/redis-5.0.8.tar.gz # 下载 redis
+[root@localhost ~]# tar xf redis-5.0.8.tar.gz # 解压
+[root@localhost ~]# cd redis-6.0.5
+[root@localhost ~]# make 
+# 安装。PREFIX 参数指点装安装目录，没有会自动创建
+[root@localhost redis-5.0.8]# make install PREFIX=/root/redis  
+[root@localhost redis-5.0.8]# cp redis.conf /root/redis</code></pre>
+<h2 id="前台启动"><a href="#前台启动" class="headerlink" title="前台启动"></a>前台启动</h2><pre><code class="bash">[root@localhost redis]# bin/redis-server redis.conf </code></pre>
+<p>默认前台启动，也就是ctlr + c 后 redis-server 就会退出</p>
+<h2 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h2><p>修改配置</p>
+<pre><code class="bash">vi redis.conf
+daemonize no  ## no 改为 yes</code></pre>
+<p>daemonize 配置是来控制是否后台启动</p>
+<p>修改完之后重新启动</p>
+<pre><code class="bash">[root@localhost redis]# bin/redis-server redis.conf</code></pre>
+<p>这样 redis 就是后台启动了</p>
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><pre><code class="bash">[root@localhost]# vi /etc/profile
+export REDIS_HOME=/root/redis
+export PATH=$PATH:$REDIS_HOME/bin
+[root@localhost]# source /etc/profile</code></pre>
+<p>设置环境变量是为了方便在任何地方使用 <code>redis-cli</code></p>
+<pre><code class="bash">[root@localhost utils]# redis-cli
+127.0.0.1:6379&gt; set aaa bbb
+OK
+127.0.0.1:6379&gt; get aaa
+&quot;bbb&quot;
+127.0.0.1:6379&gt; keys *
+1) &quot;aaa&quot;
+127.0.0.1:6379&gt; </code></pre>
+<h2 id="安装成-linux-服务"><a href="#安装成-linux-服务" class="headerlink" title="安装成 linux 服务"></a>安装成 linux 服务</h2><p>在 redis 源码目录下有个 utils 目录，这个目录下有一些工具，</p>
+<p>其中就有将 redis 安装成 linux 服务的工具 install_server.sh</p>
+<pre><code class="bash">[root@localhost utils]# ./install_server.sh 
+Welcome to the redis service installer
+This script will help you easily set up a running redis server
+
+Please select the redis port for this instance: [6379] 
+Selecting default: 6379
+Please select the redis config file name [/etc/redis/6379.conf] 
+Selected default - /etc/redis/6379.conf
+Please select the redis log file name [/var/log/redis_6379.log] 
+Selected default - /var/log/redis_6379.log
+Please select the data directory for this instance [/var/lib/redis/6379] 
+Selected default - /var/lib/redis/6379
+Please select the redis executable path [/root/redis/bin/redis-server] 
+Selected config:
+Port           : 6379
+Config file    : /etc/redis/6379.conf
+Log file       : /var/log/redis_6379.log
+Data dir       : /var/lib/redis/6379
+Executable     : /root/redis/bin/redis-server
+Cli Executable : /root/redis/bin/redis-cli
+Is this ok? Then press ENTER to go on or Ctrl-C to abort.
+Copied /tmp/6379.conf =&gt; /etc/init.d/redis_6379
+Installing service...
+Successfully added to chkconfig!
+Successfully added to runlevels 345!
+Starting Redis server...
+Installation successful!</code></pre>
+<p>执行 <code>install_server</code> 脚本后会让你设置 端口号、配置文件路径、日志文件路径、数据目录、redis-server 路径</p>
+<p>如果自己输入直接回车的话会选择默认配置</p>
+<p>之后会再次确认配置是否正确，无误的回车即可，否则 <code>ctrl + c</code> 重新执行该脚本</p>
+<p>回车后 脚本会将 redis 服务设置问题开启自启，运行级别在 345 </p>
+<p>并且会帮你启动 redis</p>
+<pre><code class="bash">[root@localhost utils]# service redis_6379 status
+Redis is running (19194)</code></pre>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+<div class="article-copyright hairline">
+  <p>
+    本作品采用 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可。
+  </p>
+</div>
+
+
+    
+
+    
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=redis-install - GRUANGLI.REN&url=https://guangli.ren/Redis-%E5%AE%89%E8%A3%85.html">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=redis-install - GRUANGLI.REN&u=https://guangli.ren/Redis-%E5%AE%89%E8%A3%85.html">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=redis-install - GRUANGLI.REN&url=https://guangli.ren/Redis-%E5%AE%89%E8%A3%85.html&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+<section class="comments">
+    <div id="gitalk-container"></div>
+</section>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+            
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="Search ..." autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/Redis-%E5%AE%89%E8%A3%85.html">redis-install</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">2020</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            GRUANGLI.REN &copy; 2013 - 2020<br>
+            Powered By Hexo · Theme By <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a>
+        </div>
+    </div>
+
+</footer>
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+
+<script src="/dist/build.js?1.7.2.js"></script>
+
+
+<script src="/dist/custom.js?1.7.2.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106555827-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-106555827-1');
+</script>
+
+
+
+
+
+</body>
+
+</html>
