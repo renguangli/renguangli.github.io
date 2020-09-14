@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>Spring Boot 集成 Thymeleaf 模板引擎 | GUANGLI.REN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+        <meta property="algolia:search" data-application-id="NB8AWX3IIS" data-api-key="b896f11277f835f8f5eea4864ed2b32e" data-index-name="blogs">
+    
+
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://renguangli.gitee.io/gitalk/gitalk.css">
+    
+
+    
+<link rel="stylesheet" href="https://renguangli.gitee.io/dist/build.css?v=1.7.2.css">
+
+
+    <script>
+        window.aomori = {
+            
+            gitalk: {
+                enable: true,
+                clientID: "8ff7ae9648607fe6e4b3",
+                clientSecret: "5ffe44de3ec03f5072ff5641e1d5aa58a9138c16",
+                repo: "gitalk-comments",
+                owner: "renguangli",
+                admin: ["renguangli",],
+                distractionFreeMode: true  // Facebook-like distraction free mode
+            },
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+    </script>
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://renguangli.gitee.io/images/avatar.jpg" alt="Ren GuangLi">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>GUANGLI.REN</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/renguangli">
+        <box-icon type='' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-ckf2cdb5k000kucv7hsdiag4e" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="/2018/spring-boot-thymeleaf.html" rel="gallery_ckf2cdb5k000kucv7hsdiag4e">
+        <img src="https://renguangli.gitee.io/images/spring-boot.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot 集成 Thymeleaf 模板引擎
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2018-10-14T08:18:42.000Z" itemprop="datePublished">2018-10-14</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                有 <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>Thymeleaf 是适用于 Web 和独立环境的现代服务器端 Java 模板引擎。</p>
+<a id="more"></a>
+
+<p>Thymeleaf 的主要目标是为开发带来优雅的模板 - Thymeleaf 模板对于浏览器来说这些非HTML标准属性在渲染的时候会被浏览器自动忽略，因此对于前端人员来说它就是一个静态页面；而后端通过 Thymeleaf 引擎渲染的时候这些标签就会被识别，因此对于后端人员来说它又是动态页面！。</p>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="在-pom-xml-文件添加-Thymeleaf-依赖"><a href="#在-pom-xml-文件添加-Thymeleaf-依赖" class="headerlink" title="在 pom.xml 文件添加 Thymeleaf 依赖"></a>在 pom.xml 文件添加 Thymeleaf 依赖</h3><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+<p><code>spring-boot-starter-thymeleaf</code> 中包含了 <code>spring-boot-starter-web</code> 可以将其删除。</p>
+<h3 id="Thymeleaf-相关配置"><a href="#Thymeleaf-相关配置" class="headerlink" title="Thymeleaf 相关配置"></a>Thymeleaf 相关配置</h3><p>Thymeleaf 的模板文件默认在 resources/templates 下，<code>spring.thymeleaf.cache=false</code> 开发时关闭缓存，要不然修改模板文件不能及时生效，需要重启，生产环境可以打开，</p>
+<pre><code class="properties"># thymeleaf
+spring.thymeleaf.cache=false
+spring.thymeleaf.check-template-location=true
+spring.thymeleaf.content-type=text/html
+spring.thymeleaf.mode=HTML5
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html</code></pre>
+<p>以上都是默认配置，当然也可以自定义配置。</p>
+<h3 id="编写-controller"><a href="#编写-controller" class="headerlink" title="编写 controller"></a>编写 controller</h3><pre><code class="java">@Controller
+public class ThymeleafController &#123;
+
+    @GetMapping(value = &#123;&quot;&quot;, &quot;/&quot;, &quot;index&quot;&#125;)
+    public String index(Model model, HttpSession session) &#123;
+        // 网站标题
+        model.addAttribute(&quot;title&quot;, &quot;dali`s Blogs&quot;);
+        // 登陆用户
+        User loginUser = new User(2L, &quot;admin&quot;, &quot;admin&quot;, LocalDateTime.now());
+        session.setAttribute(&quot;login_user&quot;, loginUser);
+        model.addAttribute(&quot;count&quot;, 20);
+        // 用户列表
+        List&lt;User&gt; users = new ArrayList&lt;&gt;();
+        users.add(new User(1L, &quot;admin&quot;, &quot;admin&quot;, LocalDateTime.now()));
+        users.add(new User(2L, &quot;dali&quot;, &quot;dali&quot;, LocalDateTime.now()));
+        model.addAttribute(&quot;users&quot;, users);
+        return &quot;index&quot;;
+    &#125;
+&#125;</code></pre>
+<h3 id="编写-Thymeleaf-模板文件"><a href="#编写-Thymeleaf-模板文件" class="headerlink" title="编写 Thymeleaf 模板文件"></a>编写 Thymeleaf 模板文件</h3><p>在 <code>resources/templates</code> 目录新建 <code>index.html</code> 文件</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;!-- 添加命名空间 --&gt;
+&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+
+    &lt;!-- 变量表达式 $&#123;...&#125; --&gt;
+    &lt;!-- 使用th:text标签的值替换title标签里的值,title标签里的值只是为了给前端开发时做展示用的.这样很好的做到了前后端分离 --&gt;
+    &lt;!-- 获取session、request中的数据 --&gt;
+    &lt;title th:text=&quot;$&#123;title&#125;&quot;&gt;default title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- 消息表达式 #&#123;...&#125;, 也称为文本外部化、国际化或i18n --&gt;
+&lt;span th:text=&quot;#&#123;header.address.city&#125;&quot;&gt;...&lt;/span&gt;
+
+&lt;!-- $&#123;session.login_user&#125; 获取session的数据--&gt;
+&lt;div th:object=&quot;$&#123;session.login_user&#125;&quot;&gt;
+    &lt;span th:text=&quot;*&#123;userId&#125;&quot;&gt;...&lt;/span&gt;
+    &lt;span th:text=&quot;*&#123;username&#125;&quot;&gt;...&lt;/span&gt;
+    &lt;span th:text=&quot;*&#123;password&#125;&quot;&gt;...&lt;/span&gt;
+    &lt;span th:text=&quot;*&#123;createTime&#125;&quot;&gt;...&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 链接表达式@&#123;…&#125;,类似的标签有:th:href和th:src --&gt;
+&lt;a th:href=&quot;@&#123;https://rengangli.com&#125;&quot;&gt;绝对路径&lt;/a&gt;
+&lt;a th:href=&quot;@&#123;/&#125;&quot;&gt;相对路径&lt;/a&gt;
+&lt;a th:href=&quot;@&#123;css/bootstrap.min.css&#125;&quot;&gt;Content路径,默认访问resources/static下的css文件夹&lt;/a&gt;
+
+&lt;!-- 字符串替换 --&gt;
+&lt;label th:text=&quot;&#39;Welcome, &#39; + $&#123;session.login_user.username&#125; + &#39;!&#39;&quot;&gt;&lt;/label&gt;
+
+&lt;!-- 运算符 +,-,*,/,% --&gt;
+&lt;label th:with=&quot;isEven=($&#123;count&#125; % 2 == 0)&quot;&gt;&lt;/label&gt;
+
+&lt;!-- 条件 --&gt;
+&lt;!-- 标签只有在th:if中条件成立时才显示, th:unless相反,不成立时才显示 --&gt;
+&lt;a th:href=&quot;@&#123;/login&#125;&quot; th:if=&quot;$&#123;session.login_user == null&#125;&quot;&gt;Login&lt;/a&gt;
+
+&lt;!-- 条件语句 --&gt;
+&lt;div th:switch=&quot;$&#123;session.login_user.username&#125;&quot;&gt;
+    &lt;p th:case=&quot;&#39;admin&#39;&quot;&gt;login_user is an &lt;span th:text=&quot;$&#123;session.login_user.username&#125;&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;p th:case=&quot;&#39;dali&#39;&quot;&gt;login_user is an &lt;span th:text=&quot;$&#123;session.login_user.username&#125;&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;!-- 默认属性default可以用*表示 --&gt;
+    &lt;p th:case=&quot;*&quot;&gt;login_user is null&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- 遍历 --&gt;
+&lt;table&gt;
+    &lt;tr th:each=&quot;user : $&#123;users&#125;&quot;&gt;
+        &lt;td th:text=&quot;$&#123;user.userId&#125;&quot;&gt;id&lt;/td&gt;
+        &lt;td th:text=&quot;$&#123;user.username&#125;&quot;&gt;name&lt;/td&gt;
+        &lt;td th:text=&quot;$&#123;user.password&#125;&quot;&gt;name&lt;/td&gt;
+        &lt;td th:text=&quot;$&#123;user.createTime&#125;&quot;&gt;name&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;!-- Utility对象,内置于Context中,可以通过#直接访问,包含#dates、#calendars、#numbers、#strings... --&gt;
+&lt;label th:text=&quot;$&#123;#dates.createNow()&#125;&quot;&gt;#dates&lt;/label&gt;
+
+&lt;!-- js中的表达式 --&gt;
+&lt;script th:inline=&quot;javascript&quot;&gt;
+    var ctx = /*[[@&#123;/&#125;]]*/ &#39;&#39;;
+    var loginUser = /*[[$&#123;session.login_user.username&#125;]]*/ &#39;&#39;;
+    alert(ctx);
+    alert(loginUser);
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://renguangli.gitee.io/images/spring-boot/spring-boot-thymeleaf.jpg" alt="spring-boot-thymeleaf"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/htmlsingle/">https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/htmlsingle/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html">https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html</a></p>
+<p>本文所有代码放在 Github 上，地址：<a target="_blank" rel="noopener" href="https://github.com/renguangli/spring-boot-samples/tree/master/spring-boot-thymeleaf">spring-boot-thymeleaf</a></p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+<div class="article-copyright hairline">
+  <p>
+    本作品采用 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可。
+  </p>
+</div>
+
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2018/spring-boot-jsp.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Spring Boot 集成 JSP 示例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/pring-boot-hello-world.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot 快速入门</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot 集成 Thymeleaf 模板引擎 - GUANGLI.REN&url=https://guangli.ren/2018/spring-boot-thymeleaf.html">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 集成 Thymeleaf 模板引擎 - GUANGLI.REN&u=https://guangli.ren/2018/spring-boot-thymeleaf.html">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 集成 Thymeleaf 模板引擎 - GUANGLI.REN&url=https://guangli.ren/2018/spring-boot-thymeleaf.html&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+<section class="comments">
+    <div id="gitalk-container"></div>
+</section>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+            
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="Search ..." autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2018/mysql-reset-root-password.html">MySQL 重置 root 用户密码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/you-must-reset-your-password-using-ALTER-USER-statement-before-executing-this-statement.html">You must reset your password using ALTER USER statement before executing this statement.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/mysql-install.html">MySQL 在 Linux 和 Windows 下的安装与配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/spring-boot-mybatis.html">Spring Boot 集成 Mybatis 增删改查示例</a>
+          </li>
+        
+          <li>
+            <a href="/2018/spring-boot-scheduler-task%20.html">Spring Boot 中使用 @Scheduled 注解创建定时任务</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            GUANGLI.REN &copy; 2013 - 2020<br>
+            Powered By Hexo · Theme By <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a>
+        </div>
+    </div>
+
+</footer>
+
+
+<!-- <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
+<script src="https://renguangli.gitee.io/gitalk/gitalk.min.js"></script>
+
+
+
+
+<script src="https://renguangli.gitee.io/dist/build.js?1.7.2.js"></script>
+
+
+<script src="https://renguangli.gitee.io/dist/custom.js?1.7.2.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106555827-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-106555827-1');
+</script>
+
+
+
+
+
+</body>
+
+</html>

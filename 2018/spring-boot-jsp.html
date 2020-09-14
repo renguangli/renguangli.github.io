@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>Spring Boot 集成 JSP 示例 | GUANGLI.REN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+        <meta property="algolia:search" data-application-id="NB8AWX3IIS" data-api-key="b896f11277f835f8f5eea4864ed2b32e" data-index-name="blogs">
+    
+
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://renguangli.gitee.io/gitalk/gitalk.css">
+    
+
+    
+<link rel="stylesheet" href="https://renguangli.gitee.io/dist/build.css?v=1.7.2.css">
+
+
+    <script>
+        window.aomori = {
+            
+            gitalk: {
+                enable: true,
+                clientID: "8ff7ae9648607fe6e4b3",
+                clientSecret: "5ffe44de3ec03f5072ff5641e1d5aa58a9138c16",
+                repo: "gitalk-comments",
+                owner: "renguangli",
+                admin: ["renguangli",],
+                distractionFreeMode: true  // Facebook-like distraction free mode
+            },
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+    </script>
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://renguangli.gitee.io/images/avatar.jpg" alt="Ren GuangLi">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>GUANGLI.REN</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/renguangli">
+        <box-icon type='' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-ckf2cdb5g000ducv7awac3m7a" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="/2018/spring-boot-jsp.html" rel="gallery_ckf2cdb5g000ducv7awac3m7a">
+        <img src="https://renguangli.gitee.io/images/spring-boot.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot 集成 JSP 示例
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2018-10-14T08:18:42.000Z" itemprop="datePublished">2018-10-14</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                有 <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>JSP 全名为Java Server Pages，中文名叫 Java服务器页面，其根本是一个简化的 Servlet 设计，它是由 Sun Microsystems公司倡导，许多公司参与一起建立的一种动态网页技术标准.</p>
+<a id="more"></a>
+
+<p>Spring Boot 默认不支持 JSP，如果你不喜欢 JSP，可以尝试以下 <a href="https://guangli.ren/articles/spring-boot-thymeleaf">Thymeleaf</a>，它是 Spring Boot 默认支持的模板引擎。如果你习惯使用 JSP，Spring Boot 通过配置也可以支持。</p>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="在-pom-xml-文件添加-JSP-依赖"><a href="#在-pom-xml-文件添加-JSP-依赖" class="headerlink" title="在 pom.xml 文件添加 JSP 依赖"></a>在 pom.xml 文件添加 JSP 依赖</h3><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+    &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+    &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+<p>pom.xml 文件 packaging 改为 war，JSP不能在可执行 jar 中使用</p>
+<pre><code class="xml">&lt;packaging&gt;war&lt;/packaging&gt;</code></pre>
+<h3 id="JSP-相关配置"><a href="#JSP-相关配置" class="headerlink" title="JSP 相关配置"></a>JSP 相关配置</h3><p>application.properties</p>
+<pre><code class="properties"># jsp
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp</code></pre>
+<p>新建 src\main\webapp\WEB-INF\jsp 目录存放 JSP 文件</p>
+<p>Spring boot 启动类继承 SpringBootServletInitializer 类，并重写 <code>configure(SpringApplicationBuilder builder)</code> 方法，以便 war 可以在 tomcat 下正常运行</p>
+<pre><code class="java">@SpringBootApplication
+public class JspApplication extends SpringBootServletInitializer &#123;
+
+    public static void main(String[] args) &#123;
+        SpringApplication.run(JspApplication.class, args);
+    &#125;
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;
+        return builder.sources(JspApplication.class);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="编写-controller"><a href="#编写-controller" class="headerlink" title="编写 controller"></a>编写 controller</h3><pre><code class="java">@Controller
+public class JspController &#123;
+
+    @GetMapping(&quot;/user&quot;)
+    public String index(HttpSession session) &#123;
+        List&lt;User&gt; users = new ArrayList&lt;&gt;();
+        users.add(new User(1L, &quot;admin&quot;, &quot;admin&quot;, LocalDateTime.now()));
+        users.add(new User(1L, &quot;dali&quot;, &quot;dali&quot;, LocalDateTime.now()));
+        model.addAttribute(&quot;users&quot;, users);
+        session.setAttribute(&quot;login_user&quot;, &quot;admin&quot;);
+    &#125;
+&#125;</code></pre>
+<h3 id="编写-JSP-文件"><a href="#编写-JSP-文件" class="headerlink" title="编写 JSP 文件"></a>编写 JSP 文件</h3><p>在 src\main\webapp\ 目录下新建 <code>index.jsp</code> 文件</p>
+<pre><code class="html">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Spring Boot 集成 JSP 示例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Welcome to spring-boot-jsp index page&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>在 src\main\webapp\WEB-INF\jsp 目录下新建 <code>user.jsp</code> 文件</p>
+<pre><code class="html">&lt;%--
+  Created by IntelliJ IDEA.
+  User: rengu
+  Date: 2018/10/14
+  Time: 22:16
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%@taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Spring Boot 集成 JSP 示例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Welcome to spring-boot-jsp user page&lt;/h2&gt;
+&lt;p&gt;login user is $&#123;login_user&#125;&lt;/p&gt;
+
+&lt;h2&gt;用户列表&lt;/h2&gt;
+&lt;table&gt;
+    &lt;c:forEach var=&quot;user&quot; items=&quot;$&#123;users&#125;&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;$&#123;user.userId&#125;&lt;/td&gt;
+            &lt;td&gt;$&#123;user.username&#125;&lt;/td&gt;
+            &lt;td&gt;$&#123;user.password&#125;&lt;/td&gt;
+            &lt;td&gt;$&#123;user.createTime&#125;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/c:forEach&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>index.jsp</p>
+<p><img src="https://renguangli.gitee.io/images/spring-boot/spring-boot-jsp-index.jpg" alt="spring-boot-jsp-index"></p>
+<p>user.jsp</p>
+<p><img src="https://renguangli.gitee.io/images/spring-boot/spring-boot-jsp-user.jpg" alt="spring-boot-jsp-user"></p>
+<p>本文所有代码放在 Github 上，地址：<a target="_blank" rel="noopener" href="https://github.com/renguangli/spring-boot-samples/tree/master/spring-boot-jsp">spring-boot-jsp</a></p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+<div class="article-copyright hairline">
+  <p>
+    本作品采用 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可。
+  </p>
+</div>
+
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2018/spring-boot-jpa.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Spring Boot 集成 Spring Data Jpa 增删改查示例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/spring-boot-thymeleaf.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot 集成 Thymeleaf 模板引擎</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot 集成 JSP 示例 - GUANGLI.REN&url=https://guangli.ren/2018/spring-boot-jsp.html">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 集成 JSP 示例 - GUANGLI.REN&u=https://guangli.ren/2018/spring-boot-jsp.html">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 集成 JSP 示例 - GUANGLI.REN&url=https://guangli.ren/2018/spring-boot-jsp.html&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+<section class="comments">
+    <div id="gitalk-container"></div>
+</section>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+            
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="Search ..." autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2018/mysql-reset-root-password.html">MySQL 重置 root 用户密码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/you-must-reset-your-password-using-ALTER-USER-statement-before-executing-this-statement.html">You must reset your password using ALTER USER statement before executing this statement.</a>
+          </li>
+        
+          <li>
+            <a href="/2018/mysql-install.html">MySQL 在 Linux 和 Windows 下的安装与配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/spring-boot-mybatis.html">Spring Boot 集成 Mybatis 增删改查示例</a>
+          </li>
+        
+          <li>
+            <a href="/2018/spring-boot-scheduler-task%20.html">Spring Boot 中使用 @Scheduled 注解创建定时任务</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            GUANGLI.REN &copy; 2013 - 2020<br>
+            Powered By Hexo · Theme By <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a>
+        </div>
+    </div>
+
+</footer>
+
+
+<!-- <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
+<script src="https://renguangli.gitee.io/gitalk/gitalk.min.js"></script>
+
+
+
+
+<script src="https://renguangli.gitee.io/dist/build.js?1.7.2.js"></script>
+
+
+<script src="https://renguangli.gitee.io/dist/custom.js?1.7.2.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106555827-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-106555827-1');
+</script>
+
+
+
+
+
+</body>
+
+</html>
