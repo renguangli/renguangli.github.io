@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Spring Boot 集成 Spring Data Jpa 增删改查示例 | GUANGLI.REN</title>
+    <title>Spring Boot 集成 JSP 示例 | GUANGLI.REN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckf2cdb5d0009ucv7gb235070" class="article article-type-post" itemscope
+    <article id="post-ckf2ekz15000i3sv763wj8934" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -126,7 +126,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="/2018/spring-boot-jpa.html" rel="gallery_ckf2cdb5d0009ucv7gb235070">
+      <a class="article-gallery-img fancybox" href="/spring-boot-jsp.html" rel="gallery_ckf2ekz15000i3sv763wj8934">
         <img src="https://renguangli.gitee.io/images/spring-boot.png" itemprop="image">
       </a>
     
@@ -139,7 +139,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      Spring Boot 集成 Spring Data Jpa 增删改查示例
+      Spring Boot 集成 JSP 示例
     </h1>
   
 
@@ -149,7 +149,7 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2018-10-16T08:18:42.000Z" itemprop="datePublished">2018-10-16</time>
+  <time datetime="2018-10-14T08:18:42.000Z" itemprop="datePublished">2018-10-14</time>
 </div>
 
             
@@ -172,149 +172,104 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p>使用 Spring Data Jpa 对数据库进行 CURD 操作</p>
+            <p>JSP 全名为Java Server Pages，中文名叫 Java服务器页面，其根本是一个简化的 Servlet 设计，它是由 Sun Microsystems公司倡导，许多公司参与一起建立的一种动态网页技术标准.</p>
 <a id="more"></a>
 
-<h2 id="Jpa-与-Spring-Data-Jpa-的关系"><a href="#Jpa-与-Spring-Data-Jpa-的关系" class="headerlink" title="Jpa 与 Spring Data Jpa 的关系"></a>Jpa 与 Spring Data Jpa 的关系</h2><p>JPA 是Java Persistence API 的简称，中文名 Java 持久层 API，是 JDK 5.0 注解或 XML 描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。</p>
-<p>Sun 引入新的 JPA ORM 规范出于两个原因：</p>
-<ul>
-<li>简化现有 Java EE 和 Java SE 应用开发工作；</li>
-<li>Sun 希望整合 ORM 技术，实现天下归一。</li>
-</ul>
-<p>Spring Data Jpa 是 Spring 基于 ORM 框架、JPA 规范的基础上封装的一套 JPA 应用框架，开发者用极简的代码即可实现对数据的访问。它提供了包括增删改查等在内的常用功能，并且易于扩展！学习并使用 Spring Data JPA 可以极大提高开发效率！</p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="在-pom-xml-文件添加-Jpa-依赖"><a href="#在-pom-xml-文件添加-Jpa-依赖" class="headerlink" title="在 pom.xml 文件添加 Jpa 依赖"></a>在 pom.xml 文件添加 Jpa 依赖</h3><p>使用 MySQL 数据库作为存储。</p>
-<pre><code class="java">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+<p>Spring Boot 默认不支持 JSP，如果你不喜欢 JSP，可以尝试以下 <a href="https://guangli.ren/articles/spring-boot-thymeleaf">Thymeleaf</a>，它是 Spring Boot 默认支持的模板引擎。如果你习惯使用 JSP，Spring Boot 通过配置也可以支持。</p>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="在-pom-xml-文件添加-JSP-依赖"><a href="#在-pom-xml-文件添加-JSP-依赖" class="headerlink" title="在 pom.xml 文件添加 JSP 依赖"></a>在 pom.xml 文件添加 JSP 依赖</h3><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+    &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
-    &lt;groupId&gt;mysql&lt;/groupId&gt;
-    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-    &lt;version&gt;5.1.46&lt;/version&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+    &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
 &lt;/dependency&gt;</code></pre>
-<h3 id="Jpa-相关配置"><a href="#Jpa-相关配置" class="headerlink" title="Jpa 相关配置"></a>Jpa 相关配置</h3><p>application.properties</p>
-<pre><code class="properties">spring.thymeleaf.cache=false
+<p>pom.xml 文件 packaging 改为 war，JSP不能在可执行 jar 中使用</p>
+<pre><code class="xml">&lt;packaging&gt;war&lt;/packaging&gt;</code></pre>
+<h3 id="JSP-相关配置"><a href="#JSP-相关配置" class="headerlink" title="JSP 相关配置"></a>JSP 相关配置</h3><p>application.properties</p>
+<pre><code class="properties"># jsp
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp</code></pre>
+<p>新建 src\main\webapp\WEB-INF\jsp 目录存放 JSP 文件</p>
+<p>Spring boot 启动类继承 SpringBootServletInitializer 类，并重写 <code>configure(SpringApplicationBuilder builder)</code> 方法，以便 war 可以在 tomcat 下正常运行</p>
+<pre><code class="java">@SpringBootApplication
+public class JspApplication extends SpringBootServletInitializer &#123;
 
-spring.datasource.url=jdbc:mysql://localhost:3306/springboot
-spring.datasource.driverClassName=com.mysql.jdbc.Driver
-spring.datasource.username=root
-spring.datasource.password=root
-
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=update</code></pre>
-<h3 id="编写-Entity"><a href="#编写-Entity" class="headerlink" title="编写 Entity"></a>编写 Entity</h3><pre><code class="java">@Entity
-@Table(name = &quot;USER&quot;)
-public class User &#123;
-
-    @Id
-    @GeneratedValue
-    private Long userId;
-
-    @Column(name = &quot;username&quot;, length = 16, unique = true)
-    private String username;
-
-    private String password;
-
-    @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;)
-    @DateTimeFormat(pattern = &quot;yyyy-MM-dd&quot;)
-
-    private char sex;
-
-    private Integer age;
-
-    public User()&#123;&#125;
-
-    ...
-
-&#125;</code></pre>
-<h3 id="编写-Repository"><a href="#编写-Repository" class="headerlink" title="编写 Repository"></a>编写 Repository</h3><pre><code class="java">public interface UserRepository extends JpaRepository&lt;User, Long&gt; &#123;
-
-    Page&lt;User&gt; findAll(Specification&lt;User&gt; spec, Pageable pageable);
-
-    @Transactional
-    void deleteByUserIdIn(Long[] userIds);
-
-    @Transactional
-    @Modifying
-    @Query(&quot;update User set password = ?1 where username=?2&quot;)
-    void updateUser(String password, String username);
-&#125;</code></pre>
-<h3 id="编写-Controller"><a href="#编写-Controller" class="headerlink" title="编写 Controller"></a>编写 Controller</h3><p>为减少代码量就不写 Service 了</p>
-<pre><code class="java">@RestController
-public class UserController &#123;
-
-    private final UserRepository userRepository;
-
-    @Autowired
-    public UserController(UserRepository userRepository) &#123;
-        this.userRepository = userRepository;
+    public static void main(String[] args) &#123;
+        SpringApplication.run(JspApplication.class, args);
     &#125;
 
-    @GetMapping(&quot;/users&quot;)
-    public Map&lt;String, Object&gt; listUsers(User user
-            , @RequestParam(value = &quot;page&quot;, defaultValue = &quot;1&quot;) Integer page
-            , @RequestParam(value = &quot;limit&quot;, defaultValue = &quot;10&quot;) Integer limit) &#123;
-
-        Pageable pageable = new PageRequest((page - 1) * limit, limit);
-        Specification&lt;User&gt; specification = (root, query, cb) -&gt; &#123;
-            List&lt;Predicate&gt; list = new ArrayList&lt;&gt;();
-            String username = user.getUsername();
-            if (username != null &amp;&amp; !&quot;&quot;.equals(username))&#123;
-                list.add(cb.like(root.get(&quot;username&quot;).as(String.class), username + &quot;%&quot;));
-            &#125;
-            return cb.and(list.toArray(new Predicate[0]));
-        &#125;;
-        Page&lt;User&gt; userPage = userRepository.findAll(specification, pageable);
-
-        Map&lt;String, Object&gt; data = new Hashtable&lt;&gt;();
-        data.put(&quot;code&quot;, 0);
-        data.put(&quot;msg&quot;, &quot;success&quot;);
-        data.put(&quot;data&quot;, userPage.getContent());
-        data.put(&quot;count&quot;, userPage.getTotalElements());
-        return data;
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;
+        return builder.sources(JspApplication.class);
     &#125;
+&#125;
+</code></pre>
+<h3 id="编写-controller"><a href="#编写-controller" class="headerlink" title="编写 controller"></a>编写 controller</h3><pre><code class="java">@Controller
+public class JspController &#123;
 
     @GetMapping(&quot;/user&quot;)
-    public boolean existsUser(Long userId) &#123;
-        return userRepository.exists(userId);
+    public String index(HttpSession session) &#123;
+        List&lt;User&gt; users = new ArrayList&lt;&gt;();
+        users.add(new User(1L, &quot;admin&quot;, &quot;admin&quot;, LocalDateTime.now()));
+        users.add(new User(1L, &quot;dali&quot;, &quot;dali&quot;, LocalDateTime.now()));
+        model.addAttribute(&quot;users&quot;, users);
+        session.setAttribute(&quot;login_user&quot;, &quot;admin&quot;);
     &#125;
-
-    @PostMapping(&quot;/user&quot;)
-    public boolean saveUser(User user) &#123;
-        user.setUsername(UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;).substring(0,15));
-        user.setPassword(UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;).substring(0,11));
-        if (new Random().nextInt(10) % 2 == 0) &#123;
-            user.setSex(&#39;男&#39;);
-        &#125; else &#123;
-            user.setSex(&#39;女&#39;);
-        &#125;
-        user.setCreateTime(new Date());
-        user.setAge(18);
-        userRepository.save(user);
-        return true;
-    &#125;
-
-    @DeleteMapping(&quot;/user/&#123;userId&#125;&quot;)
-    public boolean deleteUser(@PathVariable Long userId) &#123;
-        userRepository.delete(userId);
-        return true;
-    &#125;
-
-    @DeleteMapping(&quot;/users&quot;)
-    public boolean deleteBatchUser(@RequestParam(&quot;userIds[]&quot;) Long[] userIds) &#123;
-        userRepository.deleteByUserIdIn(userIds);
-        return true;
-    &#125;
-
-    @PutMapping(&quot;/user&quot;)
-    public boolean updateUser(User user) &#123;
-        userRepository.updateUser(user.getPassword(), user.getUsername());
-        return true;
-    &#125;
-
 &#125;</code></pre>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="https://renguangli.gitee.io/images/spring-boot/spring-boot-jpa.png" alt="spring-boot-jpa"></p>
-<p>本文所有代码放在 Github 上，地址：<a target="_blank" rel="noopener" href="https://github.com/renguangli/spring-boot-samples/tree/master/spring-boot-jpa">spring-boot-jpa</a></p>
+<h3 id="编写-JSP-文件"><a href="#编写-JSP-文件" class="headerlink" title="编写 JSP 文件"></a>编写 JSP 文件</h3><p>在 src\main\webapp\ 目录下新建 <code>index.jsp</code> 文件</p>
+<pre><code class="html">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Spring Boot 集成 JSP 示例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Welcome to spring-boot-jsp index page&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>在 src\main\webapp\WEB-INF\jsp 目录下新建 <code>user.jsp</code> 文件</p>
+<pre><code class="html">&lt;%--
+  Created by IntelliJ IDEA.
+  User: rengu
+  Date: 2018/10/14
+  Time: 22:16
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%@taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Spring Boot 集成 JSP 示例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Welcome to spring-boot-jsp user page&lt;/h2&gt;
+&lt;p&gt;login user is $&#123;login_user&#125;&lt;/p&gt;
+
+&lt;h2&gt;用户列表&lt;/h2&gt;
+&lt;table&gt;
+    &lt;c:forEach var=&quot;user&quot; items=&quot;$&#123;users&#125;&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;$&#123;user.userId&#125;&lt;/td&gt;
+            &lt;td&gt;$&#123;user.username&#125;&lt;/td&gt;
+            &lt;td&gt;$&#123;user.password&#125;&lt;/td&gt;
+            &lt;td&gt;$&#123;user.createTime&#125;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/c:forEach&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>index.jsp</p>
+<p><img src="https://renguangli.gitee.io/images/spring-boot/spring-boot-jsp-index.jpg" alt="spring-boot-jsp-index"></p>
+<p>user.jsp</p>
+<p><img src="https://renguangli.gitee.io/images/spring-boot/spring-boot-jsp-user.jpg" alt="spring-boot-jsp-user"></p>
+<p>本文所有代码放在 Github 上，地址：<a target="_blank" rel="noopener" href="https://github.com/renguangli/spring-boot-samples/tree/master/spring-boot-jsp">spring-boot-jsp</a></p>
 
         </div>
 
@@ -339,19 +294,19 @@ public class UserController &#123;
     
 <nav class="article-nav">
   
-    <a href="/2018/spring-boot-config.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/spring-boot-jpa.html" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
-          Spring Boot 常用配置以及自定义配置
+          Spring Boot 集成 Spring Data Jpa 增删改查示例
         
       </div>
     </a>
   
   
-    <a href="/2018/spring-boot-jsp.html" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/spring-boot-thymeleaf.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">Spring Boot 集成 JSP 示例</div>
+      <div class="article-nav-title">Spring Boot 集成 Thymeleaf 模板引擎</div>
     </a>
   
 </nav>
@@ -360,15 +315,15 @@ public class UserController &#123;
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=Spring Boot 集成 Spring Data Jpa 增删改查示例 - GUANGLI.REN&url=https://guangli.ren/2018/spring-boot-jpa.html">
+            href="https://twitter.com/share?text=Spring Boot 集成 JSP 示例 - GUANGLI.REN&url=https://guangli.ren/spring-boot-jsp.html">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=Spring Boot 集成 Spring Data Jpa 增删改查示例 - GUANGLI.REN&u=https://guangli.ren/2018/spring-boot-jpa.html">
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 集成 JSP 示例 - GUANGLI.REN&u=https://guangli.ren/spring-boot-jsp.html">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=Spring Boot 集成 Spring Data Jpa 增删改查示例 - GUANGLI.REN&url=https://guangli.ren/2018/spring-boot-jpa.html&pic=">
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 集成 JSP 示例 - GUANGLI.REN&url=https://guangli.ren/spring-boot-jsp.html&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
@@ -420,7 +375,7 @@ public class UserController &#123;
   <div class="widget-wrap widget-cate">
     <div class="widget-title"><span>Categories</span></div>
     <div class="widget-inner">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></li></ul>
     </div>
   </div>
 
@@ -430,7 +385,7 @@ public class UserController &#123;
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li></ul>
     </div>
   </div>
 
@@ -443,23 +398,23 @@ public class UserController &#123;
       <ul>
         
           <li>
-            <a href="/2018/mysql-reset-root-password.html">MySQL 重置 root 用户密码</a>
+            <a href="/mysql-reset-root-password.html">MySQL 重置 root 用户密码</a>
           </li>
         
           <li>
-            <a href="/2018/you-must-reset-your-password-using-ALTER-USER-statement-before-executing-this-statement.html">You must reset your password using ALTER USER statement before executing this statement.</a>
+            <a href="/you-must-reset-your-password-using-ALTER-USER-statement-before-executing-this-statement.html">You must reset your password using ALTER USER statement before executing this statement.</a>
           </li>
         
           <li>
-            <a href="/2018/mysql-install.html">MySQL 在 Linux 和 Windows 下的安装与配置</a>
+            <a href="/mysql-install.html">MySQL 在 Linux 和 Windows 下的安装与配置</a>
           </li>
         
           <li>
-            <a href="/2018/spring-boot-mybatis.html">Spring Boot 集成 Mybatis 增删改查示例</a>
+            <a href="/spring-boot-mybatis.html">Spring Boot 集成 Mybatis 增删改查示例</a>
           </li>
         
           <li>
-            <a href="/2018/spring-boot-scheduler-task%20.html">Spring Boot 中使用 @Scheduled 注解创建定时任务</a>
+            <a href="/spring-boot-scheduler-task%20.html">Spring Boot 中使用 @Scheduled 注解创建定时任务</a>
           </li>
         
       </ul>

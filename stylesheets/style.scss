@@ -382,15 +382,6 @@ button {
                 position: relative;
             }
 
-            .archive-list-count
-                margin-left 8px
-                font-size 0.8em
-                color color-meta
-                &:before
-                    content '('
-                &:after
-                    content ')'
-
             li::before {
                 background: $color-main;
                 content: '';
