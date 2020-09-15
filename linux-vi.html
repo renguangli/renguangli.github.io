@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckf3npto8000168v7c0yg1hjx" class="article article-type-post" itemscope
+    <article id="post-ckf3nwfpt0002ecv7fex35rnw" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -126,7 +126,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="/linux-vi.html" rel="gallery_ckf3npto8000168v7c0yg1hjx">
+      <a class="article-gallery-img fancybox" href="/linux-vi.html" rel="gallery_ckf3nwfpt0002ecv7fex35rnw">
         <img src="https://renguangli.gitee.io/images/linux.png" itemprop="image">
       </a>
     
@@ -169,94 +169,94 @@
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
             <p>vi 编辑器是 Linux 系统下标准的编辑器.而且不逊色于其他任何最新的编辑器。</p>
+<p>vi 编辑器分为命令行模式，插入模式和底行模式三种状态</p>
 <a id="more"></a>
 
-<p>vi编辑器分为命令行模式，插入模式和底行模式三种状态</p>
 <ul>
 <li>命令行模式：控制屏幕光标的移动、字符、字或行的删除，移动复制某区段及进入插入模式下，或者到底行模式。   </li>
 <li>插入模式：只有在插入模式下，才可以做文字输入，按「ESC」键可回到命令行模式。</li>
 <li>底行模式：将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。 </li>
 </ul>
-<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>输入<code>vi fileName</code>命令进入vi编辑器，这时处于命令行模式。</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>输入<code>vi fileName</code>命令进入 vi 编辑器，这时处于命令行模式。</p>
 <p>在命令模式下按下<code>i</code>字母就会进入插入模式，这时就可以对对文件进行编辑了。  </p>
 <p>在命令行模式下，按一下 <code>:</code>冒号键进入底行模式</p>
 <ul>
-<li><code>:w</code>保存但不退出。</li>
-<li><code>:w fileName</code>文件另存为filename。</li>
-<li><code>:wq</code>保存并退出。</li>
-<li><code>:q</code>退出但不保存。  </li>
+<li><code>:w</code> 保存但不退出。</li>
+<li><code>:w fileName</code> 文件另存为 filename。</li>
+<li><code>:wq</code> 保存并退出。</li>
+<li><code>:q</code> 退出但不保存。  </li>
 </ul>
-<p>在末尾加入<code>！</code>表示强制执行，例如<code>:q!</code>表示强制退出但不保存。</p>
+<p>在末尾加入 <code>！</code> 表示强制执行，例如 <code>:q!</code> 表示强制退出但不保存。</p>
 <h2 id="命令行模式功能键"><a href="#命令行模式功能键" class="headerlink" title="命令行模式功能键"></a>命令行模式功能键</h2><h3 id="进入插入模式的几种方法。"><a href="#进入插入模式的几种方法。" class="headerlink" title="进入插入模式的几种方法。"></a>进入插入模式的几种方法。</h3><ul>
-<li>按<code>i</code>进入插入模式后，光标当前位置开始输入文件；</li>
-<li>按大写<code>I</code>进入插入模式后，光标所在行开始位置开始输入文件</li>
-<li>按<code>a</code>进入插入模式后，光标所在位置的下一个位置开始输入文字； </li>
-<li>按<code>A</code>进入插入模式后，光标所在行末尾开始输入文字； </li>
-<li>按<code>o</code>进入插入模式后，在当前行下一行插入新的一行，从行首开始输入文字。 </li>
-<li>按<code>O</code>进入插入模式后，在当前行上一行是插入新的一行，从行首开始输入文字。</li>
+<li>按 <code>i</code> 进入插入模式后，光标当前位置开始输入文件；</li>
+<li>按大写 <code>I</code> 进入插入模式后，光标所在行开始位置开始输入文件</li>
+<li>按 <code>a</code> 进入插入模式后，光标所在位置的下一个位置开始输入文字； </li>
+<li>按 <code>A</code> 进入插入模式后，光标所在行末尾开始输入文字； </li>
+<li>按 <code>o</code> 进入插入模式后，在当前行下一行插入新的一行，从行首开始输入文字。 </li>
+<li>按 <code>O</code> 进入插入模式后，在当前行上一行是插入新的一行，从行首开始输入文字。</li>
 </ul>
-<h3 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h3><p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母<code>hjkl</code>，分别控制光标左、下、上、右移一格。<br>其他移动光标的功能键</p>
+<h3 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h3><p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母 <code>hjkl</code> ，分别控制光标左、下、上、右移一格。<br>其他移动光标的功能键</p>
 <ul>
-<li><code>ctrl + b</code>屏幕往“后”移动一页。 </li>
-<li><code>ctrl + f</code>屏幕往“前”移动一页。 </li>
-<li><code>ctrl + u</code>屏幕往“后”移动半页</li>
-<li><code>ctrl + d</code>屏幕往“前”移动半页。</li>
-<li><code>home</code>,<code>^</code>,<code>0</code>移到行首。</li>
-<li><code>end</code>,<code>\$</code>移到行尾</li>
-<li><code>gg</code>移到文件开头。</li>
-<li><code>G</code>移到文件最后。</li>
-<li><code>w</code>光标跳到下个字的开头 </li>
-<li><code>e</code>光标跳到下个字的字尾 </li>
-<li><code>b</code>光标回到上个字的开头 </li>
-<li><code>#l</code>光标移到该行的第#个位置，如：5l,56l。 </li>
+<li><code>ctrl + b</code> 屏幕往“后”移动一页。 </li>
+<li><code>ctrl + f</code> 屏幕往“前”移动一页。 </li>
+<li><code>ctrl + u</code> 屏幕往“后”移动半页</li>
+<li><code>ctrl + d</code> 屏幕往“前”移动半页。</li>
+<li><code>home</code>,<code>^</code>, <code>0</code> 移到行首。</li>
+<li><code>end</code> , <code>\$</code> 移到行尾</li>
+<li><code>gg</code> 移到文件开头。</li>
+<li><code>G</code> 移到文件最后。</li>
+<li><code>w</code> 光标跳到下个字的开头 </li>
+<li><code>e</code> 光标跳到下个字的字尾 </li>
+<li><code>b</code> 光标回到上个字的开头 </li>
+<li><code>#l</code> 光标移到该行的第#个位置，如：5l,56l。 </li>
 </ul>
 <h3 id="删除文字"><a href="#删除文字" class="headerlink" title="删除文字"></a>删除文字</h3><ul>
-<li><code>x</code>每按一次，删除光标所在位置的“后面”一个字符。 </li>
-<li><code>#x</code>：例如，「6x」表示删除光标所在位置的“后面”6个字符。 </li>
-<li><code>X</code>大写的X，每按一次，删除光标所在位置的“前面”一个字符。 </li>
-<li><code>#X</code>例如，「20X」表示删除光标所在位置的“前面”20个字符。 </li>
-<li><code>dd</code>删除光标所在行。 </li>
-<li><code>#dd</code>从光标所在行开始删除#行 </li>
+<li><code>x</code> 每按一次，删除光标所在位置的“后面”一个字符。 </li>
+<li><code>#x</code> ：例如，「6x」表示删除光标所在位置的“后面”6个字符。 </li>
+<li><code>X</code> 大写的 X，每按一次，删除光标所在位置的“前面”一个字符。 </li>
+<li><code>#X</code> 例如，「20X」表示删除光标所在位置的“前面”20个字符。 </li>
+<li><code>dd</code> 删除光标所在行。 </li>
+<li><code>#dd</code> 从光标所在行开始删除#行 </li>
 </ul>
 <h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><ul>
-<li><code>yw</code>将光标所在之处到字尾的字符复制到缓冲区中。 </li>
-<li><code>#wy</code>复制#个字到缓冲区 </li>
-<li><code>yy</code>复制光标所在行到缓冲区。 </li>
-<li><code>#yy</code>例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。 </li>
-<li><code>p</code>将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。</li>
+<li><code>yw</code> 将光标所在之处到字尾的字符复制到缓冲区中。 </li>
+<li><code>#wy</code> 复制#个字到缓冲区 </li>
+<li><code>yy</code> 复制光标所在行到缓冲区。 </li>
+<li><code>#yy</code> 例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。 </li>
+<li><code>p</code> 将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。</li>
 </ul>
 <h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><ul>
-<li><code>r</code>替换光标所在处的字符。 </li>
-<li><code>R</code>替换光标所到之处的字符，直到按下「ESC」键为止。 </li>
+<li><code>r</code> 替换光标所在处的字符。 </li>
+<li><code>R</code> 替换光标所到之处的字符，直到按下「ESC」键为止。 </li>
 </ul>
 <h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><ul>
-<li><code>u</code>如果您误执行一个命令，可以马上按下<code>u</code>，回到上一个操作。按多次“u”可以执行多次回复。 </li>
+<li><code>u</code> 如果您误执行一个命令，可以马上按下 <code>u</code>，回到上一个操作。按多次“u”可以执行多次回复。 </li>
 </ul>
 <h3 id="更改"><a href="#更改" class="headerlink" title="更改"></a>更改</h3><ul>
-<li><code>cw</code>更改光标所在处的字到字尾处 </li>
-<li><code>c#w</code>例如,<code>c3w</code>表示更改3个字 </li>
+<li><code>cw</code> 更改光标所在处的字到字尾处 </li>
+<li><code>c#w</code> 例如, <code>c3w</code> 表示更改3个字 </li>
 </ul>
 <h3 id="跳至指定的行"><a href="#跳至指定的行" class="headerlink" title="跳至指定的行"></a>跳至指定的行</h3><ul>
-<li><code>ctrl + g</code>列出光标所在行的行号。 </li>
-<li><code>#G</code>例如，<code>10G</code>，表示移动光标至文章的第15行行首。 </li>
+<li><code>ctrl + g</code> 列出光标所在行的行号。 </li>
+<li><code>#G</code>例如，<code>10G</code>，表示移动光标至文章的第 15 行行首。 </li>
 </ul>
-<h2 id="底行模式下命令简介"><a href="#底行模式下命令简介" class="headerlink" title="底行模式下命令简介"></a>底行模式下命令简介</h2><p>　　在使用底行模式之前，请记住先按「ESC」键确定您已经处于命令行模式下后，再按<code>:</code>冒号即可进入底行模式。 </p>
+<h2 id="底行模式下命令简介"><a href="#底行模式下命令简介" class="headerlink" title="底行模式下命令简介"></a>底行模式下命令简介</h2><p>　　在使用底行模式之前，请记住先按「ESC」键确定您已经处于命令行模式下后，再按 <code>:</code> 冒号即可进入底行模式。 </p>
 <h3 id="列出行号"><a href="#列出行号" class="headerlink" title="列出行号"></a>列出行号</h3><ul>
-<li><code>set nu</code>输入<code>set nu</code>后，会在文件中的每一行前面列出行号。 </li>
+<li><code>set nu</code> 输入 <code>set nu</code> 后，会在文件中的每一行前面列出行号。 </li>
 </ul>
 <h3 id="跳到文件中的某一行"><a href="#跳到文件中的某一行" class="headerlink" title="跳到文件中的某一行"></a>跳到文件中的某一行</h3><ul>
-<li><code>#</code>号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行。 </li>
+<li><code>#</code> 号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字 15，再回车，就会跳到文章的第 15 行。 </li>
 </ul>
 <h3 id="查找字符"><a href="#查找字符" class="headerlink" title="查找字符"></a>查找字符</h3><ul>
-<li><code>/关键字</code>先按<code>/</code>键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按<code>n</code>会往后寻找到您要的关键字为止。 </li>
-<li><code>?关键字</code>先按<code>?</code>键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按<code>n</code>会往前寻找到您要的关键字为止。 </li>
+<li><code>/关键字</code> 先按 <code>/</code> 键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按 <code>n</code> 会往后寻找到您要的关键字为止。 </li>
+<li><code>?关键字</code> 先按 <code>?</code> 键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按 <code>n</code> 会往前寻找到您要的关键字为止。 </li>
 </ul>
 <h3 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h3><ul>
-<li><code>w</code>在冒号输入字母<code>w</code>就可以将文件保存起来。 </li>
+<li><code>w</code> 在冒号输入字母 <code>w</code> 就可以将文件保存起来。 </li>
 </ul>
 <h3 id="离开vi"><a href="#离开vi" class="headerlink" title="离开vi"></a>离开vi</h3><ul>
-<li><code>q</code>按「q」就是退出，如果无法离开vi，可以在<code>q</code>跟一个<code>!</code>强制离开vi。 </li>
-<li><code>qw</code>一般建议离开时，搭配<code>w</code>一起使用，这样在退出的时候还可以保存文件。 </li>
+<li><code>q</code> 按「q」就是退出，如果无法离开 vi，可以在 <code>q</code> 跟一个 <code>!</code> 强制离开 vi。 </li>
+<li><code>qw</code> 一般建议离开时，搭配 <code>w</code> 一起使用，这样在退出的时候还可以保存文件。 </li>
 </ul>
 
         </div>
