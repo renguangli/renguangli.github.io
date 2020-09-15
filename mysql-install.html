@@ -170,12 +170,12 @@
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
             <p>Linux 下安装 MySQL </p>
 <p>下载地址：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
-<p>点击直接下载 64 位 5.7.24 版本的 <a target="_blank" rel="noopener" href="https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz">mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz</a></p>
+<p>点击直接下载 64 位 5.7.24 版本的安装包 <a target="_blank" rel="noopener" href="https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz">mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz</a></p>
 <a id="more"></a>
 
 <h2 id="Linux下-MySQL-二进制安装"><a href="#Linux下-MySQL-二进制安装" class="headerlink" title="Linux下 MySQL 二进制安装"></a>Linux下 MySQL 二进制安装</h2><h3 id="1、创建用户、用户组"><a href="#1、创建用户、用户组" class="headerlink" title="1、创建用户、用户组"></a>1、创建用户、用户组</h3><pre><code class="bash">[root@localhost local]# groupadd mysql
 [root@localhost local]# useradd -g mysql -s /sbin/nologin mysql</code></pre>
-<h3 id="2、将二进制包解压到指定目录并重命名为mysql"><a href="#2、将二进制包解压到指定目录并重命名为mysql" class="headerlink" title="2、将二进制包解压到指定目录并重命名为mysql"></a>2、将二进制包解压到指定目录并重命名为mysql</h3><pre><code class="bash">[root@localhost local]# pwd
+<h3 id="2、将二进制包解压到指定目录并重命名为-mysql"><a href="#2、将二进制包解压到指定目录并重命名为-mysql" class="headerlink" title="2、将二进制包解压到指定目录并重命名为 mysql"></a>2、将二进制包解压到指定目录并重命名为 mysql</h3><pre><code class="bash">[root@localhost local]# pwd
 /usr/local
 [root@localhost local]# tar -zxvf mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz
 [root@localhost local]# mv mysql-5.7.24-linux-glibc2.12-x86_64 mysql
@@ -200,18 +200,21 @@ drwxr-xr-x. 2 root root         6 11月  8 05:33 src</code></pre>
 [root@localhost bin]# source /etc/profile</code></pre>
 <h3 id="4、创建数据目录并赋权"><a href="#4、创建数据目录并赋权" class="headerlink" title="4、创建数据目录并赋权"></a>4、创建数据目录并赋权</h3><pre><code class="bash">[root@localhost mysql]# pwd
 /usr/local/mysql
-[root@localhost mysql]# mkdir data</code></pre>
+[root@localhost mysql]# mkdir data
+[root@localhost mysql]# chown -R mysql.mysql data</code></pre>
 <h3 id="5、编辑配置文件"><a href="#5、编辑配置文件" class="headerlink" title="5、编辑配置文件"></a>5、编辑配置文件</h3><pre><code class="bash">[root@localhost mysql]# vi /etc/my.cnf
-[client]
-port=3306
-default-character-set=utf8
-socket=/usr/local/mysql/run/mysql.sock
 [mysqld]
-pid_file=/usr/local/mysql/run/mysql.pid
+port=3306
+basedir=/usr/local/mysql
 datadir=/usr/local/mysql/data
+socket=/var/lib/mysql/mysql.sock
 max_connections=200
 character-set-server=utf8
-</code></pre>
+[mysqld_safe]
+log-error=/var/log/mysql/mysqld.err
+pid-file=/var/run/mysql/mysql.pid
+[client]
+socket=/var/lib/mysql/mysql.sock</code></pre>
 <h3 id="6、初始化-MySQL"><a href="#6、初始化-MySQL" class="headerlink" title="6、初始化 MySQL"></a>6、初始化 MySQL</h3><pre><code class="bash">[root@localhost mysql]# mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
 2018-11-07T21:50:50.815257Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
 2018-11-07T21:50:51.175245Z 0 [Warning] InnoDB: New log files created, LSN=45790
@@ -219,14 +222,8 @@ character-set-server=utf8
 2018-11-07T21:50:51.470037Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 31b6a6d5-e2d7-11e8-9ee8-000c2970d10a.
 2018-11-07T21:50:51.496683Z 0 [Warning] Gtid table is not ready to be used. Table &#39;mysql.gtid_executed&#39; cannot be opened.
 2018-11-07T21:50:51.497829Z 1 [Note] A temporary password is generated for root@localhost: QHSpB01maf.!</code></pre>
-<p>记住最后一行生成临时 root 密码: QHSpB01maf.!</p>
-<h3 id="7、编辑配置文件"><a href="#7、编辑配置文件" class="headerlink" title="7、编辑配置文件"></a>7、编辑配置文件</h3><pre><code class="bash">[root@localhost data]# vi /etc/my.cnf
-[mysqld]
-port=3306
-datadir=/usr/local/mysql/data
-max_connections=200
-character-set-server=utf8</code></pre>
-<h3 id="8、启动"><a href="#8、启动" class="headerlink" title="8、启动"></a>8、启动</h3><pre><code class="bash">[root@localhost mysql]# cp support-files/mysql.server /etc/init.d/mysql
+<p>记住最后一行生成临时 root 密码 : QHSpB01maf.!</p>
+<h3 id="7、启动"><a href="#7、启动" class="headerlink" title="7、启动"></a>7、启动</h3><pre><code class="bash">[root@localhost mysql]# cp support-files/mysql.server /etc/init.d/mysql
 [root@localhost mysql]# service mysql start
 Starting MySQL. SUCCESS!
 [root@localhost mysql]# mysql -u root -pQHSpB01maf.!
@@ -286,11 +283,6 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)</code></pre>
       </div>
     </a>
   
-  
-    <a href="/linux-vi.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">vi 编辑器使用详解</div>
-    </a>
   
 </nav>
 
@@ -374,15 +366,15 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)</code></pre>
       <ul>
         
           <li>
+            <a href="/linux-vi.html">vi 编辑器使用详解</a>
+          </li>
+        
+          <li>
             <a href="/mysql-reset-root-password.html">MySQL 重置 root 用户密码</a>
           </li>
         
           <li>
             <a href="/mysql-install.html">Linux 下安装 MySQL</a>
-          </li>
-        
-          <li>
-            <a href="/linux-vi.html">vi 编辑器使用详解</a>
           </li>
         
       </ul>
@@ -394,7 +386,7 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)</code></pre>
   <div class="widget-wrap widget-archive">
     <div class="widget-title"><span>Archive</span></div>
     <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li></ul>
     </div>
   </div>
 
@@ -414,7 +406,7 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)</code></pre>
 
     <div class="footer-wrap">
         <div class="footer-inner"> 
-            GUANGLI.REN &copy; 2013 - 2020<br>
+            GUANGLI.REN &copy; 2020 - 2020<br>
             Powered By Hexo · Theme By <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a>
         </div>
     </div>
