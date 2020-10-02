@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>java 异常处理机制 | GUANGLI.REN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+        <meta property="algolia:search" data-application-id="NB8AWX3IIS" data-api-key="b896f11277f835f8f5eea4864ed2b32e" data-index-name="blogs">
+    
+
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://renguangli.gitee.io/gitalk/gitalk.css">
+    
+
+    
+<link rel="stylesheet" href="https://renguangli.gitee.io/dist/build.css?v=1.8.1.css">
+
+
+    <script>
+        window.aomori = {
+            
+            gitalk: {
+                enable: true,
+                clientID: "8ff7ae9648607fe6e4b3",
+                clientSecret: "5ffe44de3ec03f5072ff5641e1d5aa58a9138c16",
+                repo: "gitalk-comments",
+                owner: "renguangli",
+                admin: ["renguangli",],
+                distractionFreeMode: true  // Facebook-like distraction free mode
+            },
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+    </script>
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://renguangli.gitee.io/images/avatar.jpg" alt="Ren GuangLi">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>GUANGLI.REN</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/renguangli">
+        <box-icon type='' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-ckfruwz4n000084v71q8g3kzu" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      java 异常处理机制
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2019-01-02T05:36:35.000Z" itemprop="datePublished">2019-01-02</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                有 <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>异常是程序中的一些错误，但并不是所有的错误都是异常，有些错误有时候是可以避免的。</p>
+<a id="more"></a>
+
+<h1 id="异常分类"><a href="#异常分类" class="headerlink" title="异常分类"></a>异常分类</h1><h2 id="Error-和-Exception。"><a href="#Error-和-Exception。" class="headerlink" title="Error 和 Exception。"></a>Error 和 Exception。</h2><p>Error 和 Exception 都是 Throwable 的子类，Error 表示程序无法解决的错误<br>常见的有 <code>OutOfMemoryError</code>、<code>StackOverflowError</code></p>
+<p>Exception 表示程序执行时发生的异常，可以被处理。<br>常见的有  <code>NullPointerException</code>、<code>ClassNotFoundException</code>、<code>IndexOutOfBoundsException</code></p>
+<p>系统一旦出现 Error 错误，那么整个系统将无法继续运行。但是系统出现异常，只要处理得当，不会对系统造成多大影响。</p>
+<p><img src="https://img-blog.csdn.net/20180920165502957?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pY2hhZWxnbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<h2 id="受检异常和运行时异常。"><a href="#受检异常和运行时异常。" class="headerlink" title="受检异常和运行时异常。"></a>受检异常和运行时异常。</h2><p>受检异常可以在编译时检测到，必须进行手动处理，否则无法通过编译。常见的有 <code>IOException</code>，<code>FileNotFoundException</code></p>
+<p>运行时异常属于代码逻辑性异常，需要在运行期出现，可以不进行处理，同样可以通过编译，但是在运行时一旦出现该异常，则当前线程停止执行。一般情况下我们都会对运行时异常进行捕捉处理，以保证程序的正常运行，对于无关紧要的部分可以直接catch住，但对于影响当前线程后续执行的异常必须立即抛出来结束线程执行，这样能有效保护数据，不会因为异常而产生错误数据，一般我们会在事务中执行，一旦抛出异常，执行回滚，保证数据安全。常见的有 <code>NullPointerException</code>.</p>
+<h1 id="异常处理框架"><a href="#异常处理框架" class="headerlink" title="异常处理框架"></a>异常处理框架</h1><h2 id="try-catch"><a href="#try-catch" class="headerlink" title="try catch"></a>try catch</h2><p>通常使用 <code>try catch</code> 来捕获异常</p>
+<pre><code class="java">try &#123;
+    int[] a = &#123;1, 2&#125;;
+    int x = a[0] / 0;
+&#125; catch (ArithmeticException e) &#123;
+    e.printStackTrace();
+&#125;</code></pre>
+<p>多重捕获块</p>
+<pre><code class="java">try &#123;
+    int[] a = &#123;1, 2&#125;;
+    int x = a[0] / 0;
+    int y = a[2];
+&#125; catch (ArithmeticException e) &#123;
+    e.printStackTrace();
+&#125; catch (ArrayIndexOutOfBoundsException e) &#123;
+    e.printStackTrace();
+&#125;</code></pre>
+<p>或者这样</p>
+<pre><code class="java">try &#123;
+    int[] a = &#123;1, 2&#125;;
+    int x = a[0] / 0;
+    int y = a[2];
+&#125; catch (ArithmeticException | ArrayIndexOutOfBoundsException e) &#123;
+    e.printStackTrace();
+&#125;</code></pre>
+<h2 id="finally"><a href="#finally" class="headerlink" title="finally"></a>finally</h2><p>finally 不管有没有发生异常都会执行，除非退出 Java 虚拟机。通常用来用来关闭连接或者释放资源。</p>
+<pre><code class="java">OutputStream os = null;
+try &#123;
+    os = new FileOutputStream(&quot;D:/a.txt&quot;);
+    os.write(&quot;hello world&quot;.getBytes());
+    os.flush();
+&#125; catch (IOException e) &#123;
+    e.printStackTrace();
+&#125; finally &#123;
+    try &#123;
+        if (os != null) &#123;
+            os.close();
+        &#125;
+    &#125; catch (IOException e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;</code></pre>
+<h2 id="try-with-resource"><a href="#try-with-resource" class="headerlink" title="try-with-resource"></a>try-with-resource</h2><p>Jdk1.7 中新增了 <code>try-with-resource</code> 语法，当一个外部资源的对象实现了 <code>AutoCloseable</code> 接口，Jdk1.7 中便可以利用 <code>try-with-resource</code> 语法更优雅的关闭资源。</p>
+<pre><code>try (OutputStream os = new FileOutputStream(&quot;D:/a.txt&quot;);)&#123;
+    os.write(&quot;hello world&quot;.getBytes());
+    os.flush();
+&#125; catch (IOException e) &#123;
+    e.printStackTrace();
+&#125;</code></pre>
+<h2 id="throw-throws"><a href="#throw-throws" class="headerlink" title="throw throws"></a>throw throws</h2><p>throw 用于手动抛出异常</p>
+<p>throws 用于声明方法可能会抛出的异常</p>
+<pre><code class="java">public void throwsThrow(String str) throws Exception&#123;
+    if (str == null) &#123;
+        throw new Exception(&quot;parameter str not be null&quot;);
+    &#125;
+&#125;</code></pre>
+<h1 id="异常处理的-10-个最佳实践"><a href="#异常处理的-10-个最佳实践" class="headerlink" title="异常处理的 10 个最佳实践"></a>异常处理的 10 个最佳实践</h1><p>这里是我收集的 10 个Java编程中进行异常处理的10最佳实践。在 Java 编程中对于检查异常有褒有贬，强制处理异常是一门语言的功能。在本文中，我们将尽量减少使用检查型异常，同时学会在 Java 编程中使用检查型VS非检查型异常。</p>
+<h2 id="1）为可恢复的错误使用检查型异常，为编程错误使用非检查型错误。"><a href="#1）为可恢复的错误使用检查型异常，为编程错误使用非检查型错误。" class="headerlink" title="1）为可恢复的错误使用检查型异常，为编程错误使用非检查型错误。"></a><strong>1）为可恢复的错误使用检查型异常，为编程错误使用非检查型错误。</strong></h2><p>选择检查型还是非检查型异常，对于Java编程人员来说，总是让人感到困惑。检查型异常保证你对错误条件提供异常处理代码，这是一种从语言到强制你编写健壮的代码的一种方式，但同时会引入大量杂乱的代码并导致其不可读。当然，如果你有替代品和恢复策略的话，捕捉异常并做些什么看起来似乎也在理。在Java编程中选择检查型异常还是运行时异常，更多信息参考<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.com/2011/12/checked-vs-unchecked-exception-in-java.html"> checked vs unchecked exceptions</a>。</p>
+<h2 id="2）在finally程序块中关闭或者释放资源"><a href="#2）在finally程序块中关闭或者释放资源" class="headerlink" title="2）在finally程序块中关闭或者释放资源"></a><strong>2）在finally程序块中关闭或者释放资源</strong></h2><p>这在Java编程中，是一个广为人知的最佳实践，在处理网络和IO类的时候，相当于一个标准。在finally块中关闭资源， 在正常和异常执行的情况下，保证之前和稀缺资源的合理释放，这由y finally块保证。从Java7开始，该语言有了一项更有趣的功能：<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.com/2011/09/arm-automatic-resource-management-in.html">资源管理自动化或者ARM块</a>能实现这一功能。尽管如此，我们仍然要记住在finally块中关闭资源，这是对于释放像FileDescriptors这类，应用在socket和文件编程的情况下的有限资源很重要的。</p>
+<h2 id="3）在堆栈跟踪中包含引起异常的原因"><a href="#3）在堆栈跟踪中包含引起异常的原因" class="headerlink" title="3）在堆栈跟踪中包含引起异常的原因"></a><strong>3）在堆栈跟踪中包含引起异常的原因</strong></h2><p>很多时候，当一个由另一个异常导致的异常被抛出的时候，Java库和开放源代码会将一种异常包装成另一种异常。日志记录和打印根异常就变得非常重要。Java 异常类提供了 getCause() 方法来检索导致异常的原因，这些（原因）可以对异常的根层次的原因提供更多的信息。该 Java 实践对在进行调试或排除故障大有帮助。时刻记住，如果你将一个异常包装成另一种异常时，构造一个新异常要传递源异常。</p>
+<h2 id="4）始终提供关于异常的有意义的完整的信息"><a href="#4）始终提供关于异常的有意义的完整的信息" class="headerlink" title="4）始终提供关于异常的有意义的完整的信息"></a><strong>4）始终提供关于异常的有意义的完整的信息</strong></h2><p>异常信息是最重要的地方，因为这是程序员首先看到的第一个地方，这里你能找到问题产生的根本原因。这里始终提供精确的真实的信息。例如，对比 IllegalArgumentException 异常的两条异常信息：</p>
+<p>消息 1: “Incorrect argument for method”</p>
+<p>消息 2: “Illegal value for ${argument}: ${value}</p>
+<p>第一条消息仅说明了参数是非法的或者不正确，但第二条消息包括了参数名和非法值，而这对于找到错误的原因是很重要的。在用Java编程中编写异常处理代码的时候，始终遵循该 Java 最佳实践。</p>
+<h2 id="5）避免过度使用检查型异常"><a href="#5）避免过度使用检查型异常" class="headerlink" title="5）避免过度使用检查型异常"></a><strong>5）避免过度使用检查型异常</strong></h2><p>检查型异常在强制执行方面有一定的优势，但同时它也破坏了代码，通过掩盖业务逻辑使代码可读性降低。只要你不过度使用检查型异常，你可以最大限度的减少这类情况，这样做的结果是你会得到更清洁的代码。你同样可以使用 Java7 的新功能，像 <a target="_blank" rel="noopener" href="http://javarevisited.blogspot.com/2011/07/jdk7-multi-cache-block-example-tutorial.html">one catch block for multiple exceptions 和 automatic resource management</a>以移除重复项。</p>
+<h2 id="6）将检查型异常转为运行时异常"><a href="#6）将检查型异常转为运行时异常" class="headerlink" title="6）将检查型异常转为运行时异常"></a><strong>6）将检查型异常转为运行时异常</strong></h2><p>这是在像 Spring 之类的多数框架中用来限制使用检查型异常的技术之一，大部分出自于 JDBC 的检查型异常，都被包装进 DataAccessException 中，而（DataAccessException）异常是一种非检查型异常。这是Java最佳实践带来的好处，特定的异常限制到特定的模块，像 SQLException 放到 DAO 层，将意思明确的运行时异常抛到客户层。</p>
+<h2 id="7）记住对性能而言，异常代价高昂"><a href="#7）记住对性能而言，异常代价高昂" class="headerlink" title="7）记住对性能而言，异常代价高昂"></a><strong>7）记住对性能而言，异常代价高昂</strong></h2><p>需要记住的一件事是异常代价高昂，同时让你的代码运行缓慢。假如你有方法从 ResultSet（结果集）中进行读取，这时常会抛出 SQLException 异常而不会移到下一元素，这将会比不抛出异常的正常代码执行的慢的多。因此最大限度的减少不必要的异常捕捉和移动，那里没有什么固定的原因。不要仅仅是抛出和捕捉异常，如果你能使用boolean变量去表示执行结果，可能会得到更整洁，更高性能的解决方案。修正错误的根源，避免不必须要的异常捕捉。</p>
+<h2 id="8）避免-catch-块为空"><a href="#8）避免-catch-块为空" class="headerlink" title="8）避免 catch 块为空"></a><strong>8）避免 catch 块为空</strong></h2><p>没有什么比空的 catch 块更糟糕的了，因为它不仅隐藏了错误和异常，同时可能导致你的<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.com/2012/12/what-is-object-in-java-or-oops-example.html">对象</a>处于不可使用或者脏的状态。空的catch块只能变得无意义，如果你非常肯定异常不会继续以任何方式影响对象状态，但在程序执行期间，用日志记录错误依然是最好的（方法）。对于在Java编程中编写异常处理代码，这不仅仅是一个 Java 最佳实践，而是一个最通用的实践。</p>
+<h2 id="9）使用标准异常"><a href="#9）使用标准异常" class="headerlink" title="9）使用标准异常"></a><strong>9）使用标准异常</strong></h2><p>我们的第九条最佳实践建议使用标准和内置的 Java 异常。使用标准异常而不是每次创建我们自己的异常，对于维护性和一致性，不管是现在还是以后，都是最好的选择。重用标准异常使代码更具可读性，因为大部分 Java 开发人员对标准的像源自于 JDK 的 RuntimeException 异常，IllegalStateException 异常，IllegalArgumentException 异常或者 <a target="_blank" rel="noopener" href="http://javarevisited.blogspot.com/2012/06/common-cause-of-javalangnullpointerexce.html">NullPointerException </a>异常，（开发者）他们能一眼就知道每种异常的目的，而不是在代码里查找或者在文档里查找用户定义的异常的目的。</p>
+<h2 id="10）记录任何方法抛出的异常"><a href="#10）记录任何方法抛出的异常" class="headerlink" title="10）记录任何方法抛出的异常"></a><strong>10）记录任何方法抛出的异常</strong></h2><p>Java提供了 <a target="_blank" rel="noopener" href="http://java67.blogspot.com/2012/10/difference-between-throw-vs-throws-in.html">throw和throws</a> 关键字来抛出异常，在 javadoc 中用 @throw 记录任何方法可能会抛出的异常。如果你编写API或者公共接口，这就变得非常重要。任何方法抛出的异常都有相应的文档记录，这样你就能下意识的提醒任何使用（该方法）的人。</p>
+<p>这些就是所有在 Java 编程中在处理异常的时候需要遵循的最佳实践。让我们知道了什么是在 Java 编程中编写异常处理代码时需要遵循的实践。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+  <div class="article-refer hairline">
+    <h3>文章参考文献</h3>
+    
+    <p>
+      <a target="_blank" rel="nofollow" href="https://www.oschina.net/translate/10-exception-handling-best-practices-in-java-programming">https://www.oschina.net/translate/10-exception-handling-best-practices-in-java-programming</a>
+    </p>
+    
+  </div>
+  
+
+    
+<div class="article-copyright hairline">
+  <p>
+    本作品采用 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可。
+  </p>
+</div>
+
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/cluster-lb.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          什么是集群？负载均衡又是什么？
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=java 异常处理机制 - GUANGLI.REN&url=https://guangli.ren/java-exception.html">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=java 异常处理机制 - GUANGLI.REN&u=https://guangli.ren/java-exception.html">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=java 异常处理机制 - GUANGLI.REN&url=https://guangli.ren/java-exception.html&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+<section class="comments">
+    <div id="gitalk-container"></div>
+</section>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+            
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="Search ..." autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flink/" rel="tag">Flink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/flink.html">Flink简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/linux-vi.html">vi 编辑器使用详解</a>
+          </li>
+        
+          <li>
+            <a href="/mysql-reset-root-password.html">MySQL 重置 root 用户密码</a>
+          </li>
+        
+          <li>
+            <a href="/mysql-install.html">Linux 下安装 MySQL</a>
+          </li>
+        
+          <li>
+            <a href="/cluster-lb.html">什么是集群？负载均衡又是什么？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            GUANGLI.REN &copy; 2020 - 2020<br>
+            Powered By Hexo · Theme By <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a>
+        </div>
+    </div>
+
+</footer>
+
+
+<script src="https://renguangli.gitee.io/gitalk/gitalk.min.js"></script>
+
+
+
+<script src="https://renguangli.gitee.io/dist/build.js?1.8.1.js"></script>
+
+
+<script src="https://renguangli.gitee.io/dist/custom.js?1.8.1.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106555827-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-106555827-1');
+</script>
+
+
+
+
+
+</body>
+
+</html>

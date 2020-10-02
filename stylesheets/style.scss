@@ -88,14 +88,12 @@ button {
         line-height: 80px;
         padding-left: 5px;
 
-        &-avatar {
-            margin-right: 10px;
+        &-inner {
+            display: flex;
         }
 
-        &-inner {
-            background: linear-gradient(to right, rgba($color-type, 1), rgba($color-type, .9));
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+        &-avatar {
+            margin-right: 10px;
         }
 
         &-title {
@@ -242,7 +240,7 @@ button {
 /* 主体框架 */
 .main {
     position: relative;
-    margin-bottom: 190px;
+    margin-bottom: 150px;
     z-index: 2;
     
     .inner {
@@ -463,6 +461,7 @@ button {
 /* 首页 */
 .index {
     .article {
+        position: relative;
         background: #fff;
         border-radius: 8px;
         margin-bottom: 20px;
@@ -470,6 +469,22 @@ button {
 
         &:last-child {
             margin-bottom: 0;
+        }
+
+        .article-top {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 40px;
+            height: 20px;
+            line-height: 20px;
+            color: #fff;
+            background-color: $color-light;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 3px;
+            user-select: none;
         }
 
         .article-inner {
@@ -606,13 +621,13 @@ button {
                 height: 50px;
                 left: 0;
                 position: absolute;
-                top: 0;
+                top: -5px;
                 width: 50px;
                 transition: all .3s;
             }
 
             &-content {
-                padding: 10px 0 10px 80px;
+                padding: 0 0 10px 80px;
 
                 p {
                     font-weight: 300;
@@ -896,7 +911,7 @@ button {
     &-inner {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px 80px;
+        padding: 0 20px 50px;
         color: $color-white;
         line-height: 22px;
         user-select: none;

@@ -20,7 +20,7 @@
     
 
     
-<link rel="stylesheet" href="https://renguangli.gitee.io/dist/build.css?v=1.7.2.css">
+<link rel="stylesheet" href="https://renguangli.gitee.io/dist/build.css?v=1.8.1.css">
 
 
     <script>
@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckffirla70001tsv77ut22j9w" class="article article-type-post" itemscope
+    <article id="post-ckfrrn76f00011cv7egrl3k1u" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -158,14 +158,14 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h2 id="一、项目架构的演进"><a href="#一、项目架构的演进" class="headerlink" title="一、项目架构的演进"></a>一、项目架构的演进</h2><p>　　在“高并发，海量数据，分布式，NoSql，云计算……”概念满天飞的年代，相信不少朋友都听说过甚至常与人提起“集群，负载均衡”等，但不是所有人都有机会真正接触到这些技术，也不是所有人都真正理解了这些“听起来很牛的”技术名词。</p>
+            <h1 id="一、项目架构的演进"><a href="#一、项目架构的演进" class="headerlink" title="一、项目架构的演进"></a>一、项目架构的演进</h1><p>　　在“高并发，海量数据，分布式，NoSql，云计算……”概念满天飞的年代，相信不少朋友都听说过甚至常与人提起“集群，负载均衡”等，但不是所有人都有机会真正接触到这些技术，也不是所有人都真正理解了这些“听起来很牛的”技术名词。</p>
 <a id="more"></a>
 
 <p>下面简单解释一下吧。</p>
 <p>要了解这些概念首先要了解一下项目架构的演进，我这里引用一张 Dubbo 的文档图片。如图</p>
 <p><img src="/images/%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B.png" alt="项目架构的演进"></p>
-<h3 id="ORM-与-MVC"><a href="#ORM-与-MVC" class="headerlink" title="ORM 与 MVC"></a>ORM 与 MVC</h3><p>早期的架构都集中在一台服务器上，这样对于小型的业务访问量是完全可以的，但是随着业务的增多，我们引进的 MVC 的架构，这种架构是将整个业务分成不同的层（表现层，业务层，数据访问层）维护也更加方面了，开发更加方便。</p>
-<h3 id="RPC-架构"><a href="#RPC-架构" class="headerlink" title="RPC 架构"></a>RPC 架构</h3><p>　　但是业务如果继续增大，项目会出现臃肿，一台服务器已经完全没办法支持了，所以出现了 RPC 分布式的架构，RPC 架构就是将服务进行合理拆分，分别放入多台服务器执行，服务器与服务器之间通过远程调用的方式进行通信。</p>
+<h2 id="ORM-与-MVC"><a href="#ORM-与-MVC" class="headerlink" title="ORM 与 MVC"></a>ORM 与 MVC</h2><p>早期的架构都集中在一台服务器上，这样对于小型的业务访问量是完全可以的，但是随着业务的增多，我们引进的 MVC 的架构，这种架构是将整个业务分成不同的层（表现层，业务层，数据访问层）维护也更加方面了，开发更加方便。</p>
+<h2 id="RPC-架构"><a href="#RPC-架构" class="headerlink" title="RPC 架构"></a>RPC 架构</h2><p>　　但是业务如果继续增大，项目会出现臃肿，一台服务器已经完全没办法支持了，所以出现了 RPC 分布式的架构，RPC 架构就是将服务进行合理拆分，分别放入多台服务器执行，服务器与服务器之间通过远程调用的方式进行通信。</p>
 <p>服务提供者：运行在服务器端，提供服务接口与服务实现类<br>服务中心：运行在服务器端，负责将本地服务发布成远程服务，管理远程服务，提供服务给消费者使用。<br>服务消费者：运行在客户端，通过远程代理对象调用远程服务</p>
 <p>目前 Java 中常用的 RPC 框架</p>
 <ul>
@@ -173,10 +173,10 @@
 <li>Spring Cloud</li>
 <li>Thrift</li>
 </ul>
-<h3 id="SOA-架构"><a href="#SOA-架构" class="headerlink" title="SOA 架构"></a>SOA 架构</h3><p>但是业务继续增加，对RPC架构来说，各个服务与服务之间的通信越来越多，依赖越来越多，越来越混乱，给开发带来了困难，于是SOA架构应运而生，SOA架构将服务与服务集中起来进行管理，加上一个服务治理中心。谁发布了服务来中心进行注册，谁需要依赖什么服务来中心进行请求。</p>
+<h2 id="SOA-架构"><a href="#SOA-架构" class="headerlink" title="SOA 架构"></a>SOA 架构</h2><p>但是业务继续增加，对RPC架构来说，各个服务与服务之间的通信越来越多，依赖越来越多，越来越混乱，给开发带来了困难，于是SOA架构应运而生，SOA架构将服务与服务集中起来进行管理，加上一个服务治理中心。谁发布了服务来中心进行注册，谁需要依赖什么服务来中心进行请求。</p>
 <p>而最近很火的微服务，则是将业务拆分更加精细，每一个可以成为一个完整的服务。演变肯定会演变，但是过程得多久谁也不好说。</p>
-<h2 id="二、名称解释"><a href="#二、名称解释" class="headerlink" title="二、名称解释"></a>二、名称解释</h2><p>接下来进入正题，解释让外行看起来高大上的名词</p>
-<h3 id="1、集群-Cluster"><a href="#1、集群-Cluster" class="headerlink" title="1、集群(Cluster)"></a>1、集群(Cluster)</h3><p>所谓集群是指一组独立的计算机系统构成的一个松耦合的多处理器系统，它们之间通过网络实现进程间的通信。应用程序可以通过网络共享内存进行消息传送，实现分布式计算机。通俗一点来说，就是让若干台计算机联合起来工作(服务)，可以是并行的，也可以是做备份。 </p>
+<h1 id="二、名称解释"><a href="#二、名称解释" class="headerlink" title="二、名称解释"></a>二、名称解释</h1><p>接下来进入正题，解释让外行看起来高大上的名词</p>
+<h2 id="1、集群-Cluster"><a href="#1、集群-Cluster" class="headerlink" title="1、集群(Cluster)"></a>1、集群(Cluster)</h2><p>所谓集群是指一组独立的计算机系统构成的一个松耦合的多处理器系统，它们之间通过网络实现进程间的通信。应用程序可以通过网络共享内存进行消息传送，实现分布式计算机。通俗一点来说，就是让若干台计算机联合起来工作(服务)，可以是并行的，也可以是做备份。 </p>
 <p>大规模集群，通常具备以下一些特点：</p>
 <p><strong>(1)高可靠性(HA)</strong></p>
 <p>利用集群管理软件，当主服务器故障时，备份服务器能够自动接管主服务器的工作，并及时切换过去，以实现对用户的不间断服务。</p>
@@ -196,7 +196,7 @@
 <p>10个兄弟一起做手工家具生意，一个客户来找他们的老爹要求做一套非常复杂的仿古家具，一个人做也可以做，不过要做很久很久，为了1个星期就交出这一套家具，10个兄弟决定一起做。</p>
 <p>老爹把这套家具的不同部分分开交给儿子们作，然后每个儿子都在做木制家具的加工，最后拼在一起叫货。</p>
 <p>老爹是scheduler任务调度器，儿子们是compute node. 他们做的工作叫做作业。</p>
-<h3 id="2、负载均衡"><a href="#2、负载均衡" class="headerlink" title="2、负载均衡"></a>2、负载均衡</h3><p><strong>HTTP重定向负载均衡</strong></p>
+<h2 id="2、负载均衡"><a href="#2、负载均衡" class="headerlink" title="2、负载均衡"></a>2、负载均衡</h2><p><strong>HTTP重定向负载均衡</strong></p>
 <p>当用户发来请求的时候，Web服务器通过修改HTTP响应头中的Location标记来返回一个新的url，然后浏览器再继续请求这个新url，实际上就是页面重定向。通过重定向，来达到“负载均衡”的目标。例如，我们在下载JAVA源码包的时候，点击下载链接时，为了解决不同国家和地域下载速度的问题，它会返回一个离我们近的下载地址。重定向的HTTP返回码是302。<br>优点：比较简单。<br>缺点：浏览器需要两次请求服务器才能完成一次访问，性能较差。重定向服务自身的处理能力有可能成为瓶颈，整个集群的伸缩性国模有限；使用HTTP302响应码重定向，有可能使搜索引擎判断为SEO作弊，降低搜索排名。</p>
 <p><strong>DNS域名解析负载均衡</strong></p>
 <p>DNS（Domain Name System）负责域名解析的服务，域名url实际上是服务器的别名，实际映射是一个IP地址，解析过程，就是DNS完成域名到IP的映射。而一个域名是可以配置成对应多个IP的。因此，DNS也就可以作为负载均衡服务。<br>事实上，大型网站总是部分使用DNS域名解析，利用域名解析作为第一级负载均衡手段，即域名解析得到的一组服务器并不是实际提供Web服务的物理服务器，而是同样提供负载均衡服务的内部服务器，这组内部负载均衡服务器再进行负载均衡，将请求分发到真是的Web服务器上。<br>优点：将负载均衡的工作转交给DNS，省掉了网站管理维护负载均衡服务器的麻烦，同时许多DNS还支持基于地理位置的域名解析，即会将域名解析成举例用户地理最近的一个服务器地址，这样可以加快用户访问速度，改善性能。<br>缺点：不能自由定义规则，而且变更被映射的IP或者机器故障时很麻烦，还存在DNS生效延迟的问题。而且DNS负载均衡的控制权在域名服务商那里，网站无法对其做更多改善和更强大的管理。</p>
@@ -209,7 +209,7 @@
 <p>最快响应</p>
 <p>Hash 法</p>
 <p><img src="/images/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AE%97%E6%B3%95.png" alt="负载均衡算法"></p>
-<h3 id="3、缓存"><a href="#3、缓存" class="headerlink" title="3、缓存"></a>3、缓存</h3><p>缓存就是将数据存放在距离计算最近的位置以加快处理速度。缓存是改善软件性能的第一手段，现在CPU越来越快的一个重要因素就是使用了更多的缓存，在复杂的软件设计中，缓存几乎无处不在。大型网站架构设计在很多方面都使用了缓存设计。</p>
+<h2 id="3、缓存"><a href="#3、缓存" class="headerlink" title="3、缓存"></a>3、缓存</h2><p>缓存就是将数据存放在距离计算最近的位置以加快处理速度。缓存是改善软件性能的第一手段，现在CPU越来越快的一个重要因素就是使用了更多的缓存，在复杂的软件设计中，缓存几乎无处不在。大型网站架构设计在很多方面都使用了缓存设计。</p>
 <p><strong>CDN缓存</strong></p>
 <p>内容分发网络，部署在距离终端用户最近的网络服务商，用户的网络请求总是先到达他的网络服务商哪里，在这里缓存网站的一些静态资源（较少变化的数据），可以就近以最快速度返回给用户，如视频网站和门户网站会将用户访问量大的热点内容缓存在CDN中。</p>
 <p><strong>反向代理缓存</strong></p>
@@ -218,7 +218,7 @@
 <p>在应用服务器本地缓存着热点数据，应用程序可以在本机内存中直接访问数据，而无需访问数据库。</p>
 <p><strong>分布式缓存</strong></p>
 <p>大型网站的数据量非常庞大，即使只缓存一小部分，需要的内存空间也不是单机能承受的，所以除了本地缓存，还需要分布式缓存，将数据缓存在一个专门的分布式缓存集群中，应用程序通过网络通信访问缓存数据。</p>
-<h3 id="4、-流控（流量控制）"><a href="#4、-流控（流量控制）" class="headerlink" title="4、 流控（流量控制）"></a>4、 流控（流量控制）</h3><p><strong>流量丢弃</strong></p>
+<h2 id="4、-流控（流量控制）"><a href="#4、-流控（流量控制）" class="headerlink" title="4、 流控（流量控制）"></a>4、 流控（流量控制）</h2><p><strong>流量丢弃</strong></p>
 <p>通过单机内存队列来进行有限的等待，直接丢弃用户请求的处理方式显得简单而粗暴，并且如果是I/O密集型应用（包括网络I/O和磁盘I/O），瓶颈一般不再 CPU 和内存。因此，适当的等待，既能够替身用户体验，又能够提高资源利用率。</p>
 <p>通过分布式消息队列来将用户的请求异步化。</p>
 
@@ -262,6 +262,11 @@
       </div>
     </a>
   
+  
+    <a href="/java-exception.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">java 异常处理机制</div>
+    </a>
   
 </nav>
 
@@ -332,7 +337,7 @@
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flink/" rel="tag">Flink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flink/" rel="tag">Flink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li></ul>
     </div>
   </div>
 
@@ -405,10 +410,10 @@
 
 
 
-<script src="https://renguangli.gitee.io/dist/build.js?1.7.2.js"></script>
+<script src="https://renguangli.gitee.io/dist/build.js?1.8.1.js"></script>
 
 
-<script src="https://renguangli.gitee.io/dist/custom.js?1.7.2.js"></script>
+<script src="https://renguangli.gitee.io/dist/custom.js?1.8.1.js"></script>
 
 
 
