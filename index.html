@@ -16,11 +16,11 @@
     
 
     
-    <link rel="stylesheet" href="https://renguangli.gitee.io/gitalk/gitalk.css">
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
     
 
     
-<link rel="stylesheet" href="https://renguangli.gitee.io/dist/build.css?v=1.8.1.css">
+<link rel="stylesheet" href="/dist/build.css?v=1.8.1.css">
 
 
     <script>
@@ -415,28 +415,6 @@
       <div class="article-entry post-inner-html">
         
           <p>垃圾回收机制(GC)是 Java 重要特性之一。<br>它让开发者无需关注内存的创建和释放，而是通过 GC 自动回收垃圾(无用对象)。</p>
-<h1 id="哪些内存需要回收"><a href="#哪些内存需要回收" class="headerlink" title="哪些内存需要回收"></a>哪些内存需要回收</h1><p>Java堆和方法区是垃圾回收的主要内存区域，程序计数器、虚拟机栈、本地方法栈这几个内存区域是线程私有的，线程结束时内存自然也就回收了。</p>
-<h1 id="如何判断对象可回收？"><a href="#如何判断对象可回收？" class="headerlink" title="如何判断对象可回收？"></a>如何判断对象可回收？</h1><p>在Java堆里存放着几乎所有的对象实例，垃圾收集器在进行垃圾回收之前第一件事情就是判断哪些对象还”活着”，哪些对象已”死去”(不会再被使用的对象);</p>
-<h2 id="引数记数法"><a href="#引数记数法" class="headerlink" title="引数记数法"></a>引数记数法</h2><p>引数记数法就是给对象添加一个引数计数器，每当有其他地方引用对象时，计数器就加1；当引用失效时，计数器就减1，如果计数器任何时刻都为0，那么对象不可能在被使用，垃圾收集器就可以进行回收了。引数记数法简单高效，微软公司的COM技术，python语言，游戏脚本语言Squirrel都是使用了引数记数法进行内存管理。但是主流java虚拟机没有使用引述记数法进行内存管理，原因主要是他很难解决对象之间互相引用的的问题。</p>
-<h2 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h2><p>Java虚拟机是通过可达性分析算法来判定对象是否存活的。可达性分析算法的主要思想是通过一系列的称为”GC Roots”的对象作为起始点从这些起点开始向下搜索，搜索走过的路径称为引用链，当一个对象到”GC Roots”没有任何引用链相连时(“GC Roots”到此对象不可达)，则证明此对象是不可用，可回收的。</p>
-<p>在 Java 语言中，可作为”GC Roots”的对象包括以下几种</p>
-<ul>
-<li>虚拟机栈中引用的对象</li>
-<li>方法区中类静态变量引用的对象</li>
-<li>方法区中常量引用的对象</li>
-<li>本地方法栈中 JNI 引用的对象</li>
-</ul>
-<h1 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h1><p>简单介绍下几种垃圾收集算法</p>
-<h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>最简单的垃圾收集算法是“标记-清除”算法，算法分为“标记”和“清除”两个阶段：首先要标记出需要回收的对象，在完成标记后统一回收所有被标记的对象。标记过程就是判断哪些对象需要回收。<br>标记-清除算法有两个不足之处：<br>一个是效率问题，标记-清除的效率都不高；<br>另一个空间问题，标记-清除之后会产生大量不连续的内存碎片，内存空间碎片太多可能会导致 Java 虚拟机在分配较大对象时，无法找到足够的连续内存而触发一次垃圾收集动作。</p>
-<p><img src="https://renguangli.gitee.io/images/jvm/gc-mark-scavenging.png" alt="标记-清除算法"></p>
-<h2 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h2><p>复制算法是为了解决标记-清除算法的效率问题而产生的。它是如何解决效率问题的呢？</p>
-<p>复制算法将内存分为两块大小相等的两块，每次只使用其中一块。当这一块的内存用完了，将存活的对象复制到另一块上，然后将使用过的一块内存全部清理掉。这样每次都是对整个半区进行垃圾回收，内存分配时就不需要担心内存碎片的问题了。复制算法实现简单，运行高效。代价就是内存缩小为原来的一半。</p>
-<p><img src="https://renguangli.gitee.io/images/jvm/gc-copy.png" alt="复制算法"></p>
-<p>复制算法主要用来回收新生代,IBM 的专家研究过，新生代的中的对象 98% 都是“朝生夕死”的，并不需要按照1:1的比例来划分内存空间，而是将内存分为一块较大的 Eden 空间和两块较小的 Survivor 空间，每次只使用 Eden 和其中一块Survivor空间。当进行垃圾回收时将Eden和Survivor中还存活的对象复制到另一块 Survivor 空间上，最后清理掉 Eden 和使用过的 Survivor 空间。Eden空间和两块 Survivor 空间之间的比例时 8:1:1，新生代可用空间为 90%（80% + 10%），只浪费了 10% 内存空间。当存活对象多于 10% 时，Survivor 空间不够用，这些对象将通过分配担保机制直接进入老年代。</p>
-<h2 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h2><p>老年代是通过标记-整理算法来进行垃圾回收的。标记过程与标记-清除算法一样，清除过程不是直接清理可回收对象，而是让所有的对象都向一端移动，然后直接清理掉边界以外的内存。</p>
-<p><img src="https://renguangli.gitee.io/images/jvm/gc-mark-arrange.png" alt="标记-整理算法"></p>
-<h2 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h2><p>现代商业虚拟机的垃圾收集都采用“分代收集”算法，分代收集算法根据对象存活周期的不同将java堆内存分为新生代和老年代。新生代每次垃圾收集时大量对象死去，只有少量对象存活，那就使用复制算法。老年代中的对象存活率高，没有额外内存空间进行担保，那就使用标记清除算法或者标记整理算法。</p>
-<h1 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h1><h1 id="GC-日志"><a href="#GC-日志" class="headerlink" title="GC 日志"></a>GC 日志</h1><h1 id="内存分配策略"><a href="#内存分配策略" class="headerlink" title="内存分配策略"></a>内存分配策略</h1><h2 id="对象优先分配到-Eden-区"><a href="#对象优先分配到-Eden-区" class="headerlink" title="对象优先分配到 Eden 区"></a>对象优先分配到 Eden 区</h2><h2 id="大对象直接进入老年代"><a href="#大对象直接进入老年代" class="headerlink" title="大对象直接进入老年代"></a>大对象直接进入老年代</h2>
         
       </div>
     </div>
@@ -478,88 +456,8 @@
       </header>
       <div class="article-entry post-inner-html">
         
-          <h2 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h2><p>主要分为三步</p>
+          <p>类加载主要分为三步</p>
 <p>加载、连接、初始化，其中连接又分为验证、准备、解析三个阶段，除了解析外，其它步骤是严格按照顺序完成的</p>
-<ol>
-<li>Loading</li>
-<li>Linking<ol>
-<li>Verification</li>
-<li>Preparation</li>
-<li>Resolution</li>
-</ol>
-</li>
-<li>Initializing</li>
-</ol>
-<h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><p>加载过程就是将 Class 文件加载到 JVM 内存（方法区）中并生成 Class 对象的过程</p>
-<p>class 是类加载器通过双亲委派来加载的</p>
-<h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>所谓的双亲委派就是 当一个 ClassLoader loadClass 的时候先去缓存里找，</p>
-<p>如果缓存命中直接返回，否则让父加载器加载</p>
-<p>父加载器也是先去缓存里找，如果缓存命中直接返回，否则让父加载器的父加载器加载</p>
-<p>直到父加载器为 null 也就是最顶层的父加载器 BootstrapClassLoader 时还没找到</p>
-<p>BootstrapClassLoader 首先去自己负责加载的 jar 或 class 中查找，</p>
-<p>如果找到加载并返回，否则委托给 子加载器也就是 ExtClassLoader 加载</p>
-<p>ExtClassLoader 首先去自己负责加载的 jar 或 class 中查找，，</p>
-<p>如果找到加载并返回，否则委托给 子加载器也就是 AppClassLoader 加载</p>
-<p>当子加载器是这个调用 loadClass 方法的加载器时，去自己负责加载的 jar 或 class 中查找，</p>
-<p>如果找到这个类加载并返回，否则抛出 ClassNotFoundException</p>
-<p>小结：先查找在加载</p>
-<h4 id="为什么双亲委派"><a href="#为什么双亲委派" class="headerlink" title="为什么双亲委派"></a>为什么双亲委派</h4><p>1、主要为了安全</p>
-<p>2、防止加载重复的类</p>
-<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>类加载器分为 BootstarpClassloader、ExtClassloader、AppClassloader还有自定义类加载器</p>
-<p>BootstarpClassloader 负责加载下面这些 jar 包和 classes 或者通过 -Dsun.boot.class.path</p>
-<pre><code>D:\java\jdk\jdk1.8.0_221\jre\lib\resources.jar
-D:\java\jdk\jdk1.8.0_221\jre\lib\rt.jar
-D:\java\jdk\jdk1.8.0_221\jre\lib\sunrsasign.jar
-D:\java\jdk\jdk1.8.0_221\jre\lib\jsse.jar
-D:\java\jdk\jdk1.8.0_221\jre\lib\jce.jar
-D:\java\jdk\jdk1.8.0_221\jre\lib\charsets.jar
-D:\java\jdk\jdk1.8.0_221\jre\lib\jfr.jar
-D:\java\jdk\jdk1.8.0_221\jre\classes</code></pre>
-<p>ExtClassloader 负责加载下面这些 jar 包和 classes </p>
-<pre><code>D:\java\jdk\jdk1.8.0_221\jre\lib\ext
-C:\windows\Sun\Java\lib\ext</code></pre>
-<p>AppClassLoader 负责 classpath 下面的 jar  包</p>
-<p>问题来了, AppClassloader 和 ExtAppClassLoader 是谁加载的？</p>
-<p>ExtClassloader、AppClassloader 是 BootstarpClassloader 加载的</p>
-<p>另外自定义类加载器的是 AppClassloader  加载的</p>
-<h3 id="自定义类加载器"><a href="#自定义类加载器" class="headerlink" title="自定义类加载器"></a>自定义类加载器</h3><p>重写 findClass 方法</p>
-<pre><code>@Override
-protected Class&lt;?&gt; findClass(String name) throws ClassNotFoundException &#123;
-    try(InputStream is = new FileInputStream(&quot;D:/test/&quot; + name.replaceAll(&quot;\\.&quot;, &quot;/&quot;) + &quot;.class&quot;)) &#123;
-        byte[] bytes = new byte[is.available()];
-        is.read(bytes);
-        return defineClass(name, bytes, 0, bytes.length);
-    &#125; catch (FileNotFoundException e) &#123;
-        throw new ClassNotFoundException(name);
-    &#125; catch (IOException e) &#123;
-        e.printStackTrace();
-    &#125;
-    return super.findClass(name);
-&#125;</code></pre>
-<h3 id="破坏双亲委派"><a href="#破坏双亲委派" class="headerlink" title="破坏双亲委派"></a>破坏双亲委派</h3><p>重写 loadClass 方法</p>
-<p>实例：</p>
-<ol>
-<li><p>JDK1.2之前，自定义ClassLoader都必须重写loadClass()</p>
-</li>
-<li><p>ThreadContextClassLoader 可以实现基础类调用实现类代码，通过thread.setContextClassLoader指定</p>
-</li>
-<li><p>热启动，热部署</p>
-<p>osgi tomcat 都有自己的模块指定classloader（可以加载同一类库的不同版本）</p>
-</li>
-</ol>
-<h3 id="执行模式"><a href="#执行模式" class="headerlink" title="执行模式"></a>执行模式</h3><h4 id="解释模式"><a href="#解释模式" class="headerlink" title="解释模式"></a>解释模式</h4><p>通过解释器（Bytecode Interpreter）解释执行 特点：启动快（不需要编译），执行慢 可通过-Xint参数指定为纯解释模式</p>
-<h4 id="编译模式"><a href="#编译模式" class="headerlink" title="编译模式"></a>编译模式</h4><p>由JIT（Just In-Time Compiler）编译为本地代码（C语言实现）执行 特点：启动慢（编译过程较慢），执行快 可通过-Xcomp参数指定为纯编译模式</p>
-<h4 id="混合模式"><a href="#混合模式" class="headerlink" title="混合模式"></a>混合模式</h4><p>混合使用解释器 + 热点代码编译 起始阶段采用解释执行 热点代码检测（HotSpot），默认-XX:CompileThreshold=10000 多次被调用的方法（方法计数器：监测方法执行频率） 多次被调用的循环（循环计数器：监测循环执行频率） 对热点代码进行编译 默认采用这种模式，可通过-Xmixed指定</p>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>检查 class 文件是否符合 JVM 的规范</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>为静态变量赋默认值</p>
-<p>byte short int long = 0;</p>
-<p>Object = null</p>
-<p>float double = 0.0</p>
-<p>boolean  = false</p>
-<p>char = 空串</p>
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>符号引用转化为直接引用</p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>将类、方法、属性等符号引用解析为直接引用 常量池中的各种符号引用解析为指针、偏移量等内存地址的直接引用</p>
-
         
       </div>
     </div>
@@ -724,7 +622,7 @@ protected Class&lt;?&gt; findClass(String name) throws ClassNotFoundException &#
 
     <div class="footer-wrap">
         <div class="footer-inner"> 
-            GUANGLI.REN &copy; 2020 - 2020<br>
+            GUANGLI.REN &copy; 2013 - 2020<br>
             Powered By Hexo · Theme By <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a>
         </div>
     </div>
@@ -732,14 +630,14 @@ protected Class&lt;?&gt; findClass(String name) throws ClassNotFoundException &#
 </footer>
 
 
-<script src="https://renguangli.gitee.io/gitalk/gitalk.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 
 
-<script src="https://renguangli.gitee.io/dist/build.js?1.8.1.js"></script>
+<script src="/dist/build.js?1.8.1.js"></script>
 
 
-<script src="https://renguangli.gitee.io/dist/custom.js?1.8.1.js"></script>
+<script src="/dist/custom.js?1.8.1.js"></script>
 
 
 

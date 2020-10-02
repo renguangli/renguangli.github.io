@@ -74,26 +74,26 @@
 }
 
 .post-inner-html h1 {
-	font-size: 28px;
+	font-size: 22px;
 	line-height: 48px;
 	text-align: left
 }
 
 .post-inner-html h2 {
-	font-size: 24px;
+	font-size: 18px;
 	line-height: 26px;
 	text-align: left
 }
 
 .post-inner-html h3 {
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 26px;
 	text-align: left
 }
 
 .post-inner-html h4,.post-inner-html h5,.post-inner-html h6 {
 	line-height: 26px;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: left
 }
 

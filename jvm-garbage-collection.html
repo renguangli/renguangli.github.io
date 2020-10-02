@@ -16,11 +16,11 @@
     
 
     
-    <link rel="stylesheet" href="https://renguangli.gitee.io/gitalk/gitalk.css">
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
     
 
     
-<link rel="stylesheet" href="https://renguangli.gitee.io/dist/build.css?v=1.8.1.css">
+<link rel="stylesheet" href="/dist/build.css?v=1.8.1.css">
 
 
     <script>
@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckfrvfdg90007zgv75xb2deyi" class="article article-type-post" itemscope
+    <article id="post-ckfrwqxqn0006oov781al9x7o" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -159,6 +159,8 @@
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
             <p>垃圾回收机制(GC)是 Java 重要特性之一。<br>它让开发者无需关注内存的创建和释放，而是通过 GC 自动回收垃圾(无用对象)。</p>
+<a id="more"></a>
+
 <h1 id="哪些内存需要回收"><a href="#哪些内存需要回收" class="headerlink" title="哪些内存需要回收"></a>哪些内存需要回收</h1><p>Java堆和方法区是垃圾回收的主要内存区域，程序计数器、虚拟机栈、本地方法栈这几个内存区域是线程私有的，线程结束时内存自然也就回收了。</p>
 <h1 id="如何判断对象可回收？"><a href="#如何判断对象可回收？" class="headerlink" title="如何判断对象可回收？"></a>如何判断对象可回收？</h1><p>在Java堆里存放着几乎所有的对象实例，垃圾收集器在进行垃圾回收之前第一件事情就是判断哪些对象还”活着”，哪些对象已”死去”(不会再被使用的对象);</p>
 <h2 id="引数记数法"><a href="#引数记数法" class="headerlink" title="引数记数法"></a>引数记数法</h2><p>引数记数法就是给对象添加一个引数计数器，每当有其他地方引用对象时，计数器就加1；当引用失效时，计数器就减1，如果计数器任何时刻都为0，那么对象不可能在被使用，垃圾收集器就可以进行回收了。引数记数法简单高效，微软公司的COM技术，python语言，游戏脚本语言Squirrel都是使用了引数记数法进行内存管理。但是主流java虚拟机没有使用引述记数法进行内存管理，原因主要是他很难解决对象之间互相引用的的问题。</p>
@@ -349,7 +351,7 @@
 
     <div class="footer-wrap">
         <div class="footer-inner"> 
-            GUANGLI.REN &copy; 2020 - 2020<br>
+            GUANGLI.REN &copy; 2013 - 2020<br>
             Powered By Hexo · Theme By <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a>
         </div>
     </div>
@@ -357,14 +359,14 @@
 </footer>
 
 
-<script src="https://renguangli.gitee.io/gitalk/gitalk.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 
 
-<script src="https://renguangli.gitee.io/dist/build.js?1.8.1.js"></script>
+<script src="/dist/build.js?1.8.1.js"></script>
 
 
-<script src="https://renguangli.gitee.io/dist/custom.js?1.8.1.js"></script>
+<script src="/dist/custom.js?1.8.1.js"></script>
 
 
 
