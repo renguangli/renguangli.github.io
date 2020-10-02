@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckfrxrgq9000l00v72iqk59in" class="article article-type-post" itemscope
+    <article id="post-ckfry9dwd000lzcv7bipjbyuw" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -126,7 +126,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="/mysql-install.html" rel="gallery_ckfrxrgq9000l00v72iqk59in">
+      <a class="article-gallery-img fancybox" href="/mysql-install.html" rel="gallery_ckfry9dwd000lzcv7bipjbyuw">
         <img src="https://renguangli.gitee.io/images/mysql.png" itemprop="image">
       </a>
     
@@ -173,9 +173,9 @@
 <p>点击直接下载 64 位 5.7.24 版本的安装包 <a target="_blank" rel="noopener" href="https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz">mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz</a></p>
 <a id="more"></a>
 
-<h2 id="Linux下-MySQL-二进制安装"><a href="#Linux下-MySQL-二进制安装" class="headerlink" title="Linux下 MySQL 二进制安装"></a>Linux下 MySQL 二进制安装</h2><h3 id="1、创建用户、用户组"><a href="#1、创建用户、用户组" class="headerlink" title="1、创建用户、用户组"></a>1、创建用户、用户组</h3><pre><code class="bash">[root@localhost local]# groupadd mysql
+<h1 id="Linux下-MySQL-二进制安装"><a href="#Linux下-MySQL-二进制安装" class="headerlink" title="Linux下 MySQL 二进制安装"></a>Linux下 MySQL 二进制安装</h1><h2 id="1、创建用户、用户组"><a href="#1、创建用户、用户组" class="headerlink" title="1、创建用户、用户组"></a>1、创建用户、用户组</h2><pre><code class="bash">[root@localhost local]# groupadd mysql
 [root@localhost local]# useradd -g mysql -s /sbin/nologin mysql</code></pre>
-<h3 id="2、将二进制包解压到指定目录并重命名为-mysql"><a href="#2、将二进制包解压到指定目录并重命名为-mysql" class="headerlink" title="2、将二进制包解压到指定目录并重命名为 mysql"></a>2、将二进制包解压到指定目录并重命名为 mysql</h3><pre><code class="bash">[root@localhost local]# pwd
+<h2 id="2、将二进制包解压到指定目录并重命名为-mysql"><a href="#2、将二进制包解压到指定目录并重命名为-mysql" class="headerlink" title="2、将二进制包解压到指定目录并重命名为 mysql"></a>2、将二进制包解压到指定目录并重命名为 mysql</h2><pre><code class="bash">[root@localhost local]# pwd
 /usr/local
 [root@localhost local]# tar -zxvf mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz
 [root@localhost local]# mv mysql-5.7.24-linux-glibc2.12-x86_64 mysql
@@ -193,16 +193,16 @@ drwxr-xr-x. 9 root root       129 11月  8 05:26 mysql
 drwxr-xr-x. 2 root root         6 4月  11 2018 sbin
 drwxr-xr-x. 5 root root        49 11月  4 08:42 share
 drwxr-xr-x. 2 root root         6 11月  8 05:33 src</code></pre>
-<h3 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h3><pre><code class="bash">[root@localhost local]# cd mysql/bin/
+<h2 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h2><pre><code class="bash">[root@localhost local]# cd mysql/bin/
 [root@localhost bin]# pwd
 /usr/local/mysql/bin
 [root@localhost bin]# echo &quot;export PATH=$PATH:/usr/local/mysql/bin&quot; &gt;&gt; /etc/profile
 [root@localhost bin]# source /etc/profile</code></pre>
-<h3 id="4、创建数据目录并赋权"><a href="#4、创建数据目录并赋权" class="headerlink" title="4、创建数据目录并赋权"></a>4、创建数据目录并赋权</h3><pre><code class="bash">[root@localhost mysql]# pwd
+<h2 id="4、创建数据目录并赋权"><a href="#4、创建数据目录并赋权" class="headerlink" title="4、创建数据目录并赋权"></a>4、创建数据目录并赋权</h2><pre><code class="bash">[root@localhost mysql]# pwd
 /usr/local/mysql
 [root@localhost mysql]# mkdir data
 [root@localhost mysql]# chown -R mysql.mysql data</code></pre>
-<h3 id="5、编辑配置文件"><a href="#5、编辑配置文件" class="headerlink" title="5、编辑配置文件"></a>5、编辑配置文件</h3><pre><code class="bash">[root@localhost mysql]# vi /etc/my.cnf
+<h2 id="5、编辑配置文件"><a href="#5、编辑配置文件" class="headerlink" title="5、编辑配置文件"></a>5、编辑配置文件</h2><pre><code class="bash">[root@localhost mysql]# vi /etc/my.cnf
 [mysqld]
 port=3306
 basedir=/usr/local/mysql
@@ -215,7 +215,7 @@ log-error=/var/log/mysql/mysqld.err
 pid-file=/var/run/mysql/mysql.pid
 [client]
 socket=/var/lib/mysql/mysql.sock</code></pre>
-<h3 id="6、初始化-MySQL"><a href="#6、初始化-MySQL" class="headerlink" title="6、初始化 MySQL"></a>6、初始化 MySQL</h3><pre><code class="bash">[root@localhost mysql]# mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+<h2 id="6、初始化-MySQL"><a href="#6、初始化-MySQL" class="headerlink" title="6、初始化 MySQL"></a>6、初始化 MySQL</h2><pre><code class="bash">[root@localhost mysql]# mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
 2018-11-07T21:50:50.815257Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
 2018-11-07T21:50:51.175245Z 0 [Warning] InnoDB: New log files created, LSN=45790
 2018-11-07T21:50:51.263531Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
@@ -223,7 +223,7 @@ socket=/var/lib/mysql/mysql.sock</code></pre>
 2018-11-07T21:50:51.496683Z 0 [Warning] Gtid table is not ready to be used. Table &#39;mysql.gtid_executed&#39; cannot be opened.
 2018-11-07T21:50:51.497829Z 1 [Note] A temporary password is generated for root@localhost: QHSpB01maf.!</code></pre>
 <p>记住最后一行生成临时 root 密码 : QHSpB01maf.!</p>
-<h3 id="7、启动"><a href="#7、启动" class="headerlink" title="7、启动"></a>7、启动</h3><pre><code class="bash">[root@localhost mysql]# cp support-files/mysql.server /etc/init.d/mysql
+<h2 id="7、启动"><a href="#7、启动" class="headerlink" title="7、启动"></a>7、启动</h2><pre><code class="bash">[root@localhost mysql]# cp support-files/mysql.server /etc/init.d/mysql
 [root@localhost mysql]# service mysql start
 Starting MySQL. SUCCESS!
 [root@localhost mysql]# mysql -u root -pQHSpB01maf.!
@@ -248,7 +248,7 @@ mysql&gt; alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;root&
 mysql&gt; alter user user() identified by &#39;root&#39;;
 Query OK, 0 rows affected (0.00 sec)
 </code></pre>
-<h2 id="程连接配置"><a href="#程连接配置" class="headerlink" title="程连接配置"></a>程连接配置</h2><pre><code class="bash">mysql&gt; grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;root&#39; with grant option;
+<h1 id="远程连接配置"><a href="#远程连接配置" class="headerlink" title="远程连接配置"></a>远程连接配置</h1><pre><code class="bash">mysql&gt; grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;root&#39; with grant option;
 Query OK, 0 rows affected, 1 warning (0.00 sec)</code></pre>
 
         </div>
