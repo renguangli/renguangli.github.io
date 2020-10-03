@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>vi 编辑器使用详解 | GUANGLI.REN</title>
+    <title>Java 判断字母大小写并互相转换 | GUANGLI.REN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckft0va9k0003ecv7c1pyfzj7" class="article article-type-post" itemscope
+    <article id="post-ckft5dvy40000fgv7bn731kmm" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -126,8 +126,8 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="/linux-vi.html" rel="gallery_ckft0va9k0003ecv7c1pyfzj7">
-        <img src="https://renguangli.gitee.io/images/linux.png" itemprop="image">
+      <a class="article-gallery-img fancybox" href="/java-up-low.html" rel="gallery_ckft5dvy40000fgv7bn731kmm">
+        <img src="https://renguangli.gitee.io/images/default.png" itemprop="image">
       </a>
     
   </div>
@@ -139,7 +139,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      vi 编辑器使用详解
+      Java 判断字母大小写并互相转换
     </h1>
   
 
@@ -149,14 +149,14 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2019-01-20T04:12:51.000Z" itemprop="datePublished">2019-01-20</time>
+  <time datetime="2018-10-07T03:52:04.000Z" itemprop="datePublished">2018-10-07</time>
 </div>
 
             
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
             </div>
             
 
@@ -168,95 +168,130 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p>vi 编辑器是 Linux 系统下标准的编辑器.而且不逊色于其他任何最新的编辑器。<br>vi 编辑器分为命令行模式，插入模式和底行模式三种状态</p>
+            <p>判断字母的大小写并互相转化</p>
 <a id="more"></a>
 
-<ul>
-<li>命令行模式：控制屏幕光标的移动、字符、字或行的删除，移动复制某区段及进入插入模式下，或者到底行模式。   </li>
-<li>插入模式：只有在插入模式下，才可以做文字输入，按「ESC」键可回到命令行模式。</li>
-<li>底行模式：将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。 </li>
-</ul>
-<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><p>输入<code>vi fileName</code>命令进入 vi 编辑器，这时处于命令行模式。</p>
-<p>在命令模式下按下<code>i</code>字母就会进入插入模式，这时就可以对对文件进行编辑了。  </p>
-<p>在命令行模式下，按一下 <code>:</code>冒号键进入底行模式</p>
-<ul>
-<li><code>:w</code> 保存但不退出。</li>
-<li><code>:w fileName</code> 文件另存为 filename。</li>
-<li><code>:wq</code> 保存并退出。</li>
-<li><code>:q</code> 退出但不保存。  </li>
-</ul>
-<p>在末尾加入 <code>！</code> 表示强制执行，例如 <code>:q!</code> 表示强制退出但不保存。</p>
-<h1 id="命令行模式功能键"><a href="#命令行模式功能键" class="headerlink" title="命令行模式功能键"></a>命令行模式功能键</h1><h2 id="进入插入模式的几种方法。"><a href="#进入插入模式的几种方法。" class="headerlink" title="进入插入模式的几种方法。"></a>进入插入模式的几种方法。</h2><ul>
-<li>按 <code>i</code> 进入插入模式后，光标当前位置开始输入文件；</li>
-<li>按大写 <code>I</code> 进入插入模式后，光标所在行开始位置开始输入文件</li>
-<li>按 <code>a</code> 进入插入模式后，光标所在位置的下一个位置开始输入文字； </li>
-<li>按 <code>A</code> 进入插入模式后，光标所在行末尾开始输入文字； </li>
-<li>按 <code>o</code> 进入插入模式后，在当前行下一行插入新的一行，从行首开始输入文字。 </li>
-<li>按 <code>O</code> 进入插入模式后，在当前行上一行是插入新的一行，从行首开始输入文字。</li>
-</ul>
-<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母 <code>hjkl</code> ，分别控制光标左、下、上、右移一格。<br>其他移动光标的功能键</p>
-<ul>
-<li><code>ctrl + b</code> 屏幕往“后”移动一页。 </li>
-<li><code>ctrl + f</code> 屏幕往“前”移动一页。 </li>
-<li><code>ctrl + u</code> 屏幕往“后”移动半页</li>
-<li><code>ctrl + d</code> 屏幕往“前”移动半页。</li>
-<li><code>home</code>,<code>^</code>, <code>0</code> 移到行首。</li>
-<li><code>end</code> , <code>\$</code> 移到行尾</li>
-<li><code>gg</code> 移到文件开头。</li>
-<li><code>G</code> 移到文件最后。</li>
-<li><code>w</code> 光标跳到下个字的开头 </li>
-<li><code>e</code> 光标跳到下个字的字尾 </li>
-<li><code>b</code> 光标回到上个字的开头 </li>
-<li><code>#l</code> 光标移到该行的第#个位置，如：5l,56l。 </li>
-</ul>
-<h2 id="删除文字"><a href="#删除文字" class="headerlink" title="删除文字"></a>删除文字</h2><ul>
-<li><code>x</code> 每按一次，删除光标所在位置的“后面”一个字符。 </li>
-<li><code>#x</code> ：例如，「6x」表示删除光标所在位置的“后面”6个字符。 </li>
-<li><code>X</code> 大写的 X，每按一次，删除光标所在位置的“前面”一个字符。 </li>
-<li><code>#X</code> 例如，「20X」表示删除光标所在位置的“前面”20个字符。 </li>
-<li><code>dd</code> 删除光标所在行。 </li>
-<li><code>#dd</code> 从光标所在行开始删除#行 </li>
-</ul>
-<h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><ul>
-<li><code>yw</code> 将光标所在之处到字尾的字符复制到缓冲区中。 </li>
-<li><code>#wy</code> 复制#个字到缓冲区 </li>
-<li><code>yy</code> 复制光标所在行到缓冲区。 </li>
-<li><code>#yy</code> 例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。 </li>
-<li><code>p</code> 将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。</li>
-</ul>
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><ul>
-<li><code>r</code> 替换光标所在处的字符。 </li>
-<li><code>R</code> 替换光标所到之处的字符，直到按下「ESC」键为止。 </li>
-</ul>
-<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><ul>
-<li><code>u</code> 如果您误执行一个命令，可以马上按下 <code>u</code>，回到上一个操作。按多次“u”可以执行多次回复。 </li>
-</ul>
-<h2 id="更改"><a href="#更改" class="headerlink" title="更改"></a>更改</h2><ul>
-<li><code>cw</code> 更改光标所在处的字到字尾处 </li>
-<li><code>c#w</code> 例如, <code>c3w</code> 表示更改3个字 </li>
-</ul>
-<h2 id="跳至指定的行"><a href="#跳至指定的行" class="headerlink" title="跳至指定的行"></a>跳至指定的行</h2><ul>
-<li><code>ctrl + g</code> 列出光标所在行的行号。 </li>
-<li><code>#G</code>例如，<code>10G</code>，表示移动光标至文章的第 15 行行首。 </li>
-</ul>
-<h1 id="底行模式下命令简介"><a href="#底行模式下命令简介" class="headerlink" title="底行模式下命令简介"></a>底行模式下命令简介</h1><p>　　在使用底行模式之前，请记住先按「ESC」键确定您已经处于命令行模式下后，再按 <code>:</code> 冒号即可进入底行模式。 </p>
-<h2 id="列出行号"><a href="#列出行号" class="headerlink" title="列出行号"></a>列出行号</h2><ul>
-<li><code>set nu</code> 输入 <code>set nu</code> 后，会在文件中的每一行前面列出行号。 </li>
-</ul>
-<h2 id="跳到文件中的某一行"><a href="#跳到文件中的某一行" class="headerlink" title="跳到文件中的某一行"></a>跳到文件中的某一行</h2><ul>
-<li><code>#</code> 号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字 15，再回车，就会跳到文章的第 15 行。 </li>
-</ul>
-<h2 id="查找字符"><a href="#查找字符" class="headerlink" title="查找字符"></a>查找字符</h2><ul>
-<li><code>/关键字</code> 先按 <code>/</code> 键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按 <code>n</code> 会往后寻找到您要的关键字为止。 </li>
-<li><code>?关键字</code> 先按 <code>?</code> 键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按 <code>n</code> 会往前寻找到您要的关键字为止。 </li>
-</ul>
-<h2 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h2><ul>
-<li><code>w</code> 在冒号输入字母 <code>w</code> 就可以将文件保存起来。 </li>
-</ul>
-<h2 id="离开vi"><a href="#离开vi" class="headerlink" title="离开vi"></a>离开vi</h2><ul>
-<li><code>q</code> 按「q」就是退出，如果无法离开 vi，可以在 <code>q</code> 跟一个 <code>!</code> 强制离开 vi。 </li>
-<li><code>qw</code> 一般建议离开时，搭配 <code>w</code> 一起使用，这样在退出的时候还可以保存文件。 </li>
-</ul>
+<h1 id="大小写判断"><a href="#大小写判断" class="headerlink" title="大小写判断"></a>大小写判断</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>根据 Character 类提供的大小写判断方法</p>
+<pre><code class="java">Character.isUpperCase(c); // 是否是大写
+Character.isUpperCase(c); // 是否是小写</code></pre>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>通过 ASCII 码判断字母大小写，字母的 ASCII 在 65-90 之间是大写，97-122 是小写</p>
+<pre><code class="java">/*
+ * 是否是大写
+ */
+public boolean isUpperCase(char c) &#123;
+    return c &gt;=65 &amp;&amp; c &lt;= 90;
+&#125;
+
+/*
+ * 是否是小写
+ */
+public boolean isLowerCase(char c) &#123;
+    return c &gt;=97 &amp;&amp; c &lt;= 122;
+&#125;</code></pre>
+<h1 id="大小写互相转换"><a href="#大小写互相转换" class="headerlink" title="大小写互相转换"></a>大小写互相转换</h1><h2 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h2><p>根据 Character 类提供的大小写转换方法</p>
+<pre><code class="java">/*
+ * 小写转大写
+ */
+public char toUpper(char c) &#123;
+    return Character.isLowerCase(c) ? c : Character.toUpperCase(c);
+&#125;
+
+/*
+ * 大写转小写
+ */
+public char toLower(char c) &#123;
+    return Character.isUpperCase(c) ? c : Character.toLowerCase(c);
+&#125;</code></pre>
+<h2 id="方法二-1"><a href="#方法二-1" class="headerlink" title="方法二"></a>方法二</h2><p>字母的 ASCII 加 32 转换为小写，减 32 转换为大写</p>
+<pre><code class="java">/*
+ * 是否是大写
+ */
+public boolean isUpperCase(char c) &#123;
+    return c &gt;=65 &amp;&amp; c &lt;= 90;
+&#125;
+
+/*
+ * 是否是小写
+ */
+public boolean isLowerCase(char c) &#123;
+    return c &gt;=97 &amp;&amp; c &lt;= 122;
+&#125;</code></pre>
+<h2 id="字符串大写转小写，小写转大写"><a href="#字符串大写转小写，小写转大写" class="headerlink" title="字符串大写转小写，小写转大写"></a>字符串大写转小写，小写转大写</h2><pre><code class="java">public class WordUpperLow &#123;
+
+    public static void main(String[] args) &#123;
+        new WordUpperLow().upToLowToUp(&quot;HeLLoWoRlD&quot;);
+    &#125;
+
+    public void upToLowToUp(String str) &#123;
+
+        /*
+         * 方法一 根据 char 的工具类 Character
+         */
+        char[] chars = str.toCharArray();
+        for (int i = 0, length = chars.length; i &lt; length; i++) &#123;
+            char c = chars[i];
+            //判断字母是不是大写，如果是大写变为小写
+            if (Character.isUpperCase(c))&#123;
+                chars[i] = Character.toLowerCase(c);
+                continue;
+            &#125;
+            //如果为小写，变为大写
+            chars[i] = Character.toUpperCase(c);
+        &#125;
+        String str1 = new String(chars);
+        System.err.println(str1);
+
+        /*
+         * 方法二
+         * 通过ASCII码判断字母大小写 ASCII在65-90之间是大写，97-122是小
+         * 大转小加32 小转大减去32
+         */
+        byte[] bytes = str.getBytes();
+        for (int i = 0, length = bytes.length; i &lt; length; i++) &#123;
+            //如果ASCII在65-90之间为大写，加上32变为小写
+            if (bytes[i] &gt;= 65 &amp;&amp; bytes[i] &lt;= 90)&#123;
+                bytes[i] += 32;
+                //如果ASCII在97-122之间为小写，减去32变为大写
+            &#125; else if (bytes[i] &gt;= 97 &amp;&amp; bytes[i] &lt;= 122)&#123;
+                bytes[i] -= 32;
+            &#125;
+        &#125;
+        String str2 = new String(bytes);
+        System.err.println(str2);
+    &#125;
+
+    /*
+     * 小写转大写
+     */
+    public char toUpper(char c) &#123;
+        return c &gt;=65 &amp;&amp; c &lt;= 90 ? c : (char)(c - 32);
+    &#125;
+
+    /*
+     * 大写转小写
+     */
+    public char toLower(char c) &#123;
+        return c &gt;=97 &amp;&amp; c &lt;= 122 ? c : (char)(c + 32);
+    &#125;
+
+
+    /*
+     * 是否是大写
+     */
+    public boolean isUpperCase(char c) &#123;
+        // Character.isUpperCase(c);
+        return c &gt;=65 &amp;&amp; c &lt;= 90;
+    &#125;
+
+    /*
+     * 是否是小写
+     */
+    public boolean isLowerCase(char c) &#123;
+//        Character.isLowerCase(c);
+        return c &gt;=97 &amp;&amp; c &lt;= 122;
+    &#125;
+&#125;
+</code></pre>
 
         </div>
 
@@ -281,19 +316,19 @@
     
 <nav class="article-nav">
   
-    <a href="/mysql-install.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/linux-vi.html" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
-          Linux 下安装 MySQL
+          vi 编辑器使用详解
         
       </div>
     </a>
   
   
-    <a href="/java-up-low.html" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/nginx-lost-pid-file.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">Java 判断字母大小写并互相转换</div>
+      <div class="article-nav-title">nginx: [error] open() &#34;/run/nginx.pid&#34; failed (2: No such file or directory)</div>
     </a>
   
 </nav>
@@ -302,15 +337,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=vi 编辑器使用详解 - GUANGLI.REN&url=https://guangli.ren/linux-vi.html">
+            href="https://twitter.com/share?text=Java 判断字母大小写并互相转换 - GUANGLI.REN&url=https://guangli.ren/java-up-low.html">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=vi 编辑器使用详解 - GUANGLI.REN&u=https://guangli.ren/linux-vi.html">
+            href="https://www.facebook.com/sharer.php?title=Java 判断字母大小写并互相转换 - GUANGLI.REN&u=https://guangli.ren/java-up-low.html">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=vi 编辑器使用详解 - GUANGLI.REN&url=https://guangli.ren/linux-vi.html&pic=">
+            href="https://service.weibo.com/share/share.php?title=Java 判断字母大小写并互相转换 - GUANGLI.REN&url=https://guangli.ren/java-up-low.html&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
