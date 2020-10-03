@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>vi 编辑器使用详解 | GUANGLI.REN</title>
+    <title>计算机基础 - 基本架构 | GUANGLI.REN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
@@ -117,29 +117,19 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckft0va9k0003ecv7c1pyfzj7" class="article article-type-post" itemscope
+    <article id="post-ckft2dby60000asv72yu318ol" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
 
         
-<div class="article-gallery">
-  <div class="article-gallery-photos">
-    
-      <a class="article-gallery-img fancybox" href="/linux-vi.html" rel="gallery_ckft0va9k0003ecv7c1pyfzj7">
-        <img src="https://renguangli.gitee.io/images/linux.png" itemprop="image">
-      </a>
-    
-  </div>
-</div>
-
 
         
         <header class="article-header">
             
   
     <h1 class="article-title" itemprop="name">
-      vi 编辑器使用详解
+      计算机基础 - 基本架构
     </h1>
   
 
@@ -149,14 +139,14 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2019-01-20T04:12:51.000Z" itemprop="datePublished">2019-01-20</time>
+  <time datetime="2020-10-03T02:13:34.000Z" itemprop="datePublished">2020-10-03</time>
 </div>
 
             
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li></ul>
             </div>
             
 
@@ -168,94 +158,55 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p>vi 编辑器是 Linux 系统下标准的编辑器.而且不逊色于其他任何最新的编辑器。<br>vi 编辑器分为命令行模式，插入模式和底行模式三种状态</p>
+            <p>现代计算机常见的有两种架构，其中一种是 <strong>冯·诺依曼架构</strong> 另一种是 <strong>哈佛架构</strong></p>
 <a id="more"></a>
 
+<h1 id="冯·诺依曼架构"><a href="#冯·诺依曼架构" class="headerlink" title="冯·诺依曼架构"></a>冯·诺依曼架构</h1><p>现代计算机常见的有两种架构，其中一种是 <strong>冯·诺依曼架构</strong> ，如图</p>
+<p><img src="/images/%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%9C%BA%E6%9E%84.png" alt="冯·诺依曼架构"></p>
+<p><strong>冯·诺依曼架构</strong> 也称 <strong>普林斯顿架构</strong>，是一种将程序指令存储器和数据存储器合并在一起的存储器结构。程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置，因此程序指令和数据的宽度相同，如英特尔公司的 8086 中央处理器的程序指令和数据都是 16 位宽。<br>数学家冯·诺依曼提出了计算机制造的三个基本原则，即采用二进制逻辑、程序存储执行以及计算机由五个部分组成（运算器、控制器、存储器、输入设备、输出设备），这套理论被称为冯·诺依曼体系结构。</p>
+<blockquote>
+<p>位宽是显存在一个时钟周期内所能传送数据的位数，位数越大传输的数据量越大<br>时钟周期是计算机中最基本的、最小的时间单位。在一个时钟周期内，CPU 仅完成一个最基本的动作。</p>
+</blockquote>
+<p>想象一下我们在做数学考试：</p>
+<ol>
+<li>输入设备就是考卷，题目都在卷子上。同样的计算机要计算哪些数据，怎么计算，都来自于输入设备。</li>
+<li>内存就是草稿纸，我们会把要计算的题目抄写到草稿纸上，用草稿纸记录计算的中间过程。同样的，计算机要把来自输入设备的数据，以及要怎么计算这些数据的指令，从输入设备载入到内存中，并且把每一步计算的结果写入到内存。</li>
+<li>运算单元是计算器，我们用计算器来计算每一步的加减乘除。同样的，计算机有专用的运算单元，来计算数据。（假设这次数学考试允许带计算器）</li>
+<li>控制单元就是我们自己了。我们根据试卷上的算式，来决定第一步是算乘法还是加法，乘法是哪两个数相乘，加法又是哪两个数相加。</li>
+<li>输出设备就是答题卡。我们计算完一道题后，需要把草稿纸上的结果抄写在答题卡上。</li>
+<li>其中，我们自己+计算器的组合，在计算机里面是同一个设备——CPU（Central Processing Unit，中央处理器）。</li>
+</ol>
+<h1 id="哈佛架构"><a href="#哈佛架构" class="headerlink" title="哈佛架构"></a>哈佛架构</h1><p>另一种计算机架构是 <strong>哈佛架构</strong>，看图</p>
+<p><img src="/images/%E5%93%88%E4%BD%9B%E6%9E%B6%E6%9E%84.jpg" alt="哈佛架构"></p>
+<p>哈弗架构和冯·诺依曼架构最大的不同就是内存分为独立的指令内存和数据内存,和冯·诺依曼架构相比，哈佛架构因为指令内存的读取和数据内存的读写分开，一定程度上可以保证指令的连续性，不会因为需要访问内存上的数据造成指令堵塞。</p>
+<h1 id="现在计算机架构"><a href="#现在计算机架构" class="headerlink" title="现在计算机架构"></a>现在计算机架构</h1><p>我们现在的计算机，是这两种架构的混合体。对于一台计算机的整体来说，我们可以认为是冯·诺依曼架构，计算机中的内存是统一的，并没有明确分为指令内存还是数据内存。</p>
+<p>现代计算机中，相对于 CPU 的速度来说，从内存读取数据和写入数据都很慢的，因此 CPU 内部有另外一种速度更快的存储介质来存放数据和指令，我们称之为缓存（Cache）。现代计算机中缓存通常有多层，每一层都比下一层快，但比下一层可以存放的数据少。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-f6b440ae54d16616d6e9f093726d496a_720w.jpg"></p>
+<p>而 CPU 内部，控制单元和运算单元直接访问的缓存，我们称之为一级缓存（Level 1 Cache，L1 Cache）。现代 CPU 的一级缓存，都是分为一级指令缓存、一级数据缓存两部分，所以事实上我们可以认为现代计算机，其真正的架构是哈佛架构。</p>
+<p>这样的架构，称之为改进型哈佛架构。</p>
+<h1 id="输入-输出设备"><a href="#输入-输出设备" class="headerlink" title="输入/输出设备"></a>输入/输出设备</h1><p>前面提到的输入输出设备有和多种具体设备，常见的输入设备有：</p>
 <ul>
-<li>命令行模式：控制屏幕光标的移动、字符、字或行的删除，移动复制某区段及进入插入模式下，或者到底行模式。   </li>
-<li>插入模式：只有在插入模式下，才可以做文字输入，按「ESC」键可回到命令行模式。</li>
-<li>底行模式：将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。 </li>
+<li>键盘：我们通过键盘向计算机输入各种指令和数据。</li>
+<li>鼠标：我们通过鼠标告诉计算机，在计算机显示出来的图形中，我们相对那个元素做什么样的操作。</li>
+<li>硬盘：计算机读取存储在硬盘上的各种程序，对存放在硬盘上的各种数据进行计算。</li>
+<li>网卡：我们可以直接执行来自于网上的程序，也可以直接对网上的数据进行计算。</li>
 </ul>
-<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><p>输入<code>vi fileName</code>命令进入 vi 编辑器，这时处于命令行模式。</p>
-<p>在命令模式下按下<code>i</code>字母就会进入插入模式，这时就可以对对文件进行编辑了。  </p>
-<p>在命令行模式下，按一下 <code>:</code>冒号键进入底行模式</p>
+<p>除此之外，还有很多其它专用的输入设备，例如麦克风、摄像头、扫描仪、视频采集卡、各种传感器等等。</p>
+<p>比较常见的输出设备有：</p>
 <ul>
-<li><code>:w</code> 保存但不退出。</li>
-<li><code>:w fileName</code> 文件另存为 filename。</li>
-<li><code>:wq</code> 保存并退出。</li>
-<li><code>:q</code> 退出但不保存。  </li>
+<li>显示器：计算机把处理结果显示出来给我们看。</li>
+<li>硬盘：我们把处理完毕的数据存放到硬盘上。</li>
+<li>网卡：我们把处理完毕的数据发送到网上。</li>
+<li>打印机：把处理完毕的结果打印到纸上。</li>
 </ul>
-<p>在末尾加入 <code>！</code> 表示强制执行，例如 <code>:q!</code> 表示强制退出但不保存。</p>
-<h1 id="命令行模式功能键"><a href="#命令行模式功能键" class="headerlink" title="命令行模式功能键"></a>命令行模式功能键</h1><h2 id="进入插入模式的几种方法。"><a href="#进入插入模式的几种方法。" class="headerlink" title="进入插入模式的几种方法。"></a>进入插入模式的几种方法。</h2><ul>
-<li>按 <code>i</code> 进入插入模式后，光标当前位置开始输入文件；</li>
-<li>按大写 <code>I</code> 进入插入模式后，光标所在行开始位置开始输入文件</li>
-<li>按 <code>a</code> 进入插入模式后，光标所在位置的下一个位置开始输入文字； </li>
-<li>按 <code>A</code> 进入插入模式后，光标所在行末尾开始输入文字； </li>
-<li>按 <code>o</code> 进入插入模式后，在当前行下一行插入新的一行，从行首开始输入文字。 </li>
-<li>按 <code>O</code> 进入插入模式后，在当前行上一行是插入新的一行，从行首开始输入文字。</li>
-</ul>
-<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母 <code>hjkl</code> ，分别控制光标左、下、上、右移一格。<br>其他移动光标的功能键</p>
+<p>除此之外，还有其它专用的输出设备，例如音箱、各种控制器。</p>
+<p>可以看到，上面的输入/输出设备中，像网卡、硬盘都是同时作为输出设备和输入设备存在的，而其它即使看上去是纯粹的输入设备，绝大部分都会需要接受 CPU 输出的控制指令、工作参数输入；纯粹的输出设备，也需要向CPU报告设备信息（例如设备类型、型号，工作状态等），所以统称为 IO 设备（Input/Output Devices）或者输入输出设备。</p>
+<h1 id="其它配件"><a href="#其它配件" class="headerlink" title="其它配件"></a>其它配件</h1><p>除了上面提到的 CPU、内存和 IO 设备外，一台完整的计算机，还需要：</p>
 <ul>
-<li><code>ctrl + b</code> 屏幕往“后”移动一页。 </li>
-<li><code>ctrl + f</code> 屏幕往“前”移动一页。 </li>
-<li><code>ctrl + u</code> 屏幕往“后”移动半页</li>
-<li><code>ctrl + d</code> 屏幕往“前”移动半页。</li>
-<li><code>home</code>,<code>^</code>, <code>0</code> 移到行首。</li>
-<li><code>end</code> , <code>\$</code> 移到行尾</li>
-<li><code>gg</code> 移到文件开头。</li>
-<li><code>G</code> 移到文件最后。</li>
-<li><code>w</code> 光标跳到下个字的开头 </li>
-<li><code>e</code> 光标跳到下个字的字尾 </li>
-<li><code>b</code> 光标回到上个字的开头 </li>
-<li><code>#l</code> 光标移到该行的第#个位置，如：5l,56l。 </li>
-</ul>
-<h2 id="删除文字"><a href="#删除文字" class="headerlink" title="删除文字"></a>删除文字</h2><ul>
-<li><code>x</code> 每按一次，删除光标所在位置的“后面”一个字符。 </li>
-<li><code>#x</code> ：例如，「6x」表示删除光标所在位置的“后面”6个字符。 </li>
-<li><code>X</code> 大写的 X，每按一次，删除光标所在位置的“前面”一个字符。 </li>
-<li><code>#X</code> 例如，「20X」表示删除光标所在位置的“前面”20个字符。 </li>
-<li><code>dd</code> 删除光标所在行。 </li>
-<li><code>#dd</code> 从光标所在行开始删除#行 </li>
-</ul>
-<h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><ul>
-<li><code>yw</code> 将光标所在之处到字尾的字符复制到缓冲区中。 </li>
-<li><code>#wy</code> 复制#个字到缓冲区 </li>
-<li><code>yy</code> 复制光标所在行到缓冲区。 </li>
-<li><code>#yy</code> 例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。 </li>
-<li><code>p</code> 将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。</li>
-</ul>
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><ul>
-<li><code>r</code> 替换光标所在处的字符。 </li>
-<li><code>R</code> 替换光标所到之处的字符，直到按下「ESC」键为止。 </li>
-</ul>
-<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><ul>
-<li><code>u</code> 如果您误执行一个命令，可以马上按下 <code>u</code>，回到上一个操作。按多次“u”可以执行多次回复。 </li>
-</ul>
-<h2 id="更改"><a href="#更改" class="headerlink" title="更改"></a>更改</h2><ul>
-<li><code>cw</code> 更改光标所在处的字到字尾处 </li>
-<li><code>c#w</code> 例如, <code>c3w</code> 表示更改3个字 </li>
-</ul>
-<h2 id="跳至指定的行"><a href="#跳至指定的行" class="headerlink" title="跳至指定的行"></a>跳至指定的行</h2><ul>
-<li><code>ctrl + g</code> 列出光标所在行的行号。 </li>
-<li><code>#G</code>例如，<code>10G</code>，表示移动光标至文章的第 15 行行首。 </li>
-</ul>
-<h1 id="底行模式下命令简介"><a href="#底行模式下命令简介" class="headerlink" title="底行模式下命令简介"></a>底行模式下命令简介</h1><p>　　在使用底行模式之前，请记住先按「ESC」键确定您已经处于命令行模式下后，再按 <code>:</code> 冒号即可进入底行模式。 </p>
-<h2 id="列出行号"><a href="#列出行号" class="headerlink" title="列出行号"></a>列出行号</h2><ul>
-<li><code>set nu</code> 输入 <code>set nu</code> 后，会在文件中的每一行前面列出行号。 </li>
-</ul>
-<h2 id="跳到文件中的某一行"><a href="#跳到文件中的某一行" class="headerlink" title="跳到文件中的某一行"></a>跳到文件中的某一行</h2><ul>
-<li><code>#</code> 号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字 15，再回车，就会跳到文章的第 15 行。 </li>
-</ul>
-<h2 id="查找字符"><a href="#查找字符" class="headerlink" title="查找字符"></a>查找字符</h2><ul>
-<li><code>/关键字</code> 先按 <code>/</code> 键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按 <code>n</code> 会往后寻找到您要的关键字为止。 </li>
-<li><code>?关键字</code> 先按 <code>?</code> 键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按 <code>n</code> 会往前寻找到您要的关键字为止。 </li>
-</ul>
-<h2 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h2><ul>
-<li><code>w</code> 在冒号输入字母 <code>w</code> 就可以将文件保存起来。 </li>
-</ul>
-<h2 id="离开vi"><a href="#离开vi" class="headerlink" title="离开vi"></a>离开vi</h2><ul>
-<li><code>q</code> 按「q」就是退出，如果无法离开 vi，可以在 <code>q</code> 跟一个 <code>!</code> 强制离开 vi。 </li>
-<li><code>qw</code> 一般建议离开时，搭配 <code>w</code> 一起使用，这样在退出的时候还可以保存文件。 </li>
+<li>主板：把上面这些部件连接在一起，让它们可以协同工作。当然，现代主板上面还有很多功能，例如集成网卡/声卡等等。</li>
+<li>电源：给所有这些部件提供电力。</li>
+<li>散热器：给发热较大的部件（例如CPU、高性能显卡）散热。</li>
+<li>机箱：用于固定安装所有的上述部件的外壳。</li>
 </ul>
 
         </div>
@@ -265,6 +216,14 @@
     
 
     
+<div class="article-reprint hairline">
+  
+    <p>
+      文章转载自 <a target="_blank" href="https://zhuanlan.zhihu.com/p/63322067">电脑硬件入门——基础之计算机架构</a>
+    </p>
+  
+</div>
+
 
     
 
@@ -281,15 +240,11 @@
     
 <nav class="article-nav">
   
-    <a href="/mysql-install.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          Linux 下安装 MySQL
-        
-      </div>
-    </a>
   
+    <a href="/cluster-lb.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">什么是集群？负载均衡又是什么？</div>
+    </a>
   
 </nav>
 
@@ -297,15 +252,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=vi 编辑器使用详解 - GUANGLI.REN&url=https://guangli.ren/linux-vi.html">
+            href="https://twitter.com/share?text=计算机基础 - 基本架构 - GUANGLI.REN&url=https://guangli.ren/computer-base-architecture.html">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=vi 编辑器使用详解 - GUANGLI.REN&u=https://guangli.ren/linux-vi.html">
+            href="https://www.facebook.com/sharer.php?title=计算机基础 - 基本架构 - GUANGLI.REN&u=https://guangli.ren/computer-base-architecture.html">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=vi 编辑器使用详解 - GUANGLI.REN&url=https://guangli.ren/linux-vi.html&pic=">
+            href="https://service.weibo.com/share/share.php?title=计算机基础 - 基本架构 - GUANGLI.REN&url=https://guangli.ren/computer-base-architecture.html&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
