@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>计算机基础 - 基本架构 | GUANGLI.REN</title>
+    <title>计算机基础 - CPU | GUANGLI.REN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckft2dby60000asv72yu318ol" class="article article-type-post" itemscope
+    <article id="post-ckfwnd7170000f8v74e0zcatz" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -129,7 +129,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      计算机基础 - 基本架构
+      计算机基础 - CPU
     </h1>
   
 
@@ -139,7 +139,7 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2020-10-03T02:13:34.000Z" itemprop="datePublished">2020-10-03</time>
+  <time datetime="2020-10-05T14:35:59.000Z" itemprop="datePublished">2020-10-05</time>
 </div>
 
             
@@ -158,56 +158,61 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p>现代计算机常见的有两种架构，一种是 <strong>冯·诺依曼架构</strong> 另一种是 <strong>哈佛架构</strong></p>
+            <p>CPU 是计算机的大脑, 也是整个计算机中最贵的配件。</p>
 <a id="more"></a>
 
-<h1 id="冯·诺依曼架构"><a href="#冯·诺依曼架构" class="headerlink" title="冯·诺依曼架构"></a>冯·诺依曼架构</h1><p>现代计算机常见的有两种架构，其中一种是 <strong>冯·诺依曼架构</strong> ，如图</p>
-<p><img src="/images/%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%9C%BA%E6%9E%84.png" alt="冯·诺依曼架构"></p>
-<p><strong>冯·诺依曼架构</strong> 也称 <strong>普林斯顿架构</strong>，是一种将程序指令存储器和数据存储器合并在一起的存储器结构。程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置，因此程序指令和数据的宽度相同，如英特尔公司的 8086 中央处理器的程序指令和数据都是 16 位宽。<br>数学家冯·诺依曼提出了计算机制造的三个基本原则，即采用二进制逻辑、程序存储执行以及计算机由五个部分组成（运算器、控制器、存储器、输入设备、输出设备），这套理论被称为冯·诺依曼体系结构。</p>
-<blockquote>
-<p>位宽是显存在一个时钟周期内所能传送数据的位数，位数越大传输的数据量越大<br>时钟周期是计算机中最基本的、最小的时间单位。在一个时钟周期内，CPU 仅完成一个最基本的动作。</p>
-</blockquote>
-<p>想象一下我们在做数学考试：</p>
-<ol>
-<li>输入设备就是考卷，题目都在卷子上。同样的计算机要计算哪些数据，怎么计算，都来自于输入设备。</li>
-<li>内存就是草稿纸，我们会把要计算的题目抄写到草稿纸上，用草稿纸记录计算的中间过程。同样的，计算机要把来自输入设备的数据，以及要怎么计算这些数据的指令，从输入设备载入到内存中，并且把每一步计算的结果写入到内存。</li>
-<li>运算单元是计算器，我们用计算器来计算每一步的加减乘除。同样的，计算机有专用的运算单元，来计算数据。（假设这次数学考试允许带计算器）</li>
-<li>控制单元就是我们自己了。我们根据试卷上的算式，来决定第一步是算乘法还是加法，乘法是哪两个数相乘，加法又是哪两个数相加。</li>
-<li>输出设备就是答题卡。我们计算完一道题后，需要把草稿纸上的结果抄写在答题卡上。</li>
-<li>其中，我们自己+计算器的组合，在计算机里面是同一个设备——CPU（Central Processing Unit，中央处理器）。</li>
-</ol>
-<h1 id="哈佛架构"><a href="#哈佛架构" class="headerlink" title="哈佛架构"></a>哈佛架构</h1><p>另一种计算机架构是 <strong>哈佛架构</strong>，看图</p>
-<p><img src="/images/%E5%93%88%E4%BD%9B%E6%9E%B6%E6%9E%84.jpg" alt="哈佛架构"></p>
-<p>哈弗架构和冯·诺依曼架构最大的不同就是内存分为独立的指令内存和数据内存,和冯·诺依曼架构相比，哈佛架构因为指令内存的读取和数据内存的读写分开，一定程度上可以保证指令的连续性，不会因为需要访问内存上的数据造成指令堵塞。</p>
-<h1 id="现在计算机架构"><a href="#现在计算机架构" class="headerlink" title="现在计算机架构"></a>现在计算机架构</h1><p>我们现在的计算机，是这两种架构的混合体。对于一台计算机的整体来说，我们可以认为是冯·诺依曼架构，计算机中的内存是统一的，并没有明确分为指令内存还是数据内存。</p>
-<p>现代计算机中，相对于 CPU 的速度来说，从内存读取数据和写入数据都很慢的，因此 CPU 内部有另外一种速度更快的存储介质来存放数据和指令，我们称之为缓存（Cache）。现代计算机中缓存通常有多层，每一层都比下一层快，但比下一层可以存放的数据少。</p>
-<p><img src="https://pic3.zhimg.com/80/v2-f6b440ae54d16616d6e9f093726d496a_720w.jpg"></p>
-<p>而 CPU 内部，控制单元和运算单元直接访问的缓存，我们称之为一级缓存（Level 1 Cache，L1 Cache）。现代 CPU 的一级缓存，都是分为一级指令缓存、一级数据缓存两部分，所以事实上我们可以认为现代计算机，其真正的架构是哈佛架构。</p>
-<p>这样的架构，称之为改进型哈佛架构。</p>
-<h1 id="输入-输出设备"><a href="#输入-输出设备" class="headerlink" title="输入/输出设备"></a>输入/输出设备</h1><p>前面提到的输入输出设备有和多种具体设备，常见的输入设备有：</p>
+<h1 id="CPU-是什么"><a href="#CPU-是什么" class="headerlink" title="CPU 是什么"></a>CPU 是什么</h1><p><img src="/images/cpu-i7.jpg"></p>
+<p>CPU 是 Central Processing Unit 的缩写，中文意思为中央处理器，那么中央处理器又是什么东西呢？</p>
+<p>中央处理器（CPU）是一块超大规模的集成电路，是一台计算机的运算核心（Core）和控制核心（ Control Unit）。</p>
+<h1 id="CPU-的功能"><a href="#CPU-的功能" class="headerlink" title="CPU 的功能"></a>CPU 的功能</h1><p>CPU 控制整个程序的执行，它具有以下基本功能：</p>
+<h2 id="（1）程序控制"><a href="#（1）程序控制" class="headerlink" title="（1）程序控制"></a>（1）程序控制</h2><p>程序控制就是控制指令的执行顺序。<br>程序是指令的有序集合，这些指令的相互顺序不能任意颠倒，必须严格按程序规定的顺序执行。<br>保证计算机按一定顺序执行程序是 CPU 的首要任务。</p>
+<h2 id="（2）操作控制"><a href="#（2）操作控制" class="headerlink" title="（2）操作控制"></a>（2）操作控制</h2><p>操作控制就是控制指令进行操作。<br>一条指令的功能往往由若干个操作信号的组合来实现。因此，CPU 管理并产生每条指令的操作信号，把各种操作信号送往相应的部件，从而控制这些部件按指令的要求进行操作。</p>
+<h2 id="（3）时间控制"><a href="#（3）时间控制" class="headerlink" title="（3）时间控制"></a>（3）时间控制</h2><p>时间控制就是对各种操作实施定时控制。<br>在计算机中，各种指令的操作信号和一条指令的整个执行过程都受到严格定时。只有这样，计算机才能有条不紊地工作。</p>
+<h2 id="（4）数据加工"><a href="#（4）数据加工" class="headerlink" title="（4）数据加工"></a>（4）数据加工</h2><p>数据加工就是对数据进行算术、逻辑运算。<br>完成数据的加工处理，是 CPU的 根本任务。</p>
+<h1 id="CPU-的组成"><a href="#CPU-的组成" class="headerlink" title="CPU 的组成"></a>CPU 的组成</h1><p><img src="/images/cpu-zc.jpg"></p>
+<p>CPU 主要由运算器，控制器两部分组成</p>
+<h2 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h2><p>运算器是由算术逻辑单元（ALU）、累加器（ACC）、状态寄存器(PSW)、数据寄存(DR)器组等组成。</p>
+<p>它有两个主要功能：</p>
 <ul>
-<li>键盘：我们通过键盘向计算机输入各种指令和数据。</li>
-<li>鼠标：我们通过鼠标告诉计算机，在计算机显示出来的图形中，我们相对那个元素做什么样的操作。</li>
-<li>硬盘：计算机读取存储在硬盘上的各种程序，对存放在硬盘上的各种数据进行计算。</li>
-<li>网卡：我们可以直接执行来自于网上的程序，也可以直接对网上的数据进行计算。</li>
+<li>执行所有的算术运算；</li>
+<li>执行所有的逻辑运算</li>
 </ul>
-<p>除此之外，还有很多其它专用的输入设备，例如麦克风、摄像头、扫描仪、视频采集卡、各种传感器等等。</p>
-<p>比较常见的输出设备有：</p>
+<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><p>控制器是整个计算机系统的指挥中心。在控制器的指挥控制下，运算器、存储器和输入/输出设备等部件协同工作，构成了一台完整的通用计算机。</p>
+<p>控制器通常由程序计数器（PC）、指令寄存器（IR）、指令译码器（ID）、时序发生器和操作控制器组成。其主要功能包括</p>
 <ul>
-<li>显示器：计算机把处理结果显示出来给我们看。</li>
-<li>硬盘：我们把处理完毕的数据存放到硬盘上。</li>
-<li>网卡：我们把处理完毕的数据发送到网上。</li>
-<li>打印机：把处理完毕的结果打印到纸上。</li>
+<li>从主存中取出一条指令，并指出下一条指令在主存中的位置；</li>
+<li>对指令进行译码，并产生相应的操作控制信号，以便启动规定的动作；</li>
+<li>指挥并控制 CPU、主存和输入/输出设备之间数据流动的方向。</li>
 </ul>
-<p>除此之外，还有其它专用的输出设备，例如音箱、各种控制器。</p>
-<p>可以看到，上面的输入/输出设备中，像网卡、硬盘都是同时作为输出设备和输入设备存在的，而其它即使看上去是纯粹的输入设备，绝大部分都会需要接受 CPU 输出的控制指令、工作参数输入；纯粹的输出设备，也需要向CPU报告设备信息（例如设备类型、型号，工作状态等），所以统称为 IO 设备（Input/Output Devices）或者输入输出设备。</p>
-<h1 id="其它配件"><a href="#其它配件" class="headerlink" title="其它配件"></a>其它配件</h1><p>除了上面提到的 CPU、内存和 IO 设备外，一台完整的计算机，还需要：</p>
+<h2 id="CPU-中的主要寄存器"><a href="#CPU-中的主要寄存器" class="headerlink" title="CPU 中的主要寄存器"></a>CPU 中的主要寄存器</h2><p><strong>数据寄存器</strong>（Data Register，DR）主要作为CPU和主存、外设之间信息传输的中转站，用以弥补CPU和主存、外设之间操作速度上的差异</p>
+<p>数据寄存器用来暂时存放由主存储器读出的一条指令或一个数据字；反之，当向主存存入一个数据字时，也暂时将它们存放在数据寄存器中。</p>
+<p>数据寄存器的作用是：</p>
 <ul>
-<li>主板：把上面这些部件连接在一起，让它们可以协同工作。当然，现代主板上面还有很多功能，例如集成网卡/声卡等等。</li>
-<li>电源：给所有这些部件提供电力。</li>
-<li>散热器：给发热较大的部件（例如CPU、高性能显卡）散热。</li>
-<li>机箱：用于固定安装所有的上述部件的外壳。</li>
+<li>作为 CPU 和主存、外围设备之间信息传送的中转站；</li>
+<li>弥补 CPU 和主存、外围设备之间在操作速度上的差别；</li>
+<li>在单累加器结构的运算器中，数据寄存器还可兼作操作数寄存器。</li>
 </ul>
+<p><strong>指令寄存器</strong>（Instruction Register，IR）用来存储 CPU 当前正在执行的一条指令。</p>
+<p><strong>程序计数器</strong>（Program Counter，PC）用来存储下一条指令地址。</p>
+<p><strong>地址寄存器</strong>（Address Register，AR）用来保存 CPU 当前所访问的主存单元的地址</p>
+<p><strong>累加寄存器</strong>通常简称累加器（Accumulator，AC），是一个通用寄存器。</p>
+<p>累加器的功能是：当运算器的算术逻辑单元(ALU)执行算术或逻辑运算时，为 ALU 提供一个工作区，可以为 ALU 暂时保存一个操作数或运算结果。</p>
+<p><strong>程序状态字寄存器</strong>（Program Status Word，PSW）用来表征当前运算的状态及程序的工作方式。</p>
+<h2 id="微操作与数据通路"><a href="#微操作与数据通路" class="headerlink" title="微操作与数据通路"></a>微操作与数据通路</h2><p>控制器在实现一条指令的功能时，总是把每一条指令分解成一系列时间上先后有序的最基本、最简单、不可再分的操作控制动作，这种最基本、最简单、不可再分的操作称为微操作（Microoperation）。<br>我们通常把许多寄存器之间传输信息的通路称为数据通路（Data Path），它控制信息从什么地方开始，中间经过哪个寄存器或多路开关，最后传送到哪个寄存器。<br>在数据通路中，微操作通过自身的控制作用和彼此之间的密切配合，使指令流、数据流等信息流按照预定的路径流动，以实现指令的功能。每一条指令的功能决定了它所需要的一系列带时序的微操作信号。</p>
+<h2 id="操作控制器"><a href="#操作控制器" class="headerlink" title="操作控制器"></a>操作控制器</h2><p>控制器的基本功能是负责指令的读出、识别和解释，并指挥协调各功能部件执行指令。</p>
+<p>操作控制器是CPU中完成取指令和执行指令全过程的部件，其主要功能是根据指令操作码和时序信号的要求，产生各种操作控制信号，以便在各寄存器之间正确地建立数据通路，从而完成取指令和执行指令的控制。</p>
+<p>操作控制器有组合逻辑控制器和微程序控制器两种，二者的差别在于其中的控制信号形成部件不同，进而反映出不同的设计原理和方法。</p>
+<p>根据设计方法不同，又可将组合逻辑控制器进一步细分为硬连线控制器和门阵列控制器。</p>
+<h2 id="时序信号发生器"><a href="#时序信号发生器" class="headerlink" title="时序信号发生器"></a>时序信号发生器</h2><p>CPU中除了操作控制器外，还必须有时序信号发生器。</p>
+<p>由于计算机的高速工作，每一个动作的时间必须非常严格，不能有任何差错。时序发生器的作用，就是对操作控制器产生的各种控制信号实施时间上的严格控制，产生各功能部件所需要的定时控制信号。</p>
+<h1 id="CPU-的性能"><a href="#CPU-的性能" class="headerlink" title="CPU 的性能"></a>CPU 的性能</h1><p>CPU 性能的主要受以下三大方面的因素影响。</p>
+<ul>
+<li><strong>CPU的主频</strong>：CPU 的主频大小，代表着 CPU 运算能力的大小。CPU 的主频越高，处理数据能力就越强，比如 2GHz 的 CPU 的性能是 1GHz 的CPU的两倍。</li>
+<li><strong>CPU的核数</strong>：CPU 的核数多少，代表着 CPU 运算能力的高低。CPU 的核数越多，处理数据能力就越强，单核的 CPU 相当于只有一个大脑，双核的 CPU 相当于有两个大脑，多核 CPU 相当于有多个大脑。因此，主频相同的情况下，双核的 CPU 的性能是单核的CPU的两倍。</li>
+<li><strong>CPU的缓存</strong>：工作时，CPU 往往需要从内存和硬盘中重复读取同样的数据块，CPU 的缓存容量越大，就能大幅度提升 CPU 内部读取数据的命中率，从而不用再到内存或者硬盘上寻找，以此提高系统性能。因此，CPU 的缓存越大越好。</li>
+</ul>
+<p>CPU 性能天梯图</p>
+<p><a target="_blank" rel="noopener" href="http://www.mydrivers.com/zhuanti/tianti/cpu/index.html">http://www.mydrivers.com/zhuanti/tianti/cpu/index.html</a></p>
 
         </div>
 
@@ -216,16 +221,25 @@
     
 
     
-<div class="article-reprint hairline">
-  
-    <p>
-      文章转载自 <a target="_blank" href="https://zhuanlan.zhihu.com/p/63322067">电脑硬件入门——基础之计算机架构</a>
-    </p>
-  
-</div>
-
 
     
+  <div class="article-refer hairline">
+    <h3>文章参考文献</h3>
+    
+    <p>
+      <a target="_blank" rel="nofollow" href="https://tech.hqew.com/news_2058653">https://tech.hqew.com/news_2058653</a>
+    </p>
+    
+    <p>
+      <a target="_blank" rel="nofollow" href="https://software.intel.com/content/www/cn/zh/develop/articles/book-processor-architecture_cpu_function_and_composition.html">https://software.intel.com/content/www/cn/zh/develop/articles/book-processor-architecture_cpu_function_and_composition.html</a>
+    </p>
+    
+    <p>
+      <a target="_blank" rel="nofollow" href="https://www.php.cn/faq/415789.html">https://www.php.cn/faq/415789.html</a>
+    </p>
+    
+  </div>
+  
 
     
 <div class="article-copyright hairline">
@@ -240,19 +254,10 @@
     
 <nav class="article-nav">
   
-    <a href="/computer-base-cpu.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          计算机基础 - CPU
-        
-      </div>
-    </a>
   
-  
-    <a href="/flink-apis.html" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/computer-base-architecture.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">Flink 学习笔记 - API 介绍</div>
+      <div class="article-nav-title">计算机基础 - 基本架构</div>
     </a>
   
 </nav>
@@ -261,15 +266,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=计算机基础 - 基本架构 - GUANGLI.REN&url=https://guangli.ren/computer-base-architecture.html">
+            href="https://twitter.com/share?text=计算机基础 - CPU - GUANGLI.REN&url=https://guangli.ren/computer-base-cpu.html">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=计算机基础 - 基本架构 - GUANGLI.REN&u=https://guangli.ren/computer-base-architecture.html">
+            href="https://www.facebook.com/sharer.php?title=计算机基础 - CPU - GUANGLI.REN&u=https://guangli.ren/computer-base-cpu.html">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=计算机基础 - 基本架构 - GUANGLI.REN&url=https://guangli.ren/computer-base-architecture.html&pic=">
+            href="https://service.weibo.com/share/share.php?title=计算机基础 - CPU - GUANGLI.REN&url=https://guangli.ren/computer-base-cpu.html&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Java 判断字母大小写并互相转换 | GUANGLI.REN</title>
+    <title>Flink 学习笔记 - Flink 简单介绍 | GUANGLI.REN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckft5dvy40000fgv7bn731kmm" class="article article-type-post" itemscope
+    <article id="post-ckftpewza00003gv796kfedsy" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -126,8 +126,8 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="/java-up-low.html" rel="gallery_ckft5dvy40000fgv7bn731kmm">
-        <img src="https://renguangli.gitee.io/images/default.png" itemprop="image">
+      <a class="article-gallery-img fancybox" href="/flink.html" rel="gallery_ckftpewza00003gv796kfedsy">
+        <img src="https://flink.apache.org/img/flink-header-logo.svg" itemprop="image">
       </a>
     
   </div>
@@ -139,7 +139,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      Java 判断字母大小写并互相转换
+      Flink 学习笔记 - Flink 简单介绍
     </h1>
   
 
@@ -149,14 +149,14 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2018-10-07T03:52:04.000Z" itemprop="datePublished">2018-10-07</time>
+  <time datetime="2020-09-23T14:25:55.000Z" itemprop="datePublished">2020-09-23</time>
 </div>
 
             
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flink/" rel="tag">Flink</a></li></ul>
             </div>
             
 
@@ -168,130 +168,29 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p>判断字母的大小写并互相转化</p>
+            <p>Flink 是近年来越来越火的一款开源大数据计算引擎，它同时支持批处理和流处理。</p>
 <a id="more"></a>
 
-<h1 id="大小写判断"><a href="#大小写判断" class="headerlink" title="大小写判断"></a>大小写判断</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>根据 Character 类提供的大小写判断方法</p>
-<pre><code class="java">Character.isUpperCase(c); // 是否是大写
-Character.isUpperCase(c); // 是否是小写</code></pre>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>通过 ASCII 码判断字母大小写，字母的 ASCII 在 65-90 之间是大写，97-122 是小写</p>
-<pre><code class="java">/*
- * 是否是大写
- */
-public boolean isUpperCase(char c) &#123;
-    return c &gt;=65 &amp;&amp; c &lt;= 90;
-&#125;
-
-/*
- * 是否是小写
- */
-public boolean isLowerCase(char c) &#123;
-    return c &gt;=97 &amp;&amp; c &lt;= 122;
-&#125;</code></pre>
-<h1 id="大小写互相转换"><a href="#大小写互相转换" class="headerlink" title="大小写互相转换"></a>大小写互相转换</h1><h2 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h2><p>根据 Character 类提供的大小写转换方法</p>
-<pre><code class="java">/*
- * 小写转大写
- */
-public char toUpper(char c) &#123;
-    return Character.isLowerCase(c) ? c : Character.toUpperCase(c);
-&#125;
-
-/*
- * 大写转小写
- */
-public char toLower(char c) &#123;
-    return Character.isUpperCase(c) ? c : Character.toLowerCase(c);
-&#125;</code></pre>
-<h2 id="方法二-1"><a href="#方法二-1" class="headerlink" title="方法二"></a>方法二</h2><p>字母的 ASCII 加 32 转换为小写，减 32 转换为大写</p>
-<pre><code class="java">/*
- * 是否是大写
- */
-public boolean isUpperCase(char c) &#123;
-    return c &gt;=65 &amp;&amp; c &lt;= 90;
-&#125;
-
-/*
- * 是否是小写
- */
-public boolean isLowerCase(char c) &#123;
-    return c &gt;=97 &amp;&amp; c &lt;= 122;
-&#125;</code></pre>
-<h2 id="字符串大写转小写，小写转大写"><a href="#字符串大写转小写，小写转大写" class="headerlink" title="字符串大写转小写，小写转大写"></a>字符串大写转小写，小写转大写</h2><pre><code class="java">public class WordUpperLow &#123;
-
-    public static void main(String[] args) &#123;
-        new WordUpperLow().upToLowToUp(&quot;HeLLoWoRlD&quot;);
-    &#125;
-
-    public void upToLowToUp(String str) &#123;
-
-        /*
-         * 方法一 根据 char 的工具类 Character
-         */
-        char[] chars = str.toCharArray();
-        for (int i = 0, length = chars.length; i &lt; length; i++) &#123;
-            char c = chars[i];
-            //判断字母是不是大写，如果是大写变为小写
-            if (Character.isUpperCase(c))&#123;
-                chars[i] = Character.toLowerCase(c);
-                continue;
-            &#125;
-            //如果为小写，变为大写
-            chars[i] = Character.toUpperCase(c);
-        &#125;
-        String str1 = new String(chars);
-        System.err.println(str1);
-
-        /*
-         * 方法二
-         * 通过ASCII码判断字母大小写 ASCII在65-90之间是大写，97-122是小
-         * 大转小加32 小转大减去32
-         */
-        byte[] bytes = str.getBytes();
-        for (int i = 0, length = bytes.length; i &lt; length; i++) &#123;
-            //如果ASCII在65-90之间为大写，加上32变为小写
-            if (bytes[i] &gt;= 65 &amp;&amp; bytes[i] &lt;= 90)&#123;
-                bytes[i] += 32;
-                //如果ASCII在97-122之间为小写，减去32变为大写
-            &#125; else if (bytes[i] &gt;= 97 &amp;&amp; bytes[i] &lt;= 122)&#123;
-                bytes[i] -= 32;
-            &#125;
-        &#125;
-        String str2 = new String(bytes);
-        System.err.println(str2);
-    &#125;
-
-    /*
-     * 小写转大写
-     */
-    public char toUpper(char c) &#123;
-        return c &gt;=65 &amp;&amp; c &lt;= 90 ? c : (char)(c - 32);
-    &#125;
-
-    /*
-     * 大写转小写
-     */
-    public char toLower(char c) &#123;
-        return c &gt;=97 &amp;&amp; c &lt;= 122 ? c : (char)(c + 32);
-    &#125;
-
-
-    /*
-     * 是否是大写
-     */
-    public boolean isUpperCase(char c) &#123;
-        // Character.isUpperCase(c);
-        return c &gt;=65 &amp;&amp; c &lt;= 90;
-    &#125;
-
-    /*
-     * 是否是小写
-     */
-    public boolean isLowerCase(char c) &#123;
-//        Character.isLowerCase(c);
-        return c &gt;=97 &amp;&amp; c &lt;= 122;
-    &#125;
-&#125;
-</code></pre>
+<h1 id="有界流和无界流"><a href="#有界流和无界流" class="headerlink" title="有界流和无界流"></a>有界流和无界流</h1><p>任何类型的数据都数据流处理，信用卡交易记录、传感器测量数据、机器日志、网站或移动应用程序上的用户交互记录。。。</p>
+<ul>
+<li><p><strong>无界流</strong>定义了起点，但没有定义终点，称为流处理。</p>
+</li>
+<li><p><strong>有界流</strong>定义了流的开始和结束，称为批处理。</p>
+</li>
+</ul>
+<p><img src="https://flink.apache.org/img/bounded-unbounded.png" alt="img"></p>
+<h1 id="有状态与无状态计算"><a href="#有状态与无状态计算" class="headerlink" title="有状态与无状态计算"></a>有状态与无状态计算</h1><p><strong>有状态的计算</strong>：每次计算基于之前的计算结果（状态）进行计算，并且每次计算结果都会保存到存储介质中，计算关联上下文。基于有状态的计算不需要将历史数据重新计算，提高了计算效率<br><strong>无状态的计算</strong>：每次进行计算只考虑当前数据，不会使用之前的计算结果</p>
+<h1 id="Flink-的特点和优势"><a href="#Flink-的特点和优势" class="headerlink" title="Flink 的特点和优势"></a>Flink 的特点和优势</h1><p>1、同时支持高吞吐、低延迟、高性能<br>2、支持事件时间（Event Time）概念，结合 Watermark 处理乱序数据<br>3、支持有状态计算，并且支持多种状态   内存、文件、RocksDB<br>4、支持高度灵活的窗口（Window）操作   time、count、session<br>5、基于轻量级分布式快照（CheckPoint）实现的容错 保证恰好一次（exactly-once） 语义<br>6、基于 JVM 实现独立的内存管理<br>7、Save Points（保存点）</p>
+<h1 id="谁在使用-Flink"><a href="#谁在使用-Flink" class="headerlink" title="谁在使用 Flink"></a>谁在使用 Flink</h1><ul>
+<li>AWS</li>
+<li>ebay</li>
+<li>Alibaba</li>
+<li>Tencent</li>
+<li>oppo</li>
+<li>小米</li>
+<li>唯品会</li>
+<li>滴滴<br>。。。</li>
+</ul>
 
         </div>
 
@@ -316,19 +215,19 @@ public boolean isLowerCase(char c) &#123;
     
 <nav class="article-nav">
   
-    <a href="/linux-vi.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/flink-apis.html" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
-          vi 编辑器使用详解
+          Flink 学习笔记 - API 介绍
         
       </div>
     </a>
   
   
-    <a href="/nginx-lost-pid-file.html" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/cluster-lb.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">nginx: [error] open() &#34;/run/nginx.pid&#34; failed (2: No such file or directory)</div>
+      <div class="article-nav-title">什么是集群？负载均衡又是什么？</div>
     </a>
   
 </nav>
@@ -337,15 +236,15 @@ public boolean isLowerCase(char c) &#123;
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=Java 判断字母大小写并互相转换 - GUANGLI.REN&url=https://guangli.ren/java-up-low.html">
+            href="https://twitter.com/share?text=Flink 学习笔记 - Flink 简单介绍 - GUANGLI.REN&url=https://guangli.ren/flink.html">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=Java 判断字母大小写并互相转换 - GUANGLI.REN&u=https://guangli.ren/java-up-low.html">
+            href="https://www.facebook.com/sharer.php?title=Flink 学习笔记 - Flink 简单介绍 - GUANGLI.REN&u=https://guangli.ren/flink.html">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=Java 判断字母大小写并互相转换 - GUANGLI.REN&url=https://guangli.ren/java-up-low.html&pic=">
+            href="https://service.weibo.com/share/share.php?title=Flink 学习笔记 - Flink 简单介绍 - GUANGLI.REN&url=https://guangli.ren/flink.html&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
