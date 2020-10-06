@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckfwnd7170000f8v74e0zcatz" class="article article-type-post" itemscope
+    <article id="post-ckfxpwgm40004wkv7g41d9uf1" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -205,6 +205,15 @@
 <p>根据设计方法不同，又可将组合逻辑控制器进一步细分为硬连线控制器和门阵列控制器。</p>
 <h2 id="时序信号发生器"><a href="#时序信号发生器" class="headerlink" title="时序信号发生器"></a>时序信号发生器</h2><p>CPU中除了操作控制器外，还必须有时序信号发生器。</p>
 <p>由于计算机的高速工作，每一个动作的时间必须非常严格，不能有任何差错。时序发生器的作用，就是对操作控制器产生的各种控制信号实施时间上的严格控制，产生各功能部件所需要的定时控制信号。</p>
+<h1 id="CPU-指令执行过程"><a href="#CPU-指令执行过程" class="headerlink" title="CPU 指令执行过程"></a>CPU 指令执行过程</h1><p>CPU 是如何执行一条条指令的呢？</p>
+<p>几乎所有的冯诺依曼型的计算机的 CPU，其工作都可以分为 5 个阶段：</p>
+<ul>
+<li>取指令：将内存中的指令读取到 CPU 的寄存器中，程序计数器存储吓一跳指令地址</li>
+<li>指令译码：指令读取完成后，指令译码器按照按照预定的指令格式，对取回的指令进行拆分和解释，识别出不同的指令类型以及各种获取操作数的方法。</li>
+<li>指令执行：译码完成后，开始执行指令，完成指令所规定的各种操作，具体实现指令的功能。</li>
+<li>访问取数：根据指令的需要，可能去内存中读取数据，根据指令地址码，得到操作数在主存中的地址，从主存中读取改操作数用于运算。</li>
+<li>结果写回：把执行指令的阶段的执行结果数据写回到每种存储设备上，一般写回到 CPU 的内部寄存器中，便于后续的指令快速读取。</li>
+</ul>
 <h1 id="CPU-的性能"><a href="#CPU-的性能" class="headerlink" title="CPU 的性能"></a>CPU 的性能</h1><p>CPU 性能的主要受以下三大方面的因素影响。</p>
 <ul>
 <li><strong>CPU的主频</strong>：CPU 的主频大小，代表着 CPU 运算能力的大小。CPU 的主频越高，处理数据能力就越强，比如 2GHz 的 CPU 的性能是 1GHz 的CPU的两倍。</li>
