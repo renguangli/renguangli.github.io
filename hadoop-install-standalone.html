@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Linux 下安装 MySQL | GUANGLI.REN</title>
+    <title>hadoop 单机版安装 | GUANGLI.REN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
@@ -117,29 +117,19 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckfzelk52000ev0v7e6uh2srb" class="article article-type-post" itemscope
+    <article id="post-ckfzelk4r0005v0v750482m2g" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
 
         
-<div class="article-gallery">
-  <div class="article-gallery-photos">
-    
-      <a class="article-gallery-img fancybox" href="/mysql-install.html" rel="gallery_ckfzelk52000ev0v7e6uh2srb">
-        <img src="https://renguangli.gitee.io/images/mysql.png" itemprop="image">
-      </a>
-    
-  </div>
-</div>
-
 
         
         <header class="article-header">
             
   
     <h1 class="article-title" itemprop="name">
-      Linux 下安装 MySQL
+      hadoop 单机版安装
     </h1>
   
 
@@ -149,14 +139,14 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2020-03-11T02:38:04.000Z" itemprop="datePublished">2020-03-11</time>
+  <time datetime="2020-10-07T13:03:54.000Z" itemprop="datePublished">2020-10-07</time>
 </div>
 
             
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag">软件安装</a></li></ul>
             </div>
             
 
@@ -168,86 +158,98 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p>Linux 下安装 MySQL<br>下载地址：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a><br>点击直接下载 64 位 5.7.24 版本的安装包 <a target="_blank" rel="noopener" href="https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz">mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz</a></p>
+            <p>hadoop 单机版安装</p>
 <a id="more"></a>
 
-<h1 id="Linux下-MySQL-二进制安装"><a href="#Linux下-MySQL-二进制安装" class="headerlink" title="Linux下 MySQL 二进制安装"></a>Linux下 MySQL 二进制安装</h1><h2 id="1、创建用户、用户组"><a href="#1、创建用户、用户组" class="headerlink" title="1、创建用户、用户组"></a>1、创建用户、用户组</h2><pre><code class="bash">[root@localhost local]# groupadd mysql
-[root@localhost local]# useradd -g mysql -s /sbin/nologin mysql</code></pre>
-<h2 id="2、将二进制包解压到指定目录并重命名为-mysql"><a href="#2、将二进制包解压到指定目录并重命名为-mysql" class="headerlink" title="2、将二进制包解压到指定目录并重命名为 mysql"></a>2、将二进制包解压到指定目录并重命名为 mysql</h2><pre><code class="bash">[root@localhost local]# pwd
-/usr/local
-[root@localhost local]# tar -zxvf mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz
-[root@localhost local]# mv mysql-5.7.24-linux-glibc2.12-x86_64 mysql
-[root@localhost local]# ll
-总用量 629816
-drwxr-xr-x. 2 root root         6 4月  11 2018 bin
-drwxr-xr-x. 2 root root         6 4月  11 2018 etc
-drwxr-xr-x. 2 root root         6 4月  11 2018 games
-drwxr-xr-x. 2 root root         6 4月  11 2018 include
-drwxr-xr-x. 2 root root         6 4月  11 2018 lib
-drwxr-xr-x. 2 root root         6 4月  11 2018 lib64
-drwxr-xr-x. 2 root root         6 4月  11 2018 libexec
-drwxr-xr-x. 9 root root       129 11月  8 05:26 mysql
--rw-r--r--. 1 root root 644930593 10月 29 11:44 mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz
-drwxr-xr-x. 2 root root         6 4月  11 2018 sbin
-drwxr-xr-x. 5 root root        49 11月  4 08:42 share
-drwxr-xr-x. 2 root root         6 11月  8 05:33 src</code></pre>
-<h2 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h2><pre><code class="bash">[root@localhost local]# cd mysql/bin/
-[root@localhost bin]# pwd
-/usr/local/mysql/bin
-[root@localhost bin]# echo &quot;export PATH=$PATH:/usr/local/mysql/bin&quot; &gt;&gt; /etc/profile
-[root@localhost bin]# source /etc/profile</code></pre>
-<h2 id="4、创建数据目录并赋权"><a href="#4、创建数据目录并赋权" class="headerlink" title="4、创建数据目录并赋权"></a>4、创建数据目录并赋权</h2><pre><code class="bash">[root@localhost mysql]# pwd
-/usr/local/mysql
-[root@localhost mysql]# mkdir data
-[root@localhost mysql]# chown -R mysql.mysql data</code></pre>
-<h2 id="5、编辑配置文件"><a href="#5、编辑配置文件" class="headerlink" title="5、编辑配置文件"></a>5、编辑配置文件</h2><pre><code class="bash">[root@localhost mysql]# vi /etc/my.cnf
-[mysqld]
-port=3306
-basedir=/usr/local/mysql
-datadir=/usr/local/mysql/data
-socket=/var/lib/mysql/mysql.sock
-max_connections=200
-character-set-server=utf8
-[mysqld_safe]
-log-error=/var/log/mysql/mysqld.err
-pid-file=/var/run/mysql/mysql.pid
-[client]
-socket=/var/lib/mysql/mysql.sock</code></pre>
-<h2 id="6、初始化-MySQL"><a href="#6、初始化-MySQL" class="headerlink" title="6、初始化 MySQL"></a>6、初始化 MySQL</h2><pre><code class="bash">[root@localhost mysql]# mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
-2018-11-07T21:50:50.815257Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
-2018-11-07T21:50:51.175245Z 0 [Warning] InnoDB: New log files created, LSN=45790
-2018-11-07T21:50:51.263531Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
-2018-11-07T21:50:51.470037Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 31b6a6d5-e2d7-11e8-9ee8-000c2970d10a.
-2018-11-07T21:50:51.496683Z 0 [Warning] Gtid table is not ready to be used. Table &#39;mysql.gtid_executed&#39; cannot be opened.
-2018-11-07T21:50:51.497829Z 1 [Note] A temporary password is generated for root@localhost: QHSpB01maf.!</code></pre>
-<p>记住最后一行生成临时 root 密码 : QHSpB01maf.!</p>
-<h2 id="7、启动"><a href="#7、启动" class="headerlink" title="7、启动"></a>7、启动</h2><pre><code class="bash">[root@localhost mysql]# cp support-files/mysql.server /etc/init.d/mysql
-[root@localhost mysql]# service mysql start
-Starting MySQL. SUCCESS!
-[root@localhost mysql]# mysql -u root -pQHSpB01maf.!
-mysql: [Warning] Using a password on the command line interface can be insecure.
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 3
-Server version: 5.7.24
-
-Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
-
-mysql&gt; use mysql；
-ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.
-## 首次登陆需要修改root用户密码
-mysql&gt; alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;root&#39;;
-## 或者
-mysql&gt; alter user user() identified by &#39;root&#39;;
-Query OK, 0 rows affected (0.00 sec)
-</code></pre>
-<h1 id="远程连接配置"><a href="#远程连接配置" class="headerlink" title="远程连接配置"></a>远程连接配置</h1><pre><code class="bash">mysql&gt; grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;root&#39; with grant option;
-Query OK, 0 rows affected, 1 warning (0.00 sec)</code></pre>
+<h1 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h1><ul>
+<li>OS: CentOS 7</li>
+<li>java: 1.8</li>
+<li>hadoop:2.9.2</li>
+</ul>
+<h1 id="基础环境准备"><a href="#基础环境准备" class="headerlink" title="基础环境准备"></a>基础环境准备</h1><h2 id="1-设置主机名"><a href="#1-设置主机名" class="headerlink" title="1.设置主机名"></a>1.设置主机名</h2><pre><code>[root@hadoop ~]# vi /etc/hostname
+hadoop
+[root@hadoop ~]# hostname
+hadoop</code></pre>
+<h2 id="2-设置本机-ip-到主机名的映射"><a href="#2-设置本机-ip-到主机名的映射" class="headerlink" title="2.设置本机 ip 到主机名的映射"></a>2.设置本机 ip 到主机名的映射</h2><pre><code>[root@hadoop ~]# vi /etc/hosts
+192.168.10.20 hadoop</code></pre>
+<h2 id="3-关闭防火墙"><a href="#3-关闭防火墙" class="headerlink" title="3.关闭防火墙"></a>3.关闭防火墙</h2><p>关闭防火墙并关闭开启自启</p>
+<pre><code class="bash">[root@hadoop ~]# systemctl stop firewalld.service 
+[root@hadoop ~]# systemctl disable firewalld.service </code></pre>
+<h2 id="4-免密登录"><a href="#4-免密登录" class="headerlink" title="4.免密登录"></a>4.免密登录</h2><p>使用 <code>ssh-keygen</code> 命令生成私钥公钥<br>使用 <code>ssh-copy-id</code> 命令将公钥追加到目标主机j家目录 <code>~/.ssh/authorized_keys</code> 文件中</p>
+<pre><code>[root@hadoop ~]# ssh-keygen -t rsa -P &#39;&#39; 
+[root@hadoop ~]# ssh-copy-id 192.168.10.20</code></pre>
+<h2 id="5-时间同步"><a href="#5-时间同步" class="headerlink" title="5.时间同步"></a>5.时间同步</h2><pre><code class="bash">[root@hadoop ~]# yum install ntp  -y
+server ntp1.aliyun.com ## 阿里云时间同步服务器
+[root@hadoop ~]# systemctl restart ntpd.service
+[root@hadoop ~]# systemctl enable ntpd.service ##　设置开启自启</code></pre>
+<h2 id="6-安装-jdk"><a href="#6-安装-jdk" class="headerlink" title="6.安装 jdk"></a>6.安装 jdk</h2><p>JDK 安装请参考 <a href="https://guangli.ren/jdk-install.html">Linux 下安装 JDK</a></p>
+<p>JDK 安装路径为 /opt/jdk/jdk1.8.0_241</p>
+<h1 id="安装-hadoop"><a href="#安装-hadoop" class="headerlink" title="安装 hadoop"></a>安装 hadoop</h1><p>所有有关 ip 的配置使用主机名代替</p>
+<h2 id="1-配置环境变量"><a href="#1-配置环境变量" class="headerlink" title="1.配置环境变量"></a>1.配置环境变量</h2><pre><code class="bash">[root@hadoop ~]# vi /etc/profile
+export HADOOP_HOME=/opt/hadoop-2.9.2
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</code></pre>
+<h2 id="2-hadoop-en-sh"><a href="#2-hadoop-en-sh" class="headerlink" title="2.hadoop-en.sh"></a>2.hadoop-en.sh</h2><p>由于启动集群式需要使用 ssh 远程执行命令，导致找不到 JAVA_HOME,需要在 hadoop-en.sh Shell 脚本中配置 JAVA_HOME</p>
+<pre><code class="bash">[root@hadoop bin]# cd $HADOOP_HOME/etc/hadoop
+[root@hadoop hadoop]# vi hadoop-env.sh
+export JAVA_HOME=/opt/jdk/jdk1.8.0_241</code></pre>
+<h2 id="3-core-site-xml"><a href="#3-core-site-xml" class="headerlink" title="3.core.site.xml"></a>3.core.site.xml</h2><p>配置 namedone 地址</p>
+<pre><code>[root@hadoop hadoop]# vi core-site.xml
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://hadoop:9000&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;</code></pre>
+<h2 id="4-hdsf-core-xml"><a href="#4-hdsf-core-xml" class="headerlink" title="4.hdsf-core.xml"></a>4.hdsf-core.xml</h2><p>配置 hdfs 副本数为 1，namenode/datanode/namesecondary 的数据目录以及 namesecondary 地址<br>namenode/datanode/namesecondary 的数据目录默认在 /tmp 下，随时能被删除<br>为了数据的可靠性修改为其他目录，我配置的目录为 /data/hadoop/dfs</p>
+<pre><code>[root@hadoop hadoop]# vi hdfs-site.xml
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;1&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+        &lt;value&gt;/data/hadoop/dfs/name&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
+        &lt;value&gt;/data/hadoop/dfs/data&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
+        &lt;value&gt;hadoop:50090&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.checkpoint.dir&lt;/name&gt;
+        &lt;value&gt;/data/hadoop/dfs/namesecondary&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;</code></pre>
+<h2 id="5-slaves"><a href="#5-slaves" class="headerlink" title="5.slaves"></a>5.slaves</h2><p>配置 datanode 节点</p>
+<pre><code>[root@hadoop hadoop]# vi slaves
+hadoop</code></pre>
+<h2 id="6-格式化-namenode-目录"><a href="#6-格式化-namenode-目录" class="headerlink" title="6.格式化 namenode 目录"></a>6.格式化 namenode 目录</h2><pre><code>hdfs namenode -format</code></pre>
+<h2 id="7-启动-namenode-和-datanode"><a href="#7-启动-namenode-和-datanode" class="headerlink" title="7.启动 namenode 和 datanode"></a>7.启动 namenode 和 datanode</h2><pre><code>start-dfs.sh</code></pre>
+<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><h2 id="1-创建用户目录并查看"><a href="#1-创建用户目录并查看" class="headerlink" title="1.创建用户目录并查看"></a>1.创建用户目录并查看</h2><pre><code class="bash">[root@hadoop hadoop]# hdfs dfs -mkdir /user/root
+[root@hadoop hadoop]# hdfs dfs -ls /user
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2020-10-07 20:54 /user/root</code></pre>
+<h2 id="2-上传-hadoop-安装包至-user-root-目录下"><a href="#2-上传-hadoop-安装包至-user-root-目录下" class="headerlink" title="2.上传 hadoop 安装包至 /user/root 目录下"></a>2.上传 hadoop 安装包至 /user/root 目录下</h2><pre><code class="bash">[root@hadoop opt]# hdfs dfs -put hadoop-2.9.2.tar.gz /user/root
+[root@hadoop opt]# hdfs dfs -ls /user/root
+Found 1 items
+-rw-r--r--   1 root supergroup  366447449 2020-10-07 21:55 /user/root/hadoop-2.9.2.tar.gz</code></pre>
+<h2 id="3-查看文件内容"><a href="#3-查看文件内容" class="headerlink" title="3.查看文件内容"></a>3.查看文件内容</h2><pre><code class="bash">[root@hadoop hadoop]# hdfs dfs -put slaves
+[root@hadoop hadoop]# hdfs dfs -cat /user/root/slaves
+hadoop</code></pre>
+<h2 id="4-删除-hadoop-2-9-2-tar-gz-文件"><a href="#4-删除-hadoop-2-9-2-tar-gz-文件" class="headerlink" title="4.删除 hadoop-2.9.2.tar.gz 文件"></a>4.删除 hadoop-2.9.2.tar.gz 文件</h2><pre><code class="bash">[root@hadoop opt]# hdfs dfs -ls /user/root
+Found 2 items
+-rw-r--r--   1 root supergroup          7 2020-10-07 21:57 /user/root/slaves
+-rw-r--r--   1 root supergroup  366447449 2020-10-07 21:55 /user/root/hadoop-2.9.2.tar.gz
+[root@hadoop hadoop]# hdfs dfs -rm /user/root/hadoop-2.9.2.tar.gz
+Deleted /user/root/hadoop-2.9.2.tar.gz
+[root@hadoop hadoop]# hdfs dfs -ls /user/root
+Found 1 items
+-rw-r--r--   1 root supergroup          7 2020-10-07 21:57 /user/root/slaves</code></pre>
+<h2 id="5-查看-hdfs-WEBUI-页面"><a href="#5-查看-hdfs-WEBUI-页面" class="headerlink" title="5.查看 hdfs WEBUI 页面"></a>5.查看 hdfs WEBUI 页面</h2><p><img src="/images/hdfs-webui.png"></p>
 
         </div>
 
@@ -258,6 +260,15 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)</code></pre>
     
 
     
+  <div class="article-refer hairline">
+    <h3>文章参考文献</h3>
+    
+    <p>
+      <a target="_blank" rel="nofollow" href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html">https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html</a>
+    </p>
+    
+  </div>
+  
 
     
 <div class="article-copyright hairline">
@@ -272,19 +283,10 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)</code></pre>
     
 <nav class="article-nav">
   
-    <a href="/mysql-reset-root-password.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          MySQL 重置 root 用户密码
-        
-      </div>
-    </a>
   
-  
-    <a href="/linux-vi.html" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/computer-base-cpu.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">vi 编辑器使用详解</div>
+      <div class="article-nav-title">计算机基础 - CPU</div>
     </a>
   
 </nav>
@@ -293,15 +295,15 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)</code></pre>
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=Linux 下安装 MySQL - GUANGLI.REN&url=https://guangli.ren/mysql-install.html">
+            href="https://twitter.com/share?text=hadoop 单机版安装 - GUANGLI.REN&url=https://guangli.ren/hadoop-install-standalone.html">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=Linux 下安装 MySQL - GUANGLI.REN&u=https://guangli.ren/mysql-install.html">
+            href="https://www.facebook.com/sharer.php?title=hadoop 单机版安装 - GUANGLI.REN&u=https://guangli.ren/hadoop-install-standalone.html">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=Linux 下安装 MySQL - GUANGLI.REN&url=https://guangli.ren/mysql-install.html&pic=">
+            href="https://service.weibo.com/share/share.php?title=hadoop 单机版安装 - GUANGLI.REN&url=https://guangli.ren/hadoop-install-standalone.html&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
