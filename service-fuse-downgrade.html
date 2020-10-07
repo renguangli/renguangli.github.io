@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckfzhmdct0012twv73n5u9tam" class="article article-type-post" itemscope
+    <article id="post-ckfzingpc000zvov749ad3jnk" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -159,6 +159,8 @@
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
             <h1 id="什么是服务熔断？"><a href="#什么是服务熔断？" class="headerlink" title="什么是服务熔断？"></a>什么是服务熔断？</h1><p>熔断这一概念来源于电子工程中的断路器（CircuitBreaker）。服务熔断的作用类似于我们家用的保险丝，当某服务出现不可用或响应超时的情况时，上游服务为了保护系统整体的可用性，防止整个系统雪崩，暂时停止对该服务的调用。当检测到该服务调用正常后再恢复对该服务的调用。</p>
+<a id="more"></a>
+
 <p>这种牺牲局部，保全整体的措施就叫做熔断</p>
 <h1 id="什么是服务降级"><a href="#什么是服务降级" class="headerlink" title="什么是服务降级"></a>什么是服务降级</h1><p>服务降级是从整个系统的负荷情况出发和考虑的，为了防止某些服务出现负载过高或者响应慢的情况发生，上游服务暂时停止对非核心服务的调用，直接返回一个提前准备好的 fallback（退路）错误处理信息。这样虽然提供的是一个有损的服务，但是保证了整个系统的稳定性和可用性。</p>
 <h1 id="熔断-VS-降级"><a href="#熔断-VS-降级" class="headerlink" title="熔断 VS 降级"></a>熔断 VS 降级</h1><p>相同点</p>
@@ -170,7 +172,7 @@
 <ul>
 <li>触发原因不同：服务熔断一般是某个服务（下游服务）故障引起，而服务降级一般是从整体负荷考虑；</li>
 </ul>
-<p>！<a href="/images/%E8%B5%B7%E6%9D%A5%E6%94%B9%E6%94%B9.jpg"></a></p>
+<p><img src="/images/%E8%B5%B7%E6%9D%A5%E6%94%B9%E6%94%B9.jpg"></p>
 
         </div>
 
