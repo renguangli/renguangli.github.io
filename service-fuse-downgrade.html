@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tag | hadoop | GUANGLI.REN</title>
+    <title>什么是熔断？什么是服务降级？ | GUANGLI.REN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
@@ -116,36 +116,146 @@
         <div class="main">
             <section class="inner">
                 <section class="inner-main">
-                    
+                    <div class="post">
+    <article id="post-ckfzhmdct0012twv73n5u9tam" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+
+        
+        <header class="article-header">
+            
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hadoop-install-standalone.html">hadoop 单机版安装</a>
+    <h1 class="article-title" itemprop="name">
+      什么是熔断？什么是服务降级？
     </h1>
   
 
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2020-10-06T14:25:06.000Z" itemprop="datePublished">2020-10-06</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                有 <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="什么是服务熔断？"><a href="#什么是服务熔断？" class="headerlink" title="什么是服务熔断？"></a>什么是服务熔断？</h1><p>熔断这一概念来源于电子工程中的断路器（CircuitBreaker）。服务熔断的作用类似于我们家用的保险丝，当某服务出现不可用或响应超时的情况时，上游服务为了保护系统整体的可用性，防止整个系统雪崩，暂时停止对该服务的调用。当检测到该服务调用正常后再恢复对该服务的调用。</p>
+<p>这种牺牲局部，保全整体的措施就叫做熔断</p>
+<h1 id="什么是服务降级"><a href="#什么是服务降级" class="headerlink" title="什么是服务降级"></a>什么是服务降级</h1><p>服务降级是从整个系统的负荷情况出发和考虑的，为了防止某些服务出现负载过高或者响应慢的情况发生，上游服务暂时停止对非核心服务的调用，直接返回一个提前准备好的 fallback（退路）错误处理信息。这样虽然提供的是一个有损的服务，但是保证了整个系统的稳定性和可用性。</p>
+<h1 id="熔断-VS-降级"><a href="#熔断-VS-降级" class="headerlink" title="熔断 VS 降级"></a>熔断 VS 降级</h1><p>相同点</p>
+<ul>
+<li>目标一致：都是从可用性和可靠性出发，为了防止系统崩溃；</li>
+<li>用户体验类似：最终都让用户体验到的是某些功能暂时不可用；</li>
+</ul>
+<p>不同点</p>
+<ul>
+<li>触发原因不同：服务熔断一般是某个服务（下游服务）故障引起，而服务降级一般是从整体负荷考虑；</li>
+</ul>
+<p>！<a href="/images/%E8%B5%B7%E6%9D%A5%E6%94%B9%E6%94%B9.jpg"></a></p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+  <div class="article-refer hairline">
+    <h3>文章参考文献</h3>
+    
+    <p>
+      <a target="_blank" rel="nofollow" href="https://blog.csdn.net/pengjunlee/article/details/86688858">服务熔断与降级（Hystrix）</a>
+    </p>
+    
+    <p>
+      <a target="_blank" rel="nofollow" href="https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653193370&amp;idx=1&amp;sn=60cc1478d7f44392a8d48b89132b6d1e&amp;chksm=8c99f640bbee7f560f6e7ce685923676bb22774feab8acf522b81b2e668bf63bdcbf031b3983&amp;mpshare=1&amp;scene=1&amp;srcid=0507B8nRBB1vwv42QLT3jTSJ#rd">漫画：什么是服务熔断？</a>
+    </p>
+    
+  </div>
+  
+
+    
+<div class="article-copyright hairline">
+  <p>
+    本作品采用 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可。
+  </p>
+</div>
+
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/hadoop-install-standalone.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          hadoop 单机版安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/computer-base-cpu.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">计算机基础 - CPU</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=什么是熔断？什么是服务降级？ - GUANGLI.REN&url=https://guangli.ren/service-fuse-downgrade.html">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=什么是熔断？什么是服务降级？ - GUANGLI.REN&u=https://guangli.ren/service-fuse-downgrade.html">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=什么是熔断？什么是服务降级？ - GUANGLI.REN&url=https://guangli.ren/service-fuse-downgrade.html&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
 </article>
-  
-  
-    </div></section>
-  
 
 
 
 
+<section class="comments">
+    <div id="gitalk-container"></div>
+</section>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
                 </section>
             </section>
 
@@ -168,6 +278,12 @@
 <div class="widget" id="widget">
     
       
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
     
       
 

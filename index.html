@@ -162,6 +162,61 @@
   
     
       <article
+  id="post-service-fuse-downgrade"
+  class="article article-type-post"
+>
+
+  <div class="article-inner">
+    
+
+    <div class="article-body">
+      <header class="article-title">
+        <a href="/service-fuse-downgrade.html">什么是熔断？什么是服务降级？</a>
+      </header>
+      <div class="article-entry post-inner-html">
+        
+          <h1 id="什么是服务熔断？"><a href="#什么是服务熔断？" class="headerlink" title="什么是服务熔断？"></a>什么是服务熔断？</h1><p>熔断这一概念来源于电子工程中的断路器（CircuitBreaker）。服务熔断的作用类似于我们家用的保险丝，当某服务出现不可用或响应超时的情况时，上游服务为了保护系统整体的可用性，防止整个系统雪崩，暂时停止对该服务的调用。当检测到该服务调用正常后再恢复对该服务的调用。</p>
+<p>这种牺牲局部，保全整体的措施就叫做熔断</p>
+<h1 id="什么是服务降级"><a href="#什么是服务降级" class="headerlink" title="什么是服务降级"></a>什么是服务降级</h1><p>服务降级是从整个系统的负荷情况出发和考虑的，为了防止某些服务出现负载过高或者响应慢的情况发生，上游服务暂时停止对非核心服务的调用，直接返回一个提前准备好的 fallback（退路）错误处理信息。这样虽然提供的是一个有损的服务，但是保证了整个系统的稳定性和可用性。</p>
+<h1 id="熔断-VS-降级"><a href="#熔断-VS-降级" class="headerlink" title="熔断 VS 降级"></a>熔断 VS 降级</h1><p>相同点</p>
+<ul>
+<li>目标一致：都是从可用性和可靠性出发，为了防止系统崩溃；</li>
+<li>用户体验类似：最终都让用户体验到的是某些功能暂时不可用；</li>
+</ul>
+<p>不同点</p>
+<ul>
+<li>触发原因不同：服务熔断一般是某个服务（下游服务）故障引起，而服务降级一般是从整体负荷考虑；</li>
+</ul>
+<p>！<a href="/images/%E8%B5%B7%E6%9D%A5%E6%94%B9%E6%94%B9.jpg"></a></p>
+
+        
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="article-footer">
+    <div class="article-more-info">
+      <div class="article-date">
+  <time datetime="2020-10-06T14:25:06.000Z" itemprop="datePublished">2020-10-06</time>
+</div>
+      
+      
+        <div class="article-tag">
+          <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+        </div>
+      
+    </div>
+  </footer>
+
+  
+
+</article>
+
+    
+  
+    
+      <article
   id="post-computer-base-cpu"
   class="article article-type-post"
 >
@@ -538,56 +593,6 @@
 
     
   
-    
-      <article
-  id="post-java-up-low"
-  class="article article-type-post"
->
-
-  <div class="article-inner">
-    
-      <div class="article-feature">
-          <a href="/java-up-low.html">
-            
-              <img src="https://renguangli.gitee.io/images/default.png" alt="item.title" />
-            
-          </a>
-      </div>
-    
-
-    <div class="article-body">
-      <header class="article-title">
-        <a href="/java-up-low.html">Java 判断字母大小写并互相转换</a>
-      </header>
-      <div class="article-entry post-inner-html">
-        
-          <p>判断字母的大小写并互相转化</p>
-        
-      </div>
-    </div>
-
-  </div>
-
-  <footer class="article-footer">
-    <div class="article-more-info">
-      <div class="article-date">
-  <time datetime="2018-10-07T03:52:04.000Z" itemprop="datePublished">2018-10-07</time>
-</div>
-      
-      
-        <div class="article-tag">
-          <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-        </div>
-      
-    </div>
-  </footer>
-
-  
-
-</article>
-
-    
-  
 
   
     <nav class="pagination">
@@ -643,6 +648,10 @@
           </li>
         
           <li>
+            <a href="/service-fuse-downgrade.html">什么是熔断？什么是服务降级？</a>
+          </li>
+        
+          <li>
             <a href="/computer-base-cpu.html">计算机基础 - CPU</a>
           </li>
         
@@ -652,10 +661,6 @@
         
           <li>
             <a href="/flink-apis.html">Flink 学习笔记 - API 介绍</a>
-          </li>
-        
-          <li>
-            <a href="/flink.html">Flink 学习笔记 - Flink 简单介绍</a>
           </li>
         
       </ul>
