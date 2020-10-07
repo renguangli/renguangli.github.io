@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckfzelk4r0005v0v750482m2g" class="article article-type-post" itemscope
+    <article id="post-ckfzh6svp0009k4v74xqifvpa" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -179,11 +179,13 @@ hadoop</code></pre>
 <pre><code>[root@hadoop ~]# ssh-keygen -t rsa -P &#39;&#39; 
 [root@hadoop ~]# ssh-copy-id 192.168.10.20</code></pre>
 <h2 id="5-时间同步"><a href="#5-时间同步" class="headerlink" title="5.时间同步"></a>5.时间同步</h2><pre><code class="bash">[root@hadoop ~]# yum install ntp  -y
+[root@hadoop ~]# vi /etc/ntp.conf
 server ntp1.aliyun.com ## 阿里云时间同步服务器
 [root@hadoop ~]# systemctl restart ntpd.service
 [root@hadoop ~]# systemctl enable ntpd.service ##　设置开启自启</code></pre>
 <h2 id="6-安装-jdk"><a href="#6-安装-jdk" class="headerlink" title="6.安装 jdk"></a>6.安装 jdk</h2><p>JDK 安装请参考 <a href="https://guangli.ren/jdk-install.html">Linux 下安装 JDK</a></p>
 <p>JDK 安装路径为 /opt/jdk/jdk1.8.0_241</p>
+<p><img src="/images/%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E6%88%91%E4%BB%AC%E4%B8%8D%E4%BC%9A.jpg"></p>
 <h1 id="安装-hadoop"><a href="#安装-hadoop" class="headerlink" title="安装 hadoop"></a>安装 hadoop</h1><p>所有有关 ip 的配置使用主机名代替</p>
 <h2 id="1-配置环境变量"><a href="#1-配置环境变量" class="headerlink" title="1.配置环境变量"></a>1.配置环境变量</h2><pre><code class="bash">[root@hadoop ~]# vi /etc/profile
 export HADOOP_HOME=/opt/hadoop-2.9.2
