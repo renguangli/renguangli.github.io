@@ -333,7 +333,7 @@ button {
         border-radius: 8px;
         margin-bottom: 20px;
         width: 100%;
-        max-height: calc(100vh - 194px);
+        max-height: calc(100vh - 300px);
         overflow-y: scroll;
         padding: 20px;
 
@@ -670,20 +670,21 @@ button {
         position: relative;
 
         .article-gallery {
-            a {
-                display: block;
-                margin-bottom: 0.5rem;
+            img {
+                width: 100%;
+                cursor: pointer;
+            }
 
-                img {
-                    width: 100%;
-                }
+            &-active {
+                background: $color-type;
+                opacity: 1;
             }
         }
 
         .article-title {
             font-size: 1.4rem;
             font-weight: 300;
-            padding-top: 10px;
+            padding-top: 15px;
 
             a {
                 color: $color-type;
@@ -744,7 +745,8 @@ button {
                 }
             }
             
-            .article-busuanzi {
+            .article-busuanzi,
+            .article-counter {
                 align-items: center;
                 border-left: 3px solid $color-light;
                 color: $color-white;
