@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckgg7826z000178v79mw67iyb" class="article article-type-post" itemscope
+    <article id="post-ckgg7j3vn00018gv71tw79bae" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -158,21 +158,21 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p>1.将 CentOS-7-x86_64-DVD-1804.iso 上传至服务器</p>
-<blockquote>
+            <p>CentOS7 搭建本地 yum 源</p>
+<a id="more"></a>
+
+<h1 id="1-将-CentOS-7-x86-64-DVD-1804-iso-上传至服务器"><a href="#1-将-CentOS-7-x86-64-DVD-1804-iso-上传至服务器" class="headerlink" title="1.将 CentOS-7-x86_64-DVD-1804.iso 上传至服务器"></a>1.将 CentOS-7-x86_64-DVD-1804.iso 上传至服务器</h1><blockquote>
 <p>ios 文件要和服务器系统版本一致</p>
 </blockquote>
 <p>CentOS-7-x86_64-DVD-1804.iso 下载地址 <a target="_blank" rel="noopener" href="http://isoredirect.centos.org/centos/7/isos/x86_64/">http://isoredirect.centos.org/centos/7/isos/x86_64/</a></p>
-<p>2.将 CentOS-7-x86_64-DVD-1804.iso 挂载到 /mnt/iso 目录</p>
-<pre><code class="bash">[root@hadoop ~]# mkdir -p /mnt/iso
+<h1 id="2-将-CentOS-7-x86-64-DVD-1804-iso-挂载到-mnt-iso-目录"><a href="#2-将-CentOS-7-x86-64-DVD-1804-iso-挂载到-mnt-iso-目录" class="headerlink" title="2.将 CentOS-7-x86_64-DVD-1804.iso 挂载到 /mnt/iso 目录"></a>2.将 CentOS-7-x86_64-DVD-1804.iso 挂载到 /mnt/iso 目录</h1><pre><code class="bash">[root@hadoop ~]# mkdir -p /mnt/iso
 [root@hadoop ~]# ll
 总用量 4365316
 -rw-------. 1 root root       1429 11月  9 2018 anaconda-ks.cfg
 -rw-r--r--. 1 root root 4470079488 10月 19 14:58 CentOS-7-x86_64-DVD-1804.iso
 [root@hadoop ~]# mount -o loop CentOS-7-x86_64-DVD-1804.iso /mnt/iso
 </code></pre>
-<p>3.配置 yum 源</p>
-<pre><code class="bash">[root@hadoop ~]# cd /etc/yum.repos.d/
+<h1 id="3-配置-yum-源"><a href="#3-配置-yum-源" class="headerlink" title="3.配置 yum 源"></a>3.配置 yum 源</h1><pre><code class="bash">[root@hadoop ~]# cd /etc/yum.repos.d/
 [root@hadoop yum.repos.d]# mkdir bak
 [root@hadoop yum.repos.d]# mv *.repo bak
 [root@hadoop yum.repos.d]# vi local.repo
@@ -181,8 +181,7 @@ name=local-yum
 baseurl=file:///mnt/iso
 enabled=1
 gpgcheck=0</code></pre>
-<p>4.测试</p>
-<p>安装 apache</p>
+<h1 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h1><p>安装 apache</p>
 <pre><code class="bash">[root@hadoop yum.repos.d]# yum install httpd
 [root@hadoop yum.repos.d]# service httpd start
 [root@hadoop yum.repos.d]# curl http://localhost
@@ -306,7 +305,7 @@ h2 &#123;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/body&gt;&lt;/html&gt;</code></pre>
-<p>使用 curl 测试 apache 主页成功返回，安装成功</p>
+<p>使用 curl 测试 apache 主页成功返回，安装成功，本地 yum 源搭建成功</p>
 
         </div>
 
@@ -335,7 +334,7 @@ h2 &#123;
       <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
-          java-object
+          关于Java对象，你需要知道的知识
         
       </div>
     </a>
@@ -428,7 +427,7 @@ h2 &#123;
       <ul>
         
           <li>
-            <a href="/java-object.html">java-object</a>
+            <a href="/java-object.html">关于Java对象，你需要知道的知识</a>
           </li>
         
           <li>
