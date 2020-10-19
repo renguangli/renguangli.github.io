@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guangli.ren/java-object.html</loc>
+    
+    <lastmod>2020-10-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://guangli.ren/notes/flink.html</loc>
+    
+    <lastmod>2020-10-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://guangli.ren/notes/index.html</loc>
+    
+    <lastmod>2020-10-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://guangli.ren/centos-config-local-yum.html</loc>
+    
+    <lastmod>2020-10-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guangli.ren/linux-vi.html</loc>
     
     <lastmod>2020-10-08</lastmod>
@@ -95,71 +123,71 @@
 
   <url>
     <loc>https://guangli.ren/</loc>
-    <lastmod>2020-10-08</lastmod>
+    <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://guangli.ren/tags/Java/</loc>
+    <lastmod>2020-10-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://guangli.ren/tags/%E6%9E%B6%E6%9E%84/</loc>
-    <lastmod>2020-10-08</lastmod>
+    <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://guangli.ren/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2020-10-08</lastmod>
+    <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://guangli.ren/tags/Flink/</loc>
-    <lastmod>2020-10-08</lastmod>
+    <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://guangli.ren/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2020-10-08</lastmod>
+    <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://guangli.ren/tags/hadoop/</loc>
-    <lastmod>2020-10-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://guangli.ren/tags/Java/</loc>
-    <lastmod>2020-10-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://guangli.ren/tags/Linux/</loc>
-    <lastmod>2020-10-08</lastmod>
+    <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://guangli.ren/tags/MySQL/</loc>
-    <lastmod>2020-10-08</lastmod>
+    <lastmod>2020-10-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://guangli.ren/tags/Linux/</loc>
+    <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://guangli.ren/tags/Nginx/</loc>
-    <lastmod>2020-10-08</lastmod>
+    <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
