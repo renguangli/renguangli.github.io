@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guangli.ren/centos-config-local-yum.html</loc>
+    
+    <lastmod>2020-10-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guangli.ren/java-object.html</loc>
     
     <lastmod>2020-10-19</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://guangli.ren/notes/index.html</loc>
     
     <lastmod>2020-10-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://guangli.ren/centos-config-local-yum.html</loc>
-    
-    <lastmod>2020-10-08</lastmod>
     
   </url>
   
@@ -130,7 +130,7 @@
 
   
   <url>
-    <loc>https://guangli.ren/tags/Java/</loc>
+    <loc>https://guangli.ren/tags/Linux/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -172,7 +172,7 @@
   </url>
   
   <url>
-    <loc>https://guangli.ren/tags/Linux/</loc>
+    <loc>https://guangli.ren/tags/Java/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
