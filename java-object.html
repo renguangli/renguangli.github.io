@@ -117,7 +117,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckgg7j3vy000e8gv76fsd6g29" class="article article-type-post" itemscope
+    <article id="post-ckgg7udwm000e3cv7gshraosz" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -179,10 +179,10 @@
 </ul>
 <p>类加载完成后开始创建对象，创建对象包含以下 4 个阶段</p>
 <ul>
-<li>new : 为对象分配内存，对成员变量赋默认值，将内存的应用压入操作数栈</li>
-<li>dup ：复制对象的应用，并压入栈顶</li>
+<li>new : 为对象分配内存，成员变量赋默认值，并将对象引用压入操作数栈顶</li>
+<li>dup ：复制对象的引用，压入栈顶</li>
 <li>invokespecial : 对象引用出栈，调用构造方法</li>
-<li>astorr_n : 对象引用出栈并赋值给n变量</li>
+<li>astore_n : 对象引用出栈并赋值给第 n 个变量</li>
 </ul>
 <h1 id="对象的分配过程"><a href="#对象的分配过程" class="headerlink" title="对象的分配过程"></a>对象的分配过程</h1><p>栈上分配 -&gt; tlab（thread local allocation buffer） -&gt; eden -&gt; turning </p>
 <p>对象年龄到达 15 或者 6 （cms）进入老年代</p>
