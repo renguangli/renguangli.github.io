@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://guangli.ren/zookeeper-install.html</loc>
+    <lastmod>2020-10-20</lastmod>
+  </url>
+  <url>
     <loc>https://guangli.ren/thread-security.html</loc>
     <lastmod>2020-10-19</lastmod>
   </url>
   <url>
-    <loc>https://guangli.ren/java-object.html</loc>
+    <loc>https://guangli.ren/service-fuse-downgrade.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/nginx-lost-pid-file.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/mysql-reset-root-password.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/mysql-install.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/linux-vi.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/java-up-low.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/hadoop-install-standalone.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/flink-apis.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/flink.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/computer-base-cpu.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/computer-base-architecture.html</loc>
     <lastmod>2020-10-19</lastmod>
   </url>
   <url>
@@ -13,51 +57,11 @@
     <lastmod>2020-10-19</lastmod>
   </url>
   <url>
-    <loc>https://guangli.ren/linux-vi.html</loc>
-    <lastmod>2020-10-08</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/service-fuse-downgrade.html</loc>
-    <lastmod>2020-10-07</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/hadoop-install-standalone.html</loc>
-    <lastmod>2020-10-07</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/computer-base-cpu.html</loc>
-    <lastmod>2020-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/computer-base-architecture.html</loc>
-    <lastmod>2020-10-05</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/flink-apis.html</loc>
-    <lastmod>2020-10-03</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/flink.html</loc>
-    <lastmod>2020-10-03</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/nginx-lost-pid-file.html</loc>
-    <lastmod>2020-10-03</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/java-up-low.html</loc>
-    <lastmod>2020-10-03</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/mysql-reset-root-password.html</loc>
-    <lastmod>2020-10-02</lastmod>
-  </url>
-  <url>
-    <loc>https://guangli.ren/mysql-install.html</loc>
-    <lastmod>2020-10-02</lastmod>
-  </url>
-  <url>
     <loc>https://guangli.ren/cluster-lb.html</loc>
-    <lastmod>2020-10-02</lastmod>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://guangli.ren/java-object.html</loc>
+    <lastmod>2020-10-19</lastmod>
   </url>
 </urlset> 

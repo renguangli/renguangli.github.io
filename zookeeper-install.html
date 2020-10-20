@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>关于Java对象，你需要知道的知识 | GUANGLI.REN</title>
+    <title>zookeeper 集群搭建 | GUANGLI.REN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
@@ -122,7 +122,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-ckghnp3my000cewv75udf2fw1" class="article article-type-post" itemscope
+    <article id="post-ckghnp3ne0018ewv77tjt7tdw" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -134,7 +134,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      关于Java对象，你需要知道的知识
+      zookeeper 集群搭建
     </h1>
   
 
@@ -144,15 +144,15 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2020-10-19T03:17:27.000Z" itemprop="datePublished">2020-10-19</time>
+  <time datetime="2020-10-20T04:41:45.000Z" itemprop="datePublished">2020-10-20</time>
 </div>
 
             
-
-            
-            <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Java/">Java</a>
             </div>
+            
+
             
 
             
@@ -165,63 +165,116 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p>有关 java 对象的一些知识</p>
-<ul>
-<li><a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B">对象的创建过程</a></li>
-<li><a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B">对象的分配过程</a></li>
-<li><a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80">对象的内存布局</a></li>
-<li><a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%A4%A7%E5%B0%8F">对象的大小</a></li>
-<li><a href="#%E5%AF%B9%E8%B1%A1%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D">对象如何定位</a></li>
-</ul>
+            <p>zookeeper 集群搭建</p>
+<p>使用 3 台机器搭建 zookeeper 集群</p>
 <a id="more"></a>
 
-<h1 id="对象的创建过程"><a href="#对象的创建过程" class="headerlink" title="对象的创建过程"></a>对象的创建过程</h1><p>Object o = new Object();</p>
-<p>如果对象所属的类还没有加载，需要先进行类加载，类加载包含以下 5 个阶段</p>
-<ul>
-<li>加载 ：将 class 文件加载到 jvm 的方法区中</li>
-<li>验证 ：验证 class 文件内容是否符合 jvm 规范</li>
-<li>准备 : 为静态变量赋默认值，执行静态块</li>
-<li>解析 ：符号引号转化为直接引用</li>
-<li>初始化 ：为静态变量赋初始值</li>
-</ul>
-<p>类加载完成后开始创建对象，创建对象包含以下 4 个阶段</p>
-<ul>
-<li>new : 为对象分配内存，成员变量赋默认值，并将对象引用压入操作数栈顶</li>
-<li>dup ：复制对象的引用，压入栈顶</li>
-<li>invokespecial : 对象引用出栈，调用构造方法</li>
-<li>astore_n : 对象引用出栈并赋值给第 n 个变量</li>
-</ul>
-<h1 id="对象的分配过程"><a href="#对象的分配过程" class="headerlink" title="对象的分配过程"></a>对象的分配过程</h1><p>栈上分配 -&gt; tlab（thread local allocation buffer） -&gt; eden -&gt; turning </p>
-<p>对象年龄到达 15 或者 6 （cms）进入老年代</p>
-<p><strong>栈上分配</strong></p>
-<ul>
-<li>逃逸分析</li>
-<li>标量替换</li>
-</ul>
-<h1 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h1><p><strong>普通对象</strong> 包含对象头、实例数据、对象填充，其中对象头有包含 markword 和 klass pointer<br><strong>数组对象</strong> 会增加 4 字节 array length</p>
-<h1 id="对象的大小"><a href="#对象的大小" class="headerlink" title="对象的大小"></a>对象的大小</h1><p>Object o = new Object() 内存大小为多少？</p>
-<pre><code class="java">-XX:+UseCompressedClassPointers 开启类型指针压缩
--XX:+UseCompressedOops 开启普通对象指针压缩 oops(ordinary object points)</code></pre>
-<h2 id="在类型指针和普通对象指针压缩未开启的情况下"><a href="#在类型指针和普通对象指针压缩未开启的情况下" class="headerlink" title="在类型指针和普通对象指针压缩未开启的情况下"></a>在类型指针和普通对象指针压缩未开启的情况下</h2><p>在 64 为虚拟机中 </p>
-<ul>
-<li>markword 占 8 个字节</li>
-<li>Klass pointer 占 8 个字节</li>
-<li>实例数据为 0,</li>
-<li>8 + 8 = 16 是 8 的倍数，所以没有对齐填充</li>
-<li>加上对象引用 o 为 8 个字节</li>
-</ul>
-<p>所以 Object o = new Object() 占用 8 + 8 + 8 = 24 个字节</p>
-<h2 id="在类型指针和普通对象指针压缩开启的情况下"><a href="#在类型指针和普通对象指针压缩开启的情况下" class="headerlink" title="在类型指针和普通对象指针压缩开启的情况下"></a>在类型指针和普通对象指针压缩开启的情况下</h2><p>在 64 为虚拟机中 </p>
-<ul>
-<li>markword 占 8 个字节</li>
-<li>Klass pointer 由于开启了类型指针压缩，占 4 个字节</li>
-<li>实例数据为 0,</li>
-<li>8 + 8 = 12 不是 8 的倍数，所以对齐填充为 4 个字节</li>
-<li>由于开启了普通对象指针压缩，所以对象引用 o 为 4 个字节</li>
-</ul>
-<p>所以 Object o = new Object() 占用 8 + 4 + 4 + 4 = 20 个字节</p>
-<h1 id="对象如何定位"><a href="#对象如何定位" class="headerlink" title="对象如何定位"></a>对象如何定位</h1><p>句柄池 ： 对象引用存储的是句柄池，句柄池包含对象的应用和类型指针</p>
-<p>直接引用 ： 对象引用存储的为对象的内存地址，对象的寻址比较快</p>
+<h1 id="基础环境装备"><a href="#基础环境装备" class="headerlink" title="基础环境装备"></a>基础环境装备</h1><h2 id="机器准备"><a href="#机器准备" class="headerlink" title="机器准备"></a>机器准备</h2><p>使用三台机器搭建 zookeeper 集群</p>
+<table>
+<thead>
+<tr>
+<th>服务器 IP</th>
+<th>主机名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>192.168.10.16</td>
+<td>node01</td>
+</tr>
+<tr>
+<td>192.168.10.17</td>
+<td>node02</td>
+</tr>
+<tr>
+<td>192.168.10.18</td>
+<td>node03</td>
+</tr>
+</tbody></table>
+<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><p>将三台机器的防火墙关闭，并关闭开机自启</p>
+<pre><code class="bash">[root@node01 /]# systemctl stop firewalld
+[root@node01 /]# systemctl disable firewalld</code></pre>
+<h2 id="配置-hosts"><a href="#配置-hosts" class="headerlink" title="配置 hosts"></a>配置 hosts</h2><p>配置三台机器的 hosts</p>
+<pre><code class="bash">[root@node01 /]# vi /etc/hosts
+192.168.10.16 node01
+192.168.10.17 node02
+192.168.10.18 node03</code></pre>
+<h2 id="安装-JDK"><a href="#安装-JDK" class="headerlink" title="安装 JDK"></a>安装 JDK</h2><p>JDK 安装请参考 <a href="https://guangli.ren/jdk-install.html">Linux 下安装 JDK</a></p>
+<p>JDK 安装路径为 /opt/jdk/jdk1.8.0_241</p>
+<p><img src="/images/%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E6%88%91%E4%BB%AC%E4%B8%8D%E4%BC%9A.jpg"></p>
+<h1 id="下载-zookeeper"><a href="#下载-zookeeper" class="headerlink" title="下载 zookeeper"></a>下载 zookeeper</h1><p>下载地址 <a target="_blank" rel="noopener" href="https://archive.apache.org/dist/zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz">https://archive.apache.org/dist/zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz</a></p>
+<p>这里下载的是 3.4.13 版本</p>
+<p>下载完成后，将安装包上传到 node01 节点的 /opt 目录下</p>
+<p>/opt 目录没有的话，先创建，三个节点都要创建</p>
+<pre><code class="bash">[root@node01 /]# mkdir /opt</code></pre>
+<p>安装包上传完成后，解压</p>
+<pre><code class="bash">[root@node01 opt]# tar -xf zookeeper-3.4.13.tar.gz</code></pre>
+<h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1><p>三个节点都要配置</p>
+<pre><code class="bash">[root@node01 /]# vi /etc/profile
+export JAVA_HOME=/opt/jdk/jdk1.8.0_241
+export ZOOKEEPER_HOME=/opt/zookeeper-3.4.13
+export PATH=$PATH:$JAVA_HOME/bin:$ZOOKEEPER_HOME/bin
+[root@node01 /]# source /etc/profile</code></pre>
+<h1 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h1><pre><code class="bash">[root@node01 zookeeper]# cd /opt/zookeeper-3.4.13/conf/ 
+[root@node01 conf]# cp zoo_sample.cfg zoo.cfg
+# 修改数据目录，默认是 /tmp/zookeeper
+dataDir=/data/zookeeper 
+# 在文件末尾添加节点信息
+server.1=node01:2888:3888
+server.2=node02:2888:3888
+server.3=node03:2888:3888</code></pre>
+<p>/data/zookeeper 目录不存在的话需要在三台节点上先创建</p>
+<pre><code class="bash">[root@node01 conf]# mkdir -p /data/zookeeper</code></pre>
+<p>server.n 这个 n 就是 myid 文件的内容</p>
+<p>将 zookeeper 安装包分发到另两个节点上</p>
+<pre><code class="bash">[root@node01 opt]# scp -r zookeeper-3.4.13/ node02:`pwd`
+[root@node01 opt]# scp -r zookeeper-3.4.13/ node03:`pwd`</code></pre>
+<h1 id="创建-myid-文件"><a href="#创建-myid-文件" class="headerlink" title="创建 myid 文件"></a>创建 myid 文件</h1><p>在每台节点的数据目录里创建 myid 文件，并将对应的 server.n 写入 myid 文件中</p>
+<p>比如 server.1=node01:2888:3888 这样配置，将 1 写到 node01 节点的 myid 文件中</p>
+<pre><code class="bash">[root@node01 opt]# echo 1 &gt; /data/zookeeper/myid</code></pre>
+<p>server.2=node02:2888:3888 这样配置，将 2 写到 node02 节点的 myid 文件中</p>
+<pre><code class="bash">[root@node02 opt]# echo 2 &gt; /data/zookeeper/myid</code></pre>
+<p>server.3=node03:2888:3888 这样配置，将 3 写到 node03 节点的 myid 文件中</p>
+<pre><code class="bash">[root@node03 opt]# echo 3 &gt; /data/zookeeper/myid</code></pre>
+<h1 id="启动、验证"><a href="#启动、验证" class="headerlink" title="启动、验证"></a>启动、验证</h1><p>在三台节点上分别启动 zookeeper</p>
+<p>我们配置了环境变量，可以在任何目录使用 zookeeper 的 shell 启动脚本</p>
+<p>node01 节点启动 zookeeper</p>
+<pre><code class="bash">[root@node01 opt]# zkServer.sh start</code></pre>
+<p>node02 节点启动 zookeeper</p>
+<pre><code class="bash">[root@node02 opt]# zkServer.sh start</code></pre>
+<p>node03 节点启动 zookeeper</p>
+<pre><code class="bash">[root@node03 opt]# zkServer.sh start</code></pre>
+<p>查看状态</p>
+<pre><code class="bash">[root@node01 opt]# zkServer.sh status
+ZooKeeper JMX enabled by default
+Using config: /opt/zookeeper-3.4.13/bin/../conf/zoo.cfg
+Mode: follower</code></pre>
+<pre><code class="bash">[root@node02 opt]# zkServer.sh status
+ZooKeeper JMX enabled by default
+Using config: /opt/zookeeper-3.4.13/bin/../conf/zoo.cfg
+Mode: leader</code></pre>
+<pre><code class="bash">[root@node03 opt]# zkServer.sh status
+ZooKeeper JMX enabled by default
+Using config: /opt/zookeeper-3.4.13/bin/../conf/zoo.cfg
+Mode: follower</code></pre>
+<p>node02 为 leader 节点，node01 和 node03 为 follower 节点</p>
+<p>至此，zookeeper 集群搭建</p>
+<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><pre><code class="bash">[root@node01 opt]# zkCli.sh
+[zk: localhost:2181(CONNECTED) 0] ls /
+[zookeeper]
+[zk: localhost:2181(CONNECTED) 1] create /test test
+Node already exists: /test
+[zk: localhost:2181(CONNECTED) 2] get /test
+cZxid = 0x400000004
+ctime = Tue Oct 20 11:34:23 CST 2020
+mZxid = 0x400000004
+mtime = Tue Oct 20 11:34:23 CST 2020
+pZxid = 0x400000004
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 0
+numChildren = 0</code></pre>
 
         </div>
 
@@ -246,19 +299,10 @@
     
 <nav class="article-nav">
   
-    <a href="/thread-security.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          8 种保证线程安全的技术你都知道吗
-        
-      </div>
-    </a>
   
-  
-    <a href="/centos-config-local-yum.html" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/thread-security.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">CentOS7 搭建本地 yum 源</div>
+      <div class="article-nav-title">8 种保证线程安全的技术你都知道吗</div>
     </a>
   
 </nav>
@@ -267,15 +311,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=关于Java对象，你需要知道的知识 - GUANGLI.REN&url=https://guangli.ren/java-object.html">
+            href="https://twitter.com/share?text=zookeeper 集群搭建 - GUANGLI.REN&url=https://guangli.ren/zookeeper-install.html">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=关于Java对象，你需要知道的知识 - GUANGLI.REN&u=https://guangli.ren/java-object.html">
+            href="https://www.facebook.com/sharer.php?title=zookeeper 集群搭建 - GUANGLI.REN&u=https://guangli.ren/zookeeper-install.html">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=关于Java对象，你需要知道的知识 - GUANGLI.REN&url=https://guangli.ren/java-object.html&pic=">
+            href="https://service.weibo.com/share/share.php?title=zookeeper 集群搭建 - GUANGLI.REN&url=https://guangli.ren/zookeeper-install.html&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
