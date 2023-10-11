@@ -1,0 +1,7 @@
+- [home](/)
+- [Nginx 常用配置](/nginx.md)
+- [api 开发规范](/api-dev.md)
+- [nlp 自然语言处理](/nlp.md)
+- [kubesphere 安装](/kubesphere-install.md)
+- [什么是numa](/numa.md)
+- [图解网络](/亮白风格-图解网络-小林coding-v3.0.pdf)
