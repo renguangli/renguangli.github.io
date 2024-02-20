@@ -15,4 +15,3 @@ daemonize yes ## 开启远程连接
 requirepass Bonc@123 ## 添加密码
 service redis_6379 start ## 重启redis
 ```
-

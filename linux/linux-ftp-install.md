@@ -41,7 +41,7 @@ passwd fgc
 ## 遇到的问题
 
 1. vsftpd登录时提示“vsftpd 500 OOPS: chroot”的问题
-
+   
    ```
    [root@localhost fgc]# ftp localhost
    Trying ::1...

@@ -54,8 +54,6 @@ root hard nofile 65535
 sysctl -p
 ```
 
-
-
 ### 系统层的一些资源限制
 
 单个进程打开文件句柄数上限 最大文件描述符数 100多W。
@@ -83,7 +81,7 @@ file-max 是在内核级别强制执行的最大文件描述符（FD），上限
 
 ```
 [renguangli@localhost ~]$ cat /proc/sys/fs/file-nr 
-1216	0	183979
+1216    0    183979
 ```
 
 系统总线程数限制为 14543。
@@ -117,4 +115,3 @@ RTTIME     timeout for real-time tasks        unlimited unlimited microsecs
 SIGPENDING max number of pending signals           7271      7271 
 STACK      max stack size                       8388608 unlimited bytes
 ```
-

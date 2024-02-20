@@ -9,6 +9,3 @@
 - [记一次 OOM 的排查过程](/throwable/21-06-30-oom.md)
 - [Public Key Retrieval is not allowed](/throwable/mysql8-connect-error.md)
 - [chkconfig安装失败](/throwable/chkconfig-install-error.md)
-
-
-

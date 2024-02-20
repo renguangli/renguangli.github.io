@@ -36,4 +36,3 @@ password:
 [root@localhost influxdb]# curl "http://192.168.10.11:8086/query?u=admin&p=admin&q=show%20databases"
 {"results":[{"statement_id":0,"series":[{"name":"databases","columns":["name"],"values":[["_internal"]]}]}]}
 ```
-

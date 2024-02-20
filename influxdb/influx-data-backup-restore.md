@@ -88,4 +88,3 @@ influxd restore -portable -db telegraf -newdb telegraf_bak path-to-backup
 > SELECT * INTO telegraf..:MEASUREMENT FROM /.*/ GROUP BY *
 > DROP DATABASE telegraf_bak
 ```
-

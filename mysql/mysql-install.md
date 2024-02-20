@@ -22,7 +22,7 @@
 
 ```
 [root@localhost local]# cd mysql/bin/
-[root@localhost bin]# pwd
+[root@localhost bin]#  pwd
 /usr/local/mysql/bin
 [root@localhost bin]# echo "export PATH=$PATH:/usr/local/mysql/bin" >> /etc/profile
 [root@localhost bin]# source /etc/profile
@@ -93,6 +93,7 @@ socket=/data/mysql/logs/mysql.sock
 2018-11-07T21:50:51.496683Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
 2018-11-07T21:50:51.497829Z 1 [Note] A temporary password is generated for root@localhost: QHSpB01maf.!
 ```
+
 记住最后一行生成临时 root 密码 : QHSpB01maf.!
 
 ### 7、启动

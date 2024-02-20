@@ -12,8 +12,6 @@ iptables -I INPUT  -p tcp  -s 24.43.158.53  -m multiport --dport 1883 -j ACCEPT
 iptables -A INPUT  -p tcp  -m multiport --dport 1883 -j DROP
 ```
 
-
-
 ```bash
 iptables -I INPUT -j DROP  # 阻止所有机器访问本机
 iptables -A INPUT -s 192.168.88.0/24 -p tcp -j ACCEPT
@@ -21,8 +19,6 @@ iptables -A INPUT -s 192.169.0.0/24 -p tcp -j ACCEPT
 iptables -A INPUT -s 10.119.4.0/24 -p tcp -j ACCEPT
 iptables -A INPUT -s 10.10.10.0/24 -p tcp -j ACCEPT
 ```
-
-
 
 ```bash
 iptables -L  # 查看规则链
@@ -39,4 +35,3 @@ iptables -I INPUT -p tcp -m iprange --src-range 192.168.10.10-192.168.10.100 -j 
 iptables -A INPUT -s 192.168.1.123 -p tcp --dport 80 -j DROP  # 配置禁止某个 ip 访问本机的 80 端口
 service iptables save  # 使配置防火墙策略永久生效，执行保存命令，不然的话重启后会失效
 ```
-

@@ -26,4 +26,3 @@ systemctl stop firewalld.service
 firewall-cmd --state
 systemctl status firewalld.service
 ```
-

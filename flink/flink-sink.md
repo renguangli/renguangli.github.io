@@ -111,7 +111,7 @@ public class JdbcSinkSamples {
                 .withUsername("root")
                 .withPassword("root")
                 .build();
-        
+
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.fromElements("zhangsan", "lisi", "wangwu")
                 .addSink(JdbcSink.sink(sql,
@@ -162,7 +162,6 @@ public class KafkaSinkSamples {
         env.execute("kafka sink");
     }
 }
-
 ```
 
 ### File sink

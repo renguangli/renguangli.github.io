@@ -23,7 +23,6 @@ gpgcheck=0
 
 ```
 yum install -y vsftpd
-
 ```
 
 5. 启动 ftp
@@ -52,4 +51,3 @@ baseurl=ftp://10.119.4.14/pub
 enable=1
 gpgcheck=0
 ```
-
